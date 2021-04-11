@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/user/user.js
 Page({
 
   /**
@@ -6,13 +6,6 @@ Page({
    */
   data: {
 
-  },
-
-  toSearch:() => {
-    console.log('wx.navigateTo')
-    wx.navigateTo({
-      url:'/pages/search/search'
-    })
   },
 
   /**

@@ -1,7 +1,10 @@
 {
   "pages":[
+    "pages/search/search",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/health/health",
+    "pages/user/user"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -10,5 +13,30 @@
     "navigationBarTextStyle":"black"
   },
   "style": "v2",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar":{
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#000000",
+    "color": "#000000",
+    "list":[
+      {
+        "pagePath":"pages/index/index",
+        "text":"主页",
+        "iconPath": "assets/image/home.png",
+        "selectedIconPath": "assets/image/home.png"
+      },
+      {
+        "pagePath":"pages/health/health",
+        "text":"健康",
+        "iconPath": "assets/image/health.png",
+        "selectedIconPath": "assets/image/health.png"
+      },
+      {
+        "pagePath":"pages/search/search",
+        "text":"我的",
+        "iconPath": "assets/image/user.png",
+        "selectedIconPath": "assets/image/user.png"
+      }
+    ]
+  }
 }

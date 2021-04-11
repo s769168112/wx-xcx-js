@@ -1,0 +1,304 @@
+/* 公用的样式类 */
+/* 溢出隐藏 */
+.text-cut {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+/* 单行溢出 */
+.text-cut-one {
+    white-space: nowrap;
+}
+
+/* // 两行溢出 */
+.text-cut-two {
+    -webkit-line-clamp: 2;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* // 弹性盒子  */
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.fl {
+    display: flex;
+}
+
+.fl-glow {
+    flex-grow: 1;
+}
+
+/* // 水平居中 */
+.fl-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.fl-verticality {
+    align-items: center;
+}
+
+/* //纵轴排列 */
+.fl-col {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.fl-sp-bet {
+    justify-content: space-between;
+}
+
+.fl-sp-around {
+    justify-content: space-around;
+}
+
+.fl-sp-end {
+    justify-content: flex-end;
+}
+
+/* // 文字类 */
+.font-14 {
+    font-size: 14px;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.color-white {
+    color: #fff;
+}
+
+.text-align-right {
+    text-align: right;
+}
+
+.text-align-center {
+    text-align: center;
+}
+
+/* // 特殊数字字体 */
+.font-bebasNeue {
+    font-family: 'BebasNeue';
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.hidden {
+    visibility: hidden !important;
+}
+
+/* // 伪类清浮动 */
+.clearfloat:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+.clearfloat {
+    zoom: 1;
+}
+
+.block {
+    display: block;
+}
+
+.block-inline {
+    display: inline-block;
+}
+
+/* // 边距 */
+.margin10 {
+    margin: 10rpx;
+}
+
+.marginLR10 {
+    margin: 0 10rpx;
+}
+
+.marginLR12 {
+    margin-left: 12rpx;
+    margin-right: 12rpx;
+}
+
+.marginLR32 {
+    margin-left: 32rpx;
+    margin-right: 32rpx;
+}
+
+.marginTB10 {
+    margin: 10rpx 0;
+}
+
+.marginT10 {
+    margin-top: 10rpx;
+}
+
+.marginB10 {
+    margin-bottom: 10rpx;
+}
+
+.marginR10 {
+    margin-right: 10rpx;
+}
+
+.marginR20 {
+    margin-right: 20rpx;
+}
+
+.marginL20 {
+    margin-left: 20rpx;
+}
+
+.marginL40 {
+    margin-left: 40rpx;
+}
+
+.marginB20 {
+    margin-bottom: 20rpx;
+}
+
+.marginB28 {
+    margin-bottom: 28rpx;
+}
+
+.paddingLR10 {
+    padding: 0 10rpx;
+}
+
+.paddingTB5 {
+    padding: 5rpx 0;
+}
+
+.paddingTB10 {
+    padding: 10rpx 0;
+}
+
+.paddingTB18 {
+    padding: 36rpx 0;
+}
+
+.padding10 {
+    padding: 10rpx;
+}
+
+.padding20 {
+    padding: 20rpx;
+}
+
+.paddingT10 {
+    padding-top: 10rpx;
+}
+
+.paddingT20 {
+    padding-top: 20rpx;
+}
+
+.paddingB10 {
+    padding-bottom: 10rpx;
+}
+.paddingLR20 {
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+/* // 背景颜色 */
+.bg-white {
+    background: #ffffff;
+}
+.bg-color-FFF8F0 {
+    background-color: rgba(255, 248, 240, 1);
+}
+.bg-color-43ABC8 {
+    background-color: #43ABC8;
+}
+
+/* // 圆角 */
+.border-radius-50 {
+    border-radius: 50%;
+}
+
+.border-radius-2 {
+    border-radius: 2rpx;
+}
+
+.border-radius-5 {
+    border-radius: 5rpx;
+}
+
+.border-radius-8 {
+    border-radius: 8rpx;
+}
+
+.border-radius-10 {
+    border-radius: 10rpx;
+}
+
+.border-radius-15 {
+    border-radius: 15rpx;
+}
+.border-radius-20 {
+    border-radius: 20rpx;
+}
+
+/* 阴影 */
+.view-shadow {
+    box-shadow: 0 2rpx 20rpx 0 rgba(0, 0, 0, 0.24);
+}
+
+/* // 边框 */
+
+.border-bottom-bbb {
+    border-bottom: 4rpx solid #bbbbbb;
+}
+.border-43ABC8 {
+    border: 2rpx solid #43ABC8;
+}
+.border-white {
+    border: 2rpx solid #ffffff;
+}
+.border-bbb {
+    border: 2rpx solid #bbbbbb;
+}
+.border-transparent {
+    border: 2rpx solid transparent;
+}
+
+/* //圆角 按钮 */
+.button-s {
+    padding: 1rpx 6rpx;
+    border-radius: 10rpx;
+}
+
+.button-m {
+    padding: 5rpx 12rpx;
+    border-radius: 15rpx;
+}
+
+/* // 定位 */
+.position-relative {
+    position: relative;
+}
+
+/* // 绝对定位 */
+.position-absolute {
+    position: absolute;
+}
+
