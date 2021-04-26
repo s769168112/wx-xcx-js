@@ -1,0 +1,4 @@
+/* pages/surgery/surgery.wxss */
+.border-bbb-1-019 {
+  border: 1rpx solid rgba(187, 187, 187, 0.19);
+}

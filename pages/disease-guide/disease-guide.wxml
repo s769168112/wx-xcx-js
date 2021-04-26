@@ -1,0 +1,87 @@
+<view>
+  <view class="marginLR26 marginB15">
+    <view class="font-PF font-bold marginB17">就诊信息</view>
+    <view class="fl fl-col paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">挂号科室</text>
+        <text>：{{'肾内科'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">发病部位</text>
+        <text>：{{'下腹部'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">多发人群</text>
+        <text>：{{'所有人群'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">治疗方法</text>
+        <text>：{{'药物治疗、手术治疗'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">是否传染</text>
+        <text>：{{'无传染性'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">是否遗传</text>
+        <text>：{{'无遗传性'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">相关症状</text>
+        <text>：{{'绞痛、恶心、呕吐'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">相关疾病</text>
+        <text>：{{'尿路梗阻、尿路感染、尿道炎'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">相关检查</text>
+        <text>：{{'X线、B超、CT检查'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">相关药品</text>
+        <text>：{{'肾石通颗粒、排石颗粒'}}</text>
+      </view>
+      <view class='fl font-14' style="line-height:44rpx">
+        <text class="font-bold">治疗费用</text>
+        <text>：{{'市三甲医院约(2000-5000)'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 手术信息 -->
+  <view class="marginLR26 marginB15">
+    <view class="font-PF font-bold marginB17">手术信息</view>
+    <view wx:for="{{surgeryList}}" wx:key="index"
+      class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
+      <cover-image class="marginR14" src="{{item.cover}}" style="width:170rpx;height:126rpx">
+      </cover-image>
+      <view class="fl fl-col fl-sp-bet">
+        <view class="font-bold font-PF">{{item.title}}</view>
+        <view class="font-12 color-101010" wx:if="{{item.status == 1}}">
+          <text class="icon iconsearch"></text>
+          <text>推荐</text>
+        </view>
+        <view class="font-12 color-101010" wx:else>
+          <text class="icon iconsearch"></text>
+          <text>不推荐</text>
+        </view>
+        <view class="color-707070 font-12"><text>{{item.type}}</text><text>{{item.tip}}题</text></view>
+      </view>
+    </view>
+  </view>
+
+   <!-- 护理信息 -->
+   <view class="marginLR26 marginB15">
+    <view class="font-PF font-bold marginB17">护理信息</view>
+    <view wx:for="{{surgeryList}}" wx:key="index"
+      class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
+      <cover-image class="marginR14" src="{{item.cover}}" style="width:170rpx;height:126rpx">
+      </cover-image>
+      <view class="fl fl-col fl-sp-around">
+        <view class="font-bold font-PF">{{item.title}}</view>
+        <view class="color-101010-08  font-12"><text>{{item.type}}</text><text>{{item.tip}}题</text></view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -5,48 +5,75 @@ Page({
    * 页面的初始数据
    */
   data: {
-    searchRes:[
+    searchRes: [
       {
-        id:1,
-        label:'肝囊肿'
+        id: 1,
+        label: '肝囊肿',
+        opacity:1,
       },
       {
-        id:2,
-        label:'脂肪肝'
+        id: 2,
+        label: '脂肪肝',
+        opacity:1,
       },
       {
-        id:3,
-        label:'消化不良是肝的问题？'
+        id: 3,
+        label: '消化不良是肝的问题？',
+        opacity:1,
       },
       {
-        id:4,
-        label:'肝硬化'
+        id: 4,
+        label: '肝硬化',
+        opacity:1,
       },
       {
-        id:5,
-        label:'酒精肝'
+        id: 5,
+        label: '酒精肝',
+        opacity:1,
       },
     ],
-    searchTransition:false,
-    searchView:null,
+    res: [],
+    searchTransition: false,
+    searchView: 0,
+    boxHeight: 0,
+
+    page:1,
   },
 
-  search:function(){
-    this.data.searchView = wx.createSelectorQuery()
-    this.data.searchView.select('.search-view').fields({size:true},res => {
-      console.log('res')
+  searchChange:function(e){
+    const value = e.detail.value
+    const api = require("../../api/other/other.service").OtherHttpService.prototype
+    // api.getSurgeryListData().then(res => {
+    //   console.log('获取手术全解',res)
+    //   this.setData({
+    //     surgeryList:res.dataList
+    //   })
+    // })
+    console.log(e)
+    let params = {
+      pageIndex:this.data.page,
+      search:value
+    }
+    api.getSearchData(params).then(res => {
+      console.log('搜索结果',res)
     })
-    console.log('aa')
-    
-    // this.data.searchView.exec(function(){
-    //   console.log('aaa')
-    // })
-    // console.log('节点',this.data.searchView)
-    // this.setData({
-    //   searchRes: this.data.searchRes.splice(0,this.data.searchRes.length - 1),
-    // })
-    // search-view
-    // console.log('this.data.searchView ',this.data.searchView)
+  },
+
+  search: function () {
+    this.data.searchView++
+    if(this.data.searchView <= this.data.searchRes.length) {
+      this.setData({
+        res: [...this.data.searchRes].splice(0, this.data.searchView),
+        boxHeight: (this.data.res.length + 1) * 60
+      })
+    }
+  },
+  del:function () {
+    this.data.searchView --
+    this.setData({
+      res: [...this.data.searchRes].splice(0, this.data.searchView),
+      boxHeight: (this.data.res.length - 1) * 60
+    })
   },
 
   /**
@@ -60,7 +87,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    
+
   },
 
   /**

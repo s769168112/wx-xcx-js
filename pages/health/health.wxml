@@ -1,2 +1,39 @@
 <!--pages/health/health.wxml-->
-<text>p健康</text>
+<view>
+  <view style="height:234rpx" class="position-relative">
+    <cover-image src="../../assets/image/health-bg.png" style="height:340rpx;" class="position-absolute"></cover-image>
+  </view>
+
+  <!-- banner -->
+  <view class="marginLR56 marginB19 position-relative">
+    <cover-image src="../../assets/image/health-banner.png"></cover-image>
+  </view>
+
+  <view>
+    <!-- 医疗百科 -->
+    <view class="marginLR56 marginB19">
+      <cover-image src="../../assets/image/health-title1.png" style="height:50rpx;width:144rpx"></cover-image>
+    </view>
+    <view class="fl fl-sp-bet marginLR56 marginB19" style="height:192rpx">
+      <cover-image src="../../assets/image/disease-all.png" class="marginR20 height100"  bindtap="toDisease"></cover-image>
+      <cover-image src="../../assets/image/surgure-all.png" class="height100" bindtap="toSurgery"></cover-image>
+    </view>
+
+    <!-- 健康知识 -->
+    <view class="marginLR56 marginB19 fl fl-sp-bet">
+      <cover-image src="../../assets/image/health-title2.png" style="height:50rpx;width:144rpx"></cover-image>
+      <text class="font-12 color-DBDCDC" bindtap="toHealthLore">更多<text class="icon iconarrow-right font-12" style="font-size:24rpx"></text></text>
+    </view>
+    <view class="view-shadow-10 marginLR56 border-radius-20 paddingLR17 paddingT18 paddingB8 marginB19">
+      <view wx:for="{{knowledge}}" wx:key="index" class="{{['fl marginB8',index == knowledge.length-1?'':'border-bottom-E1E1E1 paddingB8']}}" style="height:160rpx">
+        <view class="marginR6">
+          <cover-image src="{{item.cover}}" class="border-radius-3" style="width:160rpx"></cover-image>
+        </view>
+        <view class="fl fl-col">
+          <text class="font-14 marginB3">{{item.title}}</text>
+          <text class="font-12">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

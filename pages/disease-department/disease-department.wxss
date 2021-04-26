@@ -1,0 +1,4 @@
+.tab-item {
+  border-radius: 20rpx 10rpx 20rpx 10rpx;
+  border: 1px solid rgba(88, 175, 200, 100);
+}

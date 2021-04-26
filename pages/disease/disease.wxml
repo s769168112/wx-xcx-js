@@ -1,0 +1,22 @@
+<view>
+    <view class="marginLR26 marginB19">
+        <search-comp></search-comp>
+    </view>
+    <!-- 热门搜索 -->
+    <view>
+
+    </view>
+
+    <!-- 常见科室 -->
+    <view class="marginLR26">
+        <view class="marginB19">常见科室</view>
+        <view class="fl fl-wrap fl-sp-start">
+            <view wx:for="{{departmentList}}" wx:key="index" style="flex-basis:33%" bindtap="toDepartment" data-item="{{item}}" class="fl fl-col fl-center marginB34">
+                <view>
+                    <cover-image src="{{item.icon}}" style="width:120rpx"></cover-image>
+                </view>
+                <text>{{item.name}}</text>
+            </view>
+        </view>
+    </view>
+</view>

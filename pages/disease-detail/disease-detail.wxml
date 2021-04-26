@@ -1,0 +1,66 @@
+<view>
+  <!-- 头部信息 -->
+  <view class="fl fl-sp-bet fl-vertical marginLR26 marginB17">
+    <view class="fl fl-col">
+      <view class="font-18 marginB8 font-PF font-bold">胃炎</view>
+      <view class="font-12" style="color: rgba(187, 187, 187, 97)">所属科室:{{'消化内科'}}</view>
+    </view>
+    <view class="paddingLR15 paddingTB8 color-101010 border-radius-100 view-shadow-3379ff-2 font-12" bindtap="toGuide">
+      <text>诊疗指南</text>
+    </view>
+  </view>
+  <!-- 概述 -->
+  <view class="marginLR26 border-radius-5 view-shadow-3379ff-2 paddingLR20 paddingTB12 marginB15">
+    <view class="marginB10">
+      <text>概述</text>
+    </view>
+    <view>
+      <text
+        class="font-14 color-101010-07">胃炎是指各种原因引起的胃黏膜炎症，是胃黏膜对各种损伤的反应过程，包括上皮损伤、黏膜炎症反应和上皮再生。典型表现为上腹饱胀、隐痛、食欲缺乏、嗳气、恶心、呕吐，部分患者可长期无症状。通常胃炎患者预后较好，但部分患者会并发大出血、癌变，应引起重视</text>
+    </view>
+  </view>
+
+  <!-- 测评 -->
+  <view class="marginLR26 marginB15">
+    <view class="font-PF font-bold marginB17">推荐测评</view>
+    <view wx:for="{{evaluation}}" wx:key="index"
+      class="fl fl-sp-bet paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
+      <view class="fl fl-col fl-sp-around">
+        <view class="font-bold font-PF">{{item.title}}</view>
+        <view class="font-12 color-101010">{{item.content}}</view>
+        <view class="color-707070 font-12"><text>{{item.type}}</text><text>{{item.count}}题</text></view>
+      </view>
+      <cover-image class="border-radius-50 border-bbb" src="{{item.cover}}" style="width:156rpx;height:156rpx">
+      </cover-image>
+    </view>
+  </view>
+
+  <!-- 相关文章 -->
+  <view class="marginLR26 marginB15">
+    <view class="font-PF font-bold marginB17">相关文章</view>
+    <view wx:for="{{evaluation}}" wx:key="index"
+      class="box-sizing text-cut text-cut-two paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5"
+      style="height:172rpx">
+      <view class="font-bold font-PF font-14 paddingB6">{{item.title}}</view>
+      <view class="font-12 color-101010-08">
+        <text class="text-cut text-cut-two">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 相关问题 -->
+  <view class="marginLR26">
+    <view class="font-PF font-bold marginB17">相关问题</view>
+    <view wx:for="{{evaluation}}" wx:key="index"
+      class="box-sizing text-cut text-cut-two paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5"
+      style="height:172rpx">
+      <view class="font-bold font-PF font-14 paddingB3">{{item.title}}</view>
+      <view class="font-12 color-101010-08 bg-color-BBBBBB-14 border-radius-5 paddingTB5 paddingLR6" style="max-height:62rpx">
+        <text class="text-cut text-cut-two">{{item.content}}
+          {{item.content}}
+        </text>
+      </view>
+    </view>
+  </view>
+
+</view>

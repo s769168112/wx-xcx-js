@@ -1,9 +1,17 @@
 {
   "pages":[
-    "pages/search/search",
-    "pages/index/index",
+    "pages/user/user",
     "pages/health/health",
-    "pages/user/user"
+    "pages/disease-department/disease-department",
+    "pages/disease/disease",
+    "pages/disease-detail/disease-detail",
+    "pages/disease-guide/disease-guide",
+    "pages/health-detail/health-detail",
+    "pages/surgery-detail/surgery-detail",
+    "pages/surgery/surgery",
+    "pages/index/index",
+    "pages/search/search",
+    "pages/health-lore/health-lore"
     
   ],
   "window":{
@@ -32,7 +40,7 @@
         "selectedIconPath": "assets/image/health.png"
       },
       {
-        "pagePath":"pages/search/search",
+        "pagePath":"pages/user/user",
         "text":"我的",
         "iconPath": "assets/image/user.png",
         "selectedIconPath": "assets/image/user.png"

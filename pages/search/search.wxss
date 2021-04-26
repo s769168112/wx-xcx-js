@@ -1,5 +1,15 @@
 /* pages/search/search.wxss */
 
 .search-view {
-  height: 30rpx;
+  height: 60rpx;
+  
+  transition: all 0.3s;
 }
+.search-item {
+  height: 60rpx;
+  opacity: 0;
+  transition: all 0.5s;
+}
+/* .search-item {
+  height: 60rpx;
+} */

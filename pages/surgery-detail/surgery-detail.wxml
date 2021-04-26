@@ -1,0 +1,42 @@
+<!--pages/surgery-detail/surgery-detail.wxml-->
+<view>
+  <!-- 手术视频介绍 -->
+  <view class="marginLR26 marginB8 view-shadow-3379ff-2 border-radius-5 border-white">
+    <view>
+      <cover-image src="{{userDetail.avatar}}" class="width100" style="height:322rpx"></cover-image>
+    </view>
+    <view class="paddingLR15 paddingTB12">
+      <view class="paddingB8">{{surgeryTitle}}</view>
+      <view class="fl fl-vertical">
+        <cover-image src="{{userDetail.avatar}}" class="border-radius-50 marginR8" style="width:60rpx;height:60rpx">
+        </cover-image>
+        <view class="fl-grow">
+          <view class="fl fl-col fl-sp-around">
+            <text class="font-12">{{userDetail.name}}</text>
+          </view>
+          <view class="font-12 fl">
+            <text class="font-10 color-101010-08 fl-grow">{{userDetail.content}}</text>
+            <text>收藏</text>
+            <text>分享</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 手术知识相关 -->
+  <view class="marginLR26 view-shadow-3379ff-2 border-radius-5">
+    <view class="fl fl-sp-around">
+      <view class="{{['position-relative fl fl-center fl-grow',item.isSelected?'':'bg-color-101010',(item.isSelected&&index==0)?'':'']}}"
+        style="height:70rpx" wx:for="{{tabsList}}" wx:key="index" bindtap="changeTab" data-item="{{item}}"
+        data-index="{{index}}">
+        <text class="{{['font-14',item.isSelected?'color-298DF8 font-bold':'color-101010-07']}}">{{item.title}}</text>
+        <view class="{{['position-absolute',item.isSelected?'circel-line':'']}}"></view>
+      </view>
+    </view>
+    <!-- 内容部分 -->
+    <view class="paddingLR20 paddingTB16 surgery-tabs-border-white marginB44">
+      <rich-text nodes="{{tabsList[tabsIndex].content}}"></rich-text>
+    </view>
+  </view>
+</view>

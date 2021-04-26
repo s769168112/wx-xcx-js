@@ -5,21 +5,51 @@ Page({
    * 页面的初始数据
    */
   data: {
+    knowledge:[
+      {
+        title:'冬天如何保持手脚温热',
+        content:'冬季来临，容易受冷的地方还是属于手和脚了。冬季需要做事和写字就会露出手来来，这样就会冷冻无……',
+        cover:'https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp'
+      }]
+  },
 
+  // 去手术全解页面
+  toSurgery:() => {
+    wx.navigateTo({
+      url:'/pages/surgery/surgery'
+    })
+  },
+  // 去疾病百科页面
+  toDisease:() => {
+    wx.navigateTo({
+      url:'/pages/disease/disease'
+    })
+  },
+  toHealthLore:() => {
+    wx.navigateTo({
+      url:'/pages/health-lore/health-lore'
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const api = require("../../api/health/health.service").HealthHttpService.prototype
+    let params = {
+      pageIndex:1,
+      pageSize:5
+    }
+    api.getHealthLoreListData(params).then(res => {
+      console.log('数据列表',res)
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**

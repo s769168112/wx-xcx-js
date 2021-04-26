@@ -2,21 +2,23 @@
 <view class="marginLR32">
   <!-- 搜索框 -->
   <view class="fl fl-sp-bet">
-    <view class="border-bbb border-radius-20 view-shadow fl-glow">
-      <view class="border-bottom-bbb marginLR32" style="height:72rpx">
-        <input type="text" placeholder="请输入您想要了解的疾病或手术" class="paddingTB10 font-14" />
+    <view class="border-bbb border-radius-20 view-shadow fl-grow">
+      <view class="{{['marginLR32',boxHeight?'border-bottom-bbb':'']}}" style="height:72rpx">
+        <input type="text" placeholder="请输入您想要了解的疾病或手术" class="font-14 height100" bindconfirm="searchChange" />
       </view>
-      <view class="{{['marginLR32 paddingT20 search-view',searchTransition?'search-transition':'']}}">
-        <view wx:for="{{searchRes}}" wx:key="index">
-          <view class="font-14 marginB20">{{item.label}}</view>
+      <view class="{{['marginLR32 search-view',boxHeight?'paddingT20':'']}}" style="height:{{boxHeight}}rpx">
+        <view wx:for="{{res}}" wx:key="index" class="search-item" style="opacity:{{item.opacity}}">
+          <view class="font-14" >{{item.label}}</view>
         </view>
       </view>
     </view>
     <!-- 搜索按钮 -->
-    <view class="paddingLR20 marginL20 border-radius-20 color-white border-43ABC8 fl fl-verticality font-14 bg-color-43ABC8" style="height:72rpx">
-      <text bindtap="search">搜索</text>
+    <view class="paddingLR20 marginL20 border-radius-10 color-white border-43ABC8 fl fl-vertical font-14 bg-color-43ABC8" style="height:72rpx">
+      <text bindtap="searchChange">搜索</text>
     </view>
   </view>
   <!-- 搜索内容 -->
-  <view></view>
+  <view>
+    123
+  </view>
 </view>

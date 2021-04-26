@@ -1,0 +1,18 @@
+<view>
+  <!-- 标签 -->
+  <view class="fl fl-wrap marginLR26">
+    <view class="tab-item border-58AFC8 paddingTB5 paddingLR10 color-58AFC8 marginR6 marginB5">
+      全部
+    </view>
+    <view wx:for="{{departmentLowList}}" wx:key="index" class="tab-item border-58AFC8 paddingTB5 paddingLR10 color-58AFC8 marginR6 marginB5">
+      {{item.name}}
+    </view>
+  </view>
+
+  <!-- 常见疾病 -->
+  <view>
+    <view>
+      内科疾病
+    </view>
+  </view>
+</view>

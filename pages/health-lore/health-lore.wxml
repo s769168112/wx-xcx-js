@@ -1,0 +1,31 @@
+<view>
+  <view class="marginLR26 marginB10">
+    <search-comp></search-comp>
+  </view>
+
+  <!-- tabs标签 -->
+  <view class="fl marginLR26 marginB20 border-bottom-bbb-1">
+    <view class="fl fl-col fl-vertical marginR17 " wx:for="{{tabs}}" wx:key="index" bindtap="selectedTab" data-index="{{index}}" data-tab="{{item}}">
+      <view class="{{['marginB8 color-black',item.isSelected?'color-transition':'']}}">
+        {{item.name}}
+      </view>
+      <view class="{{['tabs-line',item.isSelected?'tabs-transition':'']}}"></view>
+    </view>
+  </view>
+
+  <!-- 列表 -->
+  <view class="marginLR26">
+    <view class="view-shadow-3379ff-2 border-radius-10 fl fl-sp-bet marginB8 paddingLR20 paddingTB12" wx:for="{{list}}" wx:key="index">
+      <view class="fl fl-col fl-sp-bet paddingTB3">
+        <text class="font-14">{{item.title}}</text>
+        <view class="fl fl-vertical">
+          <cover-image src="{{item.image}}" class="border-radius-100 marginR5" style="width:40rpx;height:40rpx"></cover-image>
+          <text class="font-12 color-101010">承拓科技</text>
+        </view>
+      </view>
+      <view >
+        <cover-image src="{{item.image}}" class="border-radius-10" style="width:140rpx;height:140rpx"></cover-image>
+      </view>
+    </view>
+  </view>
+</view>

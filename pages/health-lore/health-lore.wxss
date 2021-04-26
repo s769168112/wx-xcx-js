@@ -1,0 +1,18 @@
+/* pages/health-lore/health-lore.wxss */
+.tabs-line {
+  height: 8rpx;
+  width: 0;
+  background-color: rgba(52, 169, 189, 100);
+  text-align: center;
+  transition: width 0.3s;
+}
+.tabs-transition {
+  width: 36rpx;
+}
+.color-black {
+  color: black;
+  transition:color 0.3s
+}
+.color-transition {
+  color: #43ABC8;
+}

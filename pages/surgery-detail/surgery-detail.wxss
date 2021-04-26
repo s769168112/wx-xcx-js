@@ -1,0 +1,26 @@
+/* pages/surgery-detail/surgery-detail.wxss */
+.circel-line {
+  width: 62rpx;
+  height: 12rpx;
+  background-color: rgba(41, 141, 248, 0.22);
+  border: 1px solid rgba(255, 255, 255, 100);
+  border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%;
+  bottom: 3rpx;
+}
+
+.surgery-tabs-border-white {
+  border: 2rpx solid #ffffff;
+  border-top: none
+}
+
+.surgery-tabs-l {
+  border-left: 2rpx solid rgba(187, 187, 187, 19);
+}
+
+.surgery-tabs-r {
+  border-right: 2rpx solid rgba(187, 187, 187, 19);
+}
+
+.surgery-tabs-b {
+  border-bottom: 2rpx solid rgba(187, 187, 187, 19);
+}

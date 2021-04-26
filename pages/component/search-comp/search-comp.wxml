@@ -1,0 +1,9 @@
+<view class="fl fl-vertical">
+  <view class="bg-color-BBBBBB color-101010 paddingTB8 paddingLR20 fl-grow border-radius-10">
+    <i class="icon iconsearch"></i>
+    <p class="font-14">{{searchText}}</p>
+  </view>
+  <view class="paddingLR15 marginL20 border-radius-10 color-white border-43ABC8 fl fl-vertical font-14 bg-color-43ABC8" style="height:72rpx;">
+      <text bindtap="search">搜索</text>
+    </view>
+</view>

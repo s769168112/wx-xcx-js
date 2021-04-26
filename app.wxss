@@ -1,3 +1,4 @@
 /**app.wxss**/
 
-@import "styles/common/base.wxss"
+@import "styles/common/base.wxss";
+@import "assets/font/icon/iconfont.wxss"
