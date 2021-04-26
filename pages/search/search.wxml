@@ -1,24 +1,44 @@
 <!--pages/search/search.wxml-->
 <view class="marginLR32">
   <!-- 搜索框 -->
-  <view class="fl fl-sp-bet">
+  <view class="fl fl-sp-bet marginB23">
     <view class="border-bbb border-radius-20 view-shadow fl-grow">
       <view class="{{['marginLR32',boxHeight?'border-bottom-bbb':'']}}" style="height:72rpx">
-        <input type="text" placeholder="请输入您想要了解的疾病或手术" class="font-14 height100" bindconfirm="searchChange" />
+        <input type="text" value="{{searchText}}" placeholder="请输入您想要了解的疾病或手术" class="font-14 height100"
+          bindblur="blurSearch" />
       </view>
-      <view class="{{['marginLR32 search-view',boxHeight?'paddingT20':'']}}" style="height:{{boxHeight}}rpx">
+      <!-- <view class="{{['marginLR32 search-view',boxHeight?'paddingT20':'']}}" style="height:{{boxHeight}}rpx">
         <view wx:for="{{res}}" wx:key="index" class="search-item" style="opacity:{{item.opacity}}">
           <view class="font-14" >{{item.label}}</view>
         </view>
-      </view>
+      </view> -->
     </view>
     <!-- 搜索按钮 -->
-    <view class="paddingLR20 marginL20 border-radius-10 color-white border-43ABC8 fl fl-vertical font-14 bg-color-43ABC8" style="height:72rpx">
-      <text bindtap="searchChange">搜索</text>
+    <view
+      class="paddingLR20 marginL20 border-radius-10 color-white border-43ABC8 fl fl-vertical font-14 bg-color-43ABC8"
+      style="height:72rpx" bindtap="search">
+      <text>搜索</text>
     </view>
   </view>
   <!-- 搜索内容 -->
   <view>
-    123
+    <view wx:for="{{searchRes}}" wx:key="index" class="">
+      <view>
+        <!-- 标题部分 -->
+        <view class="fl fl-vertical marginB15">
+          <view class="marginR14">{{item.title}}</view>
+          <view class="border-43ABC8 font-14 color-43ABC8 border-radius-5 paddingLR5">
+            <text wx:if="{{item.type == 0}}">文章</text>
+            <text wx:elif="{{item.type == 1}}">手术视频</text>
+            <text wx:elif="{{item.type == 2}}">疾病首页</text>
+            <text wx:elif="{{item.type == 3}}">问答</text>
+          </view>
+        </view>
+        <!-- 内容部分 -->
+        <view class="marginB23">
+          <text class="text-cut text-cut-three color-101010">{{item.content}}</text>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

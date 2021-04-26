@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/search/search",
     "pages/user/user",
     "pages/health/health",
     "pages/disease-department/disease-department",
@@ -10,7 +11,7 @@
     "pages/surgery-detail/surgery-detail",
     "pages/surgery/surgery",
     "pages/index/index",
-    "pages/search/search",
+    
     "pages/health-lore/health-lore"
     
   ],

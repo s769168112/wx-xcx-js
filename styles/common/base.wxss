@@ -18,6 +18,11 @@
     line-clamp: 2;
 }
 
+.text-cut-three {
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+}
+
 .text-center {
     text-align: center;
 }
@@ -278,6 +283,10 @@
 
 .marginB20 {
     margin-bottom: 40rpx;
+}
+
+.marginB23 {
+    margin-bottom: 46rpx;
 }
 
 .marginB28 {
