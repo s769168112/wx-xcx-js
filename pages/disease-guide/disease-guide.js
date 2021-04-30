@@ -18,14 +18,24 @@ Page({
         status:1,
         tip:'创口小、风险低、回复快'
       },
-    ]
+    ],
+    pageResData:{},
+    id:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const api = require("../../api/disease/disease.service").DiseaseHttpService.prototype
+    console.log('疾病详情',options)
+    api.getDiseaseDetailData(options.id).then(res => {
+      console.log('获取疾病详情',res)
+      this.setData({
+        pageResData:res,
+        id:options.id
+      })
+    })
   },
 
   /**

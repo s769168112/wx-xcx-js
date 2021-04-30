@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const api = require("../../api/disease/disease.service").diseaseHttpService.prototype
+    const api = require("../../api/disease/disease.service").DiseaseHttpService.prototype
     api.getDepartmentListData().then(res => {
       console.log('获取科室列表',res)
       this.setData({

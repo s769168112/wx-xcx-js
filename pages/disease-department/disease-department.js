@@ -11,7 +11,7 @@ Page({
   /** 获取二级科室列表 **/
   getDepartmentLowListData(options){
     console.log('options',options)
-    const api = require("../../api/disease/disease.service").diseaseHttpService.prototype
+    const api = require("../../api/disease/disease.service").DiseaseHttpService.prototype
     let params = {
       label:options.id
     }

@@ -10,6 +10,24 @@ Page({
     boxHeight: 0,
     searchText:'',
     page:1,
+    urlType:[
+      {
+        type:0,
+        url:'/pages/health-detail/health-detail'
+      },
+      {
+        type:1,
+        url:'/pages/surgery-detail/surgery-detail'
+      },
+      {
+        type:2,
+        url:'/pages/disease-detail/disease-detail'
+      },
+      {
+        type:3,
+        url:'/pages/surgery-detail/surgery-detail'
+      },
+    ]
   },
   blurSearch:function(e){
     this.setData({
@@ -17,7 +35,6 @@ Page({
     })
   },
   searchChange:function(e){
-    
     const api = require("../../api/other/other.service").OtherHttpService.prototype
     let params = {
       pageIndex:this.data.page,
@@ -41,6 +58,17 @@ Page({
       this.setData({
         searchRes:res.dataList
       })
+    })
+  },
+  // 去其他各种页面
+  toOtherPage:function(e) {
+    let item = e.currentTarget.dataset.item
+    let url = this.data.urlType.filter(ele => {
+      return item.type == ele.type
+    })
+    console.log('url',url,item)
+    wx.navigateTo({
+      url: `${url[0].url}?id=${item.id}`,
     })
   },
   // del:function () {

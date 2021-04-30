@@ -1,15 +1,15 @@
 <view>
   <!-- 头部信息 -->
   <view class="marginLR26">
-    <view class="marginB8">{{detail.title}}</view>
+    <view class="marginB8">{{pageResData.title}}</view>
     <!-- 用户详情 -->
     <view class="fl fl-vertical marginB15">
       <view class="marginR6">
-        <cover-image src="{{detail.image}}" class="border-radius-50" style="width:70rpx;height:70rpx"></cover-image>
+        <cover-image src="{{pageResData.sysCreateUser.avatar}}" class="border-radius-50 border-bottom-bbb-1" style="width:70rpx;height:70rpx"></cover-image>
       </view>
       <view class="fl fl-col fl-grow">
-        <text class="font-12">{{userDetail.name}}</text>
-        <text class="font-10 color-101010">{{userDetail.time}}</text>
+        <text class="font-12">{{pageResData.sysCreateUser.nickname}}</text>
+        <text class="font-10 color-101010">更新于{{pageResData.updateTime}}</text>
       </view>
       <view class="font-12">
         <text class="marginR6"><text class="icon iconsearch"></text> 收藏</text>
@@ -19,12 +19,12 @@
   </view>
 
   <!-- 灰色背景介绍部分 -->
-  <view class="marginB8 bg-color-BBBBBB marginLR26 border-radius-10 paddingTB16 paddingLR17 color-101010-07">
-    123
+  <view class="marginB8 bg-color-BBBBBB font-14 marginLR26 border-radius-10 paddingTB16 paddingLR17 color-101010-07">
+    {{pageResData.introduction}}
   </view>
 
   <!-- 内容部分 -->
   <view class="marginLR26 marginB15">
-    HTML
+    <rich-text nodes="{{pageResData.context}}"></rich-text>
   </view>
 </view>

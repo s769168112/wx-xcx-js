@@ -12,14 +12,21 @@ Page({
     userDetail:{
       name:'承拓科技团队',
       time:'更新于2020.11.16'
-    }
+    },
+    pageResData:{},
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const api = require("../../api/health/health.service").HealthHttpService.prototype
+    api.getHealthLoreDetailData(options.id).then(res => {
+      console.log('获取文章详情',res)
+      this.setData({
+        pageResData:res
+      })
+    })
   },
 
   /**

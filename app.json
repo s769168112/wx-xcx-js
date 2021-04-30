@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/index/index",
     "pages/search/search",
     "pages/user/user",
     "pages/health/health",
@@ -10,7 +11,7 @@
     "pages/health-detail/health-detail",
     "pages/surgery-detail/surgery-detail",
     "pages/surgery/surgery",
-    "pages/index/index",
+    
     
     "pages/health-lore/health-lore"
     
@@ -31,20 +32,20 @@
       {
         "pagePath":"pages/index/index",
         "text":"主页",
-        "iconPath": "assets/image/home.png",
-        "selectedIconPath": "assets/image/home.png"
+        "iconPath": "assets/image/icon/index-inactive.png",
+        "selectedIconPath": "assets/image/icon/index-active.png"
       },
       {
         "pagePath":"pages/health/health",
         "text":"健康",
-        "iconPath": "assets/image/health.png",
-        "selectedIconPath": "assets/image/health.png"
+        "iconPath": "assets/image/icon/health-inactive.png",
+        "selectedIconPath": "assets/image/icon/health-active.png"
       },
       {
         "pagePath":"pages/user/user",
         "text":"我的",
-        "iconPath": "assets/image/user.png",
-        "selectedIconPath": "assets/image/user.png"
+        "iconPath": "assets/image/icon/user-inactive.png",
+        "selectedIconPath": "assets/image/icon/user-active.png"
       }
     ]
   }

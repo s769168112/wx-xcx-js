@@ -22,23 +22,40 @@
   </view>
   <!-- 搜索内容 -->
   <view>
-    <view wx:for="{{searchRes}}" wx:key="index" class="">
-      <view>
+    <view wx:for="{{searchRes}}" wx:key="index" bindtap="toOtherPage" data-item="{{item}}">
+      <view wx:if="{{item.type != 1}}">
         <!-- 标题部分 -->
         <view class="fl fl-vertical marginB15">
           <view class="marginR14">{{item.title}}</view>
           <view class="border-43ABC8 font-14 color-43ABC8 border-radius-5 paddingLR5">
             <text wx:if="{{item.type == 0}}">文章</text>
-            <text wx:elif="{{item.type == 1}}">手术视频</text>
             <text wx:elif="{{item.type == 2}}">疾病首页</text>
             <text wx:elif="{{item.type == 3}}">问答</text>
           </view>
         </view>
         <!-- 内容部分 -->
         <view class="marginB23">
-          <text class="text-cut text-cut-three color-101010">{{item.content}}</text>
+          <text class="text-cut text-cut-three color-101010" style="line-height:48rpx">{{item.content}}</text>
+        </view>
+      </view>
+      <!-- 手术视频 -->
+      <view wx:else> 
+        <!-- 标题部分 -->
+        <view class="fl fl-vertical marginB15">
+          <view class="marginR14">{{item.title}}</view>
+          <view class="border-43ABC8 font-14 color-43ABC8 border-radius-5 paddingLR5">
+            <text>手术视频</text>
+          </view>
+        </view>
+        <!-- 内容部分 -->
+        <view class="marginB23 fl">
+          <cover-image src="https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp" class="border-radius-5 marginR14" style="min-width:252rpx;width:252rpx;height:190rpx"></cover-image>
+          <view>
+            <text class="text-cut text-cut-four color-101010" style="line-height:48rpx">{{item.content}}</text>
+          </view>
         </view>
       </view>
     </view>
+
   </view>
 </view>

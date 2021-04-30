@@ -1,21 +1,22 @@
 <!--pages/surgery-detail/surgery-detail.wxml-->
 <view>
   <!-- 手术视频介绍 -->
-  <view class="marginLR26 marginB8 view-shadow-3379ff-2 border-radius-5 border-white">
-    <view>
-      <cover-image src="{{userDetail.avatar}}" class="width100" style="height:322rpx"></cover-image>
+  <view class="marginLR26 paddingT10 marginB8 view-shadow-3379ff-2 border-radius-5 border-white">
+    <view class="position-relative">
+      <!-- <cover-image src="{{userDetail.avatar}}" class="width100" style="height:322rpx"></cover-image> -->
+      <video src="{{pageResData.video}}" class="width100 border-radius-5 " style="height:322rpx" ></video>
     </view>
     <view class="paddingLR15 paddingTB12">
-      <view class="paddingB8">{{surgeryTitle}}</view>
+      <view class="paddingB8">{{pageResData.title}}</view>
       <view class="fl fl-vertical">
-        <cover-image src="{{userDetail.avatar}}" class="border-radius-50 marginR8" style="width:60rpx;height:60rpx">
+        <cover-image src="{{pageResData.sysCreateUser.avatar}}" class="border-radius-50 marginR8" style="width:60rpx;height:60rpx">
         </cover-image>
         <view class="fl-grow">
           <view class="fl fl-col fl-sp-around">
-            <text class="font-12">{{userDetail.name}}</text>
+            <text class="font-12">{{pageResData.sysCreateUser.nickname}}</text>
           </view>
           <view class="font-12 fl">
-            <text class="font-10 color-101010-08 fl-grow">{{userDetail.content}}</text>
+            <text class="font-10 color-101010-08 fl-grow">{{pageResData.content}}</text>
             <text>收藏</text>
             <text>分享</text>
           </view>

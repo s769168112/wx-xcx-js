@@ -13,19 +13,29 @@ Page({
         count:10,
         cover:'https://org.modao.cc/uploads4/images/5910/59107329/v2_qlvtvk.png'
       }
-    ]
+    ],
+    pageResData:{},
+    id:'' //疾病id
   },
 
   toGuide:function() {
     wx.navigateTo({
-      url: '../disease-guide/disease-guide',
+      url: `../disease-guide/disease-guide?id=${this.data.id}`,
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    const api = require("../../api/disease/disease.service").DiseaseHttpService.prototype
+    console.log('疾病详情',options)
+    api.getDiseaseDetailData(options.id).then(res => {
+      console.log('获取疾病详情',res)
+      this.setData({
+        pageResData:res,
+        id:options.id
+      })
+    })
   },
 
   /**

@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pageResData:{},
     userDetail:{
       avatar:'https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp',
       name:'张新',
@@ -48,7 +49,6 @@ Page({
    */
   onLoad: function (options) {
     const api = require("../../api/surgery/surgery.service").SurgeryHttpService.prototype
-    console.log(options)
     this.setData({
       surId:options.id
     })
@@ -60,7 +60,8 @@ Page({
       this.data.tabsList[2].content = res.beforeSurgeryCareful
       let arr = [...this.data]
       this.setData({
-        tabsList:this.data.tabsList
+        tabsList:this.data.tabsList,
+        pageResData:res
       })
     })
   },
