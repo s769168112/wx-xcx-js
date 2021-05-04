@@ -8,6 +8,20 @@ Page({
 
   },
 
+  /* 去收藏视频页 */
+  toUserVideo:function(){
+    wx.navigateTo({
+      url:'/pages/user-video/user-video'
+    })
+  },
+
+   /* 去收藏文章页 */
+   toUserArticle:function(){
+    wx.navigateTo({
+      url:'/pages/user-article/user-article'
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

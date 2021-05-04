@@ -7,71 +7,76 @@ Page({
   data: {
     tabs: [
       {
-        id: 0,
+        id: '',
         name: '全部',
         isSelected: true
-      },
-      {
-        id: 1,
-        name: '饮食',
-        isSelected: false
-      },
-      {
-        id: 2,
-        name: '运动',
-        isSelected: false
-      },
-      {
-        id: 3,
-        name: '保健',
-        isSelected: false
-      },
+      }
     ],
-    list:[
-      {
-        title:'冬天如何保持手脚温热',
-        image:'https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp'
-      },
-      {
-        title:'冬天如何保持手脚温热',
-        image:'https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp'
-      },
-      {
-        title:'冬天如何保持手脚温热',
-        image:'https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp'
-      },
-      {
-        title:'冬天如何保持手脚温热',
-        image:'https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp'
-      },
-    ]
+    loreList:[], // 健康知识列表数据
+    pageIndex:1,
+    pageSize:10,
+    noData:false, // 是否已经没有数据了
+    labelId:'',
   },
 
+  // 滚动到底部
+  scrollBtm:function() {
+    if(this.data.noData) return false;
+    this.getHealthLoreListData()
+  },
+
+  // 切换选项卡
   selectedTab: function (e) {
-    let index = e.currentTarget.dataset.index
+    let {index,tab} = e.currentTarget.dataset
     for (let item of this.data.tabs) {
       item.isSelected = false
     }
     this.data.tabs[index].isSelected = true
     this.setData({
-      tabs: this.data.tabs
+      tabs: this.data.tabs,
+      labelId:tab.id
+    })
+    this.getHealthLoreListData()
+  },
+  // 去详情页
+  toHealthDetail:function(e){
+    let {id} = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url:`/pages/health-detail/health-detail?id=${id}`
+    })
+  },
+
+  getHealthLoreListData:function() {
+    const api = require("../../api/health/health.service").HealthHttpService.prototype
+    let params = {
+      pageIndex:this.data.pageIndex,
+      pageSize:this.data.pageSize,
+      label:this.data.labelId
+    }
+    api.getHealthLoreListData(params).then(res => {
+      console.log('数据列表',res)
+      this.setData({
+        loreList:res.dataList,
+        noData:res.totalPage > this.data.pageIndex?false:true
+      })
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: 'http://47.94.16.114:8080/api/label/getTipsLabel',
-      data: {},
-      method: 'POST',
-      header: {
-        'content-type': 'application/x-www-form-urlencoded'
-      },
-      success: (res) => {
-        console.log('获取tab标签',res)
-      },
+    const api = require("../../api/health/health.service").HealthHttpService.prototype
+    api.getTipsLabel().then(res => {
+      console.log('标签',res)
+      for(let item of res){
+        item.isSelected = false
+        this.data.tabs.push(item)
+      }
+      this.setData({
+        tabs:this.data.tabs
+      })
     })
+    this.getHealthLoreListData()
   },
 
   /**

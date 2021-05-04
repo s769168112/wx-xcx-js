@@ -1,30 +1,41 @@
-// pages/surgery/surgery.js
+// pages/user-video/user-video.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    surgeryList:[]
+    surgeryVideoList:[],
+    pageIndex:1,
+    pageSize:10,
+    noData:false
   },
 
-  toDetail:function(e) {
-    let item = e.currentTarget.dataset.item
-    wx.navigateTo({
-      url: `../../pages/surgery-detail/surgery-detail?id=${item.id}`,
+  toVideoDetail:function(){
+    console.log('去详情',)
+  },
+
+  // 获取手术视频
+  getSurgeryListData:function(){
+    const api = require("../../api/user/user.service").UserHttpService.prototype
+    let params = {
+      pageIndex:this.data.pageIndex,
+      pageSize:this.data.pageSize,
+    }
+    api.getUserVideoListData(params).then(res => {
+      console.log('获取用户收藏视频',res)
+      this.setData({
+        surgeryVideoList:[...res.dataList,...res.dataList,...res.dataList],
+        noData:res.totalPage > this.data.pageIndex?false:true
+      })
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const api = require("../../api/surgery/surgery.service").SurgeryHttpService.prototype
-    api.getSurgeryListData().then(res => {
-      console.log('获取手术全解',res)
-      this.setData({
-        surgeryList:res.dataList
-      })
-    })
+    this.getSurgeryListData()
   },
 
   /**

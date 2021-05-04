@@ -10,7 +10,7 @@
     <view class="position-absolute fl fl-sp-bet fl-vertical width100 paddingLR20 box-sizing"
       style="top:0;height:230rpx">
       <view class="fl fl-vertical">
-        <cover-image src="../../assets/image/user.png" class="border-radius-50" style="height:120rpx;width:120rpx">
+        <cover-image src="../../assets/image/user.png" class="border-radius-50 border-white" style="height:120rpx;width:120rpx">
         </cover-image>
         <text>厕所不在那一边</text>
       </view>
@@ -22,28 +22,28 @@
   </view>
 
   <view class="marginLR20">
-    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8">
+    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8" bindtap="toUserVideo">
       <view class="fl fl-vertical">
-        <cover-image src="../../assets/image/user-bg.png" class="marginR20" style="height:120rpx;width:120rpx">
+        <cover-image src="../../assets/image/recard-icon.png" class="marginR20" style="height:120rpx;width:120rpx">
         </cover-image>
         <view class="fl-grow">量表记录</view>
-        <view class="icon iconsearch"></view>
+        <view class="icon iconarrow-right"></view>
       </view>
     </view>
-    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8">
+    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8" bindtap="toUserVideo">
       <view class="fl fl-vertical">
-        <cover-image src="../../assets/image/user-bg.png" class="marginR20" style="height:120rpx;width:120rpx">
+        <cover-image src="../../assets/image/video-icon.png" class="marginR20" style="height:120rpx;width:120rpx">
         </cover-image>
         <view class="fl-grow">收藏视频</view>
-        <view class="icon iconsearch"></view>
+        <view class="icon iconarrow-right"></view>
       </view>
     </view>
-    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8">
+    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8" bindtap="toUserArticle">
       <view class="fl fl-vertical">
-        <cover-image src="../../assets/image/user-bg.png" class="marginR20" style="height:120rpx;width:120rpx">
+        <cover-image src="../../assets/image/detail-icon.png" class="marginR20" style="height:120rpx;width:120rpx">
         </cover-image>
         <view class="fl-grow">收藏文章</view>
-        <view class="icon iconsearch"></view>
+        <view class="icon iconarrow-right"></view>
       </view>
     </view>
   </view>

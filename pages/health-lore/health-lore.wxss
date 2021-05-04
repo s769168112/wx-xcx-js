@@ -16,3 +16,7 @@
 .color-transition {
   color: #43ABC8;
 }
+
+.scroll-view {
+  height:calc(100vh - 228rpx)
+}

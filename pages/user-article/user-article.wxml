@@ -1,0 +1,22 @@
+<view>
+  <!-- 列表 -->
+  <scroll-view class="scroll-view marginT20" scroll-y bindscrolltolower="scrollBtm">
+    <view class="marginLR26 paddingT15">
+      <view class="view-shadow-3379ff-2 border-radius-10 fl fl-sp-bet marginB8 paddingLR20 paddingTB12"
+        wx:for="{{userArticleList}}" wx:key="index" bindtap="toArticleDetail" data-item="{{item}}">
+        <view class="fl fl-col fl-sp-bet paddingTB3">
+          <text class="font-14">{{item.title}}</text>
+          <view class="fl fl-vertical">
+            <cover-image src="{{item.sysCreateUser.avatar}}" class="border-radius-100 marginR5"
+              style="width:40rpx;height:40rpx">
+            </cover-image>
+            <text class="font-12 color-101010">{{item.sysCreateUser.nickname}}</text>
+          </view>
+        </view>
+        <view>
+          <cover-image src="{{item.cover}}" class="border-radius-10" style="width:140rpx;height:140rpx"></cover-image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

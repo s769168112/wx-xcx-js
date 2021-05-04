@@ -1,10 +1,13 @@
 
 const baseUrl = 'http://47.94.16.114:8080'
-
+const app = getApp()
+console.log('app数据',app)
+const token = app.globalData.token
 export function requestPost(url, data,isReturnAll = false) {
     return new Promise(function(resolve, reject) {
         let header = {
             'content-type': 'application/json',
+            'X-Auth-Token': token
         };
         wx.request({
             url: baseUrl + url,
@@ -38,6 +41,7 @@ export function requestGet(url, data, isReturnAll = false) {
   return new Promise(function(resolve, reject) {
       let header = {
           'content-type': 'application/json',
+          'X-Auth-Token': token
       };
       wx.request({
           url: baseUrl + url,

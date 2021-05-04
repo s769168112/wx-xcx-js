@@ -22,7 +22,7 @@
   </view>
   <!-- 搜索内容 -->
   <view>
-    <view wx:for="{{searchRes}}" wx:key="index" bindtap="toOtherPage" data-item="{{item}}">
+    <view class="border-bottom-bbb-1 marginB15" wx:for="{{searchRes}}" wx:key="index" bindtap="toOtherPage" data-item="{{item}}">
       <view wx:if="{{item.type != 1}}">
         <!-- 标题部分 -->
         <view class="fl fl-vertical marginB15">

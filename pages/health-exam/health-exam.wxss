@@ -1,0 +1,13 @@
+.filter-view {
+  max-height: 0;
+  transition: all 0.7s;
+}
+.filter-view-trans {
+  max-height: 400rpx;
+}
+.iconarrow-btm {
+  transition: transform 0.4s;
+}
+.transition-top {
+  transform: rotate(30deg)
+}

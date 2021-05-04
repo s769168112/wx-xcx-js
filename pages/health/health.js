@@ -30,6 +30,19 @@ Page({
       url:'/pages/health-lore/health-lore'
     })
   },
+  // 去健康知识详情页
+  toHealthDetail:(e)=> {
+    let {id} = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url:`/pages/health-detail/health-detail?id=${id}`
+    })
+  },
+  // 去健康测试
+  toHealthExam:function(e){
+    wx.navigateTo({
+      url:`/pages/health-exam/health-exam`
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -42,6 +55,9 @@ Page({
     }
     api.getHealthLoreListData(params).then(res => {
       console.log('数据列表',res)
+      this.setData({
+        knowledge:res.dataList
+      })
     })
   },
 

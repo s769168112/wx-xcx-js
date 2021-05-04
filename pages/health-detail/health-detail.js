@@ -20,6 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     const api = require("../../api/health/health.service").HealthHttpService.prototype
     api.getHealthLoreDetailData(options.id).then(res => {
       console.log('获取文章详情',res)

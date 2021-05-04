@@ -1,0 +1,32 @@
+<view>
+  <view>
+    <view class="fl fl-sp-bet fl-vertical marginLR26 marginB8">
+      <view>
+        测评量表
+      </view>
+      <view bindtap="openFilter">
+        <text>量表类型</text>
+        <text class="{{['icon ',openExam?'iconarrow-top color-F75A2F':'iconarrow-btm']}}"></text>
+      </view>
+    </view>
+    <!-- 下拉框 -->
+    <view
+      class="{{['overflow-hidden paddingLR26 box-sizing width100 bg-white position-absolute filter-view',openExam?'filter-view-trans':'']}}">
+      <view class="fl fl-sp-bet paddingT10">
+        <view>
+          <view wx:for="{{filterList}}" class="paddingB10 font-14" wx:key="index">
+            <text>{{item.label}}</text>
+            <text wx:if="{{item.selected}}" class="icon iconfilter-check"></text>
+          </view>
+        </view>
+        <text style="width:2rpx;" class="bg-color-BBB-1"></text>
+        <view>
+          <view wx:for="{{filterList[0].children}}" class="paddingB10 font-14" wx:key="index">{{item.label}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+    阿斯蒂芬范德萨
+  </view>
+</view>

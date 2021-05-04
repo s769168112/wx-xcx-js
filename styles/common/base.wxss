@@ -129,6 +129,9 @@
 .color-58AFC8 {
     color: #58AFC8;
 }
+.color-F75A2F {
+    color:#F75A2F;
+}
 
 .text-align-right {
     text-align: right;
@@ -219,8 +222,13 @@
 }
 
 .marginT10 {
-    margin-top: 10rpx;
+    margin-top: 20rpx;
 }
+
+.marginT20 {
+    margin-top: 40rpx;
+}
+
 
 .marginB3 {
     margin-bottom: 6rpx;
@@ -314,6 +322,10 @@
     padding-left: 34rpx;
     padding-right: 34rpx;
 }
+.paddingLR26 {
+    padding-left: 52rpx;
+    padding-right: 52rpx;
+}
 .paddingTB3 {
     padding-top: 6rpx;
     padding-bottom: 6rpx;
@@ -363,7 +375,9 @@
 .paddingT10 {
     padding-top: 20rpx;
 }
-
+.paddingT15 {
+    padding-top: 30rpx;
+}
 
 .paddingT18 {
     padding-top: 36rpx;
@@ -371,7 +385,9 @@
 .paddingT20 {
     padding-top: 20rpx;
 }
-
+.paddingB10 {
+    padding-bottom: 20rpx;
+}
 .paddingB8 {
     padding-bottom: 16rpx;
 }
@@ -380,6 +396,9 @@
 }
 .paddingB6 {
     padding-bottom: 12rpx;
+}
+.paddingB23 {
+    padding-bottom: 46rpx;
 }
 .paddingLR10 {
     padding-left: 20rpx;
@@ -415,6 +434,9 @@
 }
 .bg-color-101010 {
     background-color: rgba(16, 16, 16, 0.04);
+}
+.bg-color-BBB-1 {
+    background-color: rgba(187, 187, 187, 1);
 }
 .bg-color-43ABC8 {
     background-color: #43ABC8;
@@ -469,6 +491,9 @@
 
 .border-bottom-bbb {
     border-bottom: 4rpx solid #bbbbbb;
+}
+.border-bbb-1-019 {
+    border: 2rpx solid rgba(187, 187, 187, 0.19);
 }
 .border-bottom-E1E1E1 {
     border-bottom: 4rpx solid #E1E1E1;

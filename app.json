@@ -1,17 +1,22 @@
 {
   "pages":[
+    "pages/health-exam/health-exam",
     "pages/index/index",
     "pages/search/search",
-    "pages/user/user",
-    "pages/health/health",
+    
     "pages/disease-department/disease-department",
     "pages/disease/disease",
     "pages/disease-detail/disease-detail",
     "pages/disease-guide/disease-guide",
-    "pages/health-detail/health-detail",
+    
     "pages/surgery-detail/surgery-detail",
     "pages/surgery/surgery",
     
+    "pages/user/user",
+    "pages/user-video/user-video",
+    "pages/user-article/user-article",
+    "pages/health/health",
+    "pages/health-detail/health-detail",
     
     "pages/health-lore/health-lore"
     
