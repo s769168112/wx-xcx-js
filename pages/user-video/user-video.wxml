@@ -3,9 +3,12 @@
     <view class="fl fl-wrap fl-sp-bet">
       <view wx:for="{{surgeryVideoList}}" class="border-bbb-1-019 marginB10 border-radius-5 overflow-hidden"  bindtap="toVideoDetail" data-item="{{item}}" style="width:316rpx" wx:key="index">
         <view style="height:206rpx; background-image:url({{item.cover}})" class="width100 fl fl-col fl-sp-bet">
-          <view class="fl-grow fl fl-center">暂停</view>
+          <view class="fl-grow fl fl-center">
+            <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image>
+          </view>
           <view class="color-white fl fl-sp-bet bg-color-101010 paddingLR6">
-            <text class="font-10" >{{item.count.visitNum}}</text>
+            <!-- <view class="fl fl-vertical"><text class="icon iconplay-icon marginR5"></text></view> -->
+            <text class="font-10"></text>
             <text class="font-10" >{{item.videoDuration}}</text>
           </view>
         </view>

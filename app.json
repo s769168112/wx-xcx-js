@@ -1,6 +1,6 @@
 {
   "pages":[
-    "pages/health-exam/health-exam",
+    
     "pages/index/index",
     "pages/search/search",
     
@@ -8,6 +8,7 @@
     "pages/disease/disease",
     "pages/disease-detail/disease-detail",
     "pages/disease-guide/disease-guide",
+    "pages/disease-qa/disease-qa",
     
     "pages/surgery-detail/surgery-detail",
     "pages/surgery/surgery",
@@ -15,9 +16,10 @@
     "pages/user/user",
     "pages/user-video/user-video",
     "pages/user-article/user-article",
+    "pages/user-message/user-message",
     "pages/health/health",
     "pages/health-detail/health-detail",
-    
+    "pages/health-exam/health-exam",
     "pages/health-lore/health-lore"
     
   ],

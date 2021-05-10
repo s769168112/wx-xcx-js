@@ -2,18 +2,26 @@
 <view class="marginLR32">
   <!-- 搜索框 -->
   <view class="fl fl-sp-bet marginB23">
-    <view class="border-bbb border-radius-20 view-shadow fl-grow">
-      <view class="{{['marginLR32',boxHeight?'border-bottom-bbb':'']}}" style="height:72rpx">
-        <input type="text" value="{{searchText}}" placeholder="请输入您想要了解的疾病或手术" class="font-14 height100"
-          bindblur="blurSearch" />
+    <view
+      class="{{[isFocus?'border-bbb border-radius-10 view-shadow':'border-transparent bg-color-BBBBBB color-101010 border-radius-10','fl-grow ']}}">
+      <view
+        class="{{['marginLR32 fl fl-vertical position-relative',(searchDisplayRes.length && isFocus)?'border-bottom-bbb-1':'']}}"
+        style="height:72rpx">
+        <i
+          class="{{['icon iconsearch color-101010-1 marginR8 position-absolute search-icon search-center',isFocus?'search-icon-animation':'']}}"></i>
+        <input type="text" value="{{searchText}}" placeholder="输入您想要了解的疾病或手术"
+          class="{{['font-14 width100 height100 search-input position-absolute search-center',isFocus?'search-input-animation':'']}}"
+          bindblur="inputBlur" bindfocus="inputFocus" bindinput="inputChange" />
       </view>
-      <!-- <view class="{{['marginLR32 search-view',boxHeight?'paddingT20':'']}}" style="height:{{boxHeight}}rpx">
-        <view wx:for="{{res}}" wx:key="index" class="search-item" style="opacity:{{item.opacity}}">
-          <view class="font-14" >{{item.label}}</view>
+      <view wx:if="searchDisplayRes.length != 0"
+        class="{{['marginLR32 search-res-list overflow-hidden',isFocus?'max-search-res-list':'']}}">
+        <view wx:for="{{searchDisplayRes}}" wx:key="index" bindtap="toOtherPage" data-item="{{item}}">
+          <view class="{{['font-14 marginB8',index == 0?'marginT10':'']}}">
+            <rich-text nodes="{{item.title}}"></rich-text>
+          </view>
         </view>
-      </view> -->
+      </view>
     </view>
-    <!-- 搜索按钮 -->
     <view
       class="paddingLR20 marginL20 border-radius-10 color-white border-43ABC8 fl fl-vertical font-14 bg-color-43ABC8"
       style="height:72rpx" bindtap="search">
@@ -21,8 +29,9 @@
     </view>
   </view>
   <!-- 搜索内容 -->
-  <view>
-    <view class="border-bottom-bbb-1 marginB15" wx:for="{{searchRes}}" wx:key="index" bindtap="toOtherPage" data-item="{{item}}">
+  <view class="paddingB23">
+    <view class="{{['marginB15',index != searchRes.length - 1?'border-bottom-bbb-042':'']}}" wx:for="{{searchRes}}"
+      wx:key="index" bindtap="toOtherPage" data-item="{{item}}">
       <view wx:if="{{item.type != 1}}">
         <!-- 标题部分 -->
         <view class="fl fl-vertical marginB15">
@@ -35,11 +44,11 @@
         </view>
         <!-- 内容部分 -->
         <view class="marginB23">
-          <text class="text-cut text-cut-three color-101010" style="line-height:48rpx">{{item.content}}</text>
+          <text class="text-cut text-cut-three color-101010 font-14" style="line-height:48rpx">{{item.content}}</text>
         </view>
       </view>
       <!-- 手术视频 -->
-      <view wx:else> 
+      <view wx:else>
         <!-- 标题部分 -->
         <view class="fl fl-vertical marginB15">
           <view class="marginR14">{{item.title}}</view>
@@ -49,9 +58,11 @@
         </view>
         <!-- 内容部分 -->
         <view class="marginB23 fl">
-          <cover-image src="https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp" class="border-radius-5 marginR14" style="min-width:252rpx;width:252rpx;height:190rpx"></cover-image>
+          <cover-image
+            src="{{item.cover}}"
+            class="border-radius-5 marginR14" style="min-width:252rpx;width:252rpx;height:190rpx"></cover-image>
           <view>
-            <text class="text-cut text-cut-four color-101010" style="line-height:48rpx">{{item.content}}</text>
+            <text class="text-cut text-cut-four color-101010 font-14" style="line-height:48rpx">{{item.content}}</text>
           </view>
         </view>
       </view>

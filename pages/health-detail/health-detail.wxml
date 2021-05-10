@@ -5,15 +5,23 @@
     <!-- 用户详情 -->
     <view class="fl fl-vertical marginB15">
       <view class="marginR6">
-        <cover-image src="{{pageResData.sysCreateUser.avatar}}" class="border-radius-50 border-bottom-bbb-1" style="width:70rpx;height:70rpx"></cover-image>
+        <cover-image src="{{pageResData.sysCreateUser.avatar}}" class="border-radius-50 border-bottom-bbb-042"
+          style="width:70rpx;height:70rpx"></cover-image>
       </view>
       <view class="fl fl-col fl-grow">
         <text class="font-12">{{pageResData.sysCreateUser.nickname}}</text>
         <text class="font-10 color-101010">更新于{{pageResData.updateTime}}</text>
       </view>
-      <view class="font-12">
-        <text class="marginR6"><text class="icon iconsearch"></text> 收藏</text>
-        <text><text class="icon iconsearch"></text>分享</text>
+      <view class="font-12 fl">
+        <view class="fl fl-center" bindtap="userFavorites">
+          <cover-image src="../../assets/image/like.png" style="height:40rpx;width:40rpx"></cover-image>
+          <text>{{pageResData.isCollect?'已收藏':'收藏'}}</text>
+        </view>
+        <view class="fl fl-center" bindtap="userShare">
+          <cover-image src="../../assets/image/art-share.png" style="height:40rpx;width:40rpx"></cover-image>
+          <text>分享</text>
+        </view>
+
       </view>
     </view>
   </view>

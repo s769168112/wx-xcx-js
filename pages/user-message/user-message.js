@@ -1,40 +1,36 @@
-// pages/disease-detail/disease-detail.js
+// pages/user-message/user-message.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    evaluation:[
-      {
-        title:'胃炎自测量表',
-        content:'用于评测是否患有胃炎',
-        type:'教师评',
-        count:10,
-        cover:'https://org.modao.cc/uploads4/images/5910/59107329/v2_qlvtvk.png'
-      }
-    ],
-    pageResData:{},
-    id:'' //疾病id
+    messageList:[]
   },
-
-  toGuide:function() {
-    wx.navigateTo({
-      url: `../disease-guide/disease-guide?id=${this.data.id}`,
+  
+  // 获取消息列表
+  getMessageList:function(){
+    let list = [
+      {
+        title:'系统通知1',
+        time:'11-20',
+        message:'感谢您使用本软件，目前软件内容尚未完善，后需将持续更新。'
+      },
+      {
+        title:'系统通知2',
+        time:'11-21',
+        message:`感谢您使用本软件，目前软件内容尚未完善，后需将持续更新。感谢您使用本软件，目前软件内容尚未完善，后需将持续更新。`
+      },
+    ]
+    this.setData({
+      messageList:list
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const api = require("../../api/disease/disease.service").DiseaseHttpService.prototype
-    api.getDiseaseDetailData(options.id).then(res => {
-      console.log('获取疾病详情',res)
-      this.setData({
-        pageResData:res,
-        id:options.id
-      })
-    })
+    this.getMessageList()
   },
 
   /**

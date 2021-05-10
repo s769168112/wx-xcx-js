@@ -11,3 +11,17 @@
 .transition-top {
   transform: rotate(30deg)
 }
+
+.mask {
+  height: calc(100vh - 58rpx);
+  z-index: 1;
+  top: 58rpx;
+  opacity: 0;
+  transition: opacity 0.3s;
+  /* transition: display 0.3s; */
+  /* display: none; */
+}
+.mask-animation {
+  opacity: 1;
+  /* display: block; */
+}

@@ -5,11 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+
     searchRes: [],
-    searchView: 0,
-    boxHeight: 0,
-    searchText:'',
-    page:1,
+    searchDisplayRes:[],//输入框显示用
+    isFocus:false,
     urlType:[
       {
         type:0,
@@ -25,24 +24,52 @@ Page({
       },
       {
         type:3,
-        url:'/pages/surgery-detail/surgery-detail'
+        url:'/pages/disease-qa/disease-qa'
       },
-    ]
+    ],
+    searchText:'',
+    page:1,
   },
-  blurSearch:function(e){
+  inputChange:function(e){
+    
     this.setData({
       searchText:e.detail.value
     })
+    this.searchChange()
   },
-  searchChange:function(e){
+  inputFocus:function(){
+    this.setData({
+      isFocus:true
+    })
+  },
+  inputBlur:function(e){
+    if(this.data.searchText == '') {
+      setTimeout(() => {
+        this.setData({
+          searchResList:[]
+        })
+       }, 500);
+    }
+    this.setData({
+      isFocus:false
+    })
+  },
+  searchChange:function(){
     const api = require("../../api/other/other.service").OtherHttpService.prototype
     let params = {
       pageIndex:this.data.page,
       pageSize:20,
-      search:value,
+      search:this.data.searchText
     }
     api.getSearchData(params).then(res => {
       console.log('搜索结果',res)
+      let str = this.data.searchText
+      res.dataList.forEach(ele => {
+        ele.title = ele.title.replace(new RegExp(str,'g'), `<span style="color:rgba(242, 10, 10, 0.68)">${this.data.searchText}</span>`)
+      });
+      this.setData({
+        searchDisplayRes:res.dataList
+      })
     })
   },
 
@@ -71,13 +98,6 @@ Page({
       url: `${url[0].url}?id=${item.id}`,
     })
   },
-  // del:function () {
-  //   this.data.searchView --
-  //   this.setData({
-  //     res: [...this.data.searchRes].splice(0, this.data.searchView),
-  //     boxHeight: (this.data.res.length - 1) * 60
-  //   })
-  // },
 
   /**
    * 生命周期函数--监听页面加载

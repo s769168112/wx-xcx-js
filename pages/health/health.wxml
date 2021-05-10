@@ -1,5 +1,5 @@
 <!--pages/health/health.wxml-->
-<view>
+<view class="paddingB23">
   <view style="height:234rpx" class="position-relative">
     <cover-image src="../../assets/image/health-bg.png" style="height:340rpx;" class="position-absolute"></cover-image>
   </view>
@@ -35,9 +35,9 @@
         <view class="marginR6">
           <cover-image src="{{item.cover}}" class="border-radius-3" style="width:160rpx"></cover-image>
         </view>
-        <view class="fl fl-col">
+        <view class="fl fl-col" style="max-width:398rpx">
           <text class="font-14 marginB3">{{item.title}}</text>
-          <text class="font-12">{{item.content}}</text>
+          <text class="font-12 text-cut text-cut-three color-101010-07" >{{item.introduction}}</text>
         </view>
       </view>
     </view>

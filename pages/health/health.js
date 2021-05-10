@@ -5,12 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    knowledge:[
-      {
-        title:'冬天如何保持手脚温热',
-        content:'冬季来临，容易受冷的地方还是属于手和脚了。冬季需要做事和写字就会露出手来来，这样就会冷冻无……',
-        cover:'https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp'
-      }]
+    knowledge:[],//首页列表
   },
 
   // 去手术全解页面

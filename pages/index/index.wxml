@@ -11,7 +11,7 @@
     <view class="marginLR26 marginB44" bindtap="toSearch">
       <view class="view-shadow-10 border-radius-100">
         <view class="fl fl-vertical paddingLR25 paddingTB16">
-          <view class="icon iconsearch"></view>
+          <text class="icon iconsearch font-18 font-bold"></text>
           <text class="paddingLR20 search-input font-14 color-979797">输入您想要了解的疾病或手术</text>
           <!-- <input class="paddingLR20 search-input font-14" auto-focus placeholder="将会获取焦点"/> -->
         </view>

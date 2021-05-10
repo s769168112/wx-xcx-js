@@ -1,0 +1,9 @@
+<view>
+  <view class="fl fl-vertical marginLR26 marginB23 marginT10">
+    <cover-image src="../../assets/image/qa.png" class="marginR8" style="height:40rpx;width:40rpx;max-width:40rpx"></cover-image>
+    <text class="text-cut text-cut-one">{{pageResData.title}}</text>
+  </view>
+  <view class="paddingLR20 paddingTB23 view-shadow-3379ff-2 marginLR26 border-white border-radius-5">
+    <text class="font-14 color-101010-1">{{pageResData.answer}}</text>
+  </view>
+</view>

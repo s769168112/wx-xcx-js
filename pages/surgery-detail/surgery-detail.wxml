@@ -3,8 +3,11 @@
   <!-- 手术视频介绍 -->
   <view class="marginLR26 paddingT10 marginB8 view-shadow-3379ff-2 border-radius-5 border-white">
     <view class="position-relative">
-      <!-- <cover-image src="{{userDetail.avatar}}" class="width100" style="height:322rpx"></cover-image> -->
-      <video src="{{pageResData.video}}" class="width100 border-radius-5 " style="height:322rpx" ></video>
+      <view class="position-relative" wx:if="{{!playStatus}}">
+        <cover-image  bindtap="toPlayVideo" src="{{pageResData.cover}}" class="{{['width100']}}" style="height:322rpx"></cover-image>
+        <cover-image src="../../assets/image/video-play.png" bindtap="toPlayVideo" class="video-icon width100 position-absolute" style="height:70rpx;width:70rpx"></cover-image>
+      </view>
+      <video wx:else id="video" src="{{pageResData.video}}" class="width100 border-radius-5 " style="height:322rpx" ></video>
     </view>
     <view class="paddingLR15 paddingTB12">
       <view class="paddingB8">{{pageResData.title}}</view>
@@ -17,8 +20,14 @@
           </view>
           <view class="font-12 fl">
             <text class="font-10 color-101010-08 fl-grow">{{pageResData.content}}</text>
-            <text>收藏</text>
-            <text>分享</text>
+            <view class="fl fl-vertical marginR8" bindtap="userFavorites">
+              <cover-image src="../../assets/image/like.png" style="height:34rpx;width:34rpx"></cover-image>
+              <text>{{pageResData.isCollect?'已收藏':'收藏'}}</text>
+            </view>
+            <view class="fl fl-vertical" bindtap="userShare">
+              <cover-image src="../../assets/image/art-share.png" style="height:34rpx;width:34rpx"></cover-image>
+              <text>分享</text>
+            </view>
           </view>
         </view>
       </view>
@@ -26,7 +35,7 @@
   </view>
 
   <!-- 手术知识相关 -->
-  <view class="marginLR26 view-shadow-3379ff-2 border-radius-5">
+  <view wx:if="{{pageResData.isSurgery == 1}}" class="marginLR26 view-shadow-3379ff-2 border-radius-5">
     <view class="fl fl-sp-around">
       <view class="{{['position-relative fl fl-center fl-grow',item.isSelected?'':'bg-color-101010',(item.isSelected&&index==0)?'':'']}}"
         style="height:70rpx" wx:for="{{tabsList}}" wx:key="index" bindtap="changeTab" data-item="{{item}}"
@@ -38,6 +47,12 @@
     <!-- 内容部分 -->
     <view class="paddingLR20 paddingTB16 surgery-tabs-border-white marginB44">
       <rich-text nodes="{{tabsList[tabsIndex].content}}"></rich-text>
+    </view>
+  </view>
+
+  <view wx:else class="marginLR26 view-shadow-3379ff-2 border-radius-5">
+    <view class="paddingLR20 paddingTB16">
+      <rich-text nodes="{{pageResData.surgeryTips}}"></rich-text>
     </view>
   </view>
 </view>

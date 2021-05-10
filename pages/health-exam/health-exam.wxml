@@ -1,6 +1,6 @@
 <view>
-  <view>
-    <view class="fl fl-sp-bet fl-vertical marginLR26 marginB8">
+  <view class="bg-white marginB8">
+    <view class="fl fl-sp-bet fl-vertical marginLR26 paddingB8">
       <view>
         测评量表
       </view>
@@ -11,22 +11,54 @@
     </view>
     <!-- 下拉框 -->
     <view
-      class="{{['overflow-hidden paddingLR26 box-sizing width100 bg-white position-absolute filter-view',openExam?'filter-view-trans':'']}}">
-      <view class="fl fl-sp-bet paddingT10">
-        <view>
-          <view wx:for="{{filterList}}" class="paddingB10 font-14" wx:key="index">
-            <text>{{item.label}}</text>
-            <text wx:if="{{item.selected}}" class="icon iconfilter-check"></text>
+      class="{{['overflow-hidden zindex2 paddingLR26 box-sizing width100 bg-white position-absolute filter-view bg-white',openExam?'filter-view-trans':'']}}">
+      <view class="fl fl-sp-bet paddingTB10">
+        <!-- 左边选择 -->
+        <view class="text-center" style="flex-basis:49%">
+          <view wx:for="{{filterList}}" class="paddingB10 " wx:key="index">
+            <text class="{{['font-14',item.selected?'color-F75A2F':'']}}">{{item.label}}</text>
+            <text
+              class="{{['icon iconfilter-check font-16',item.selected?'color-F75A2F':'color-transparent ']}}"></text>
           </view>
         </view>
         <text style="width:2rpx;" class="bg-color-BBB-1"></text>
-        <view>
-          <view wx:for="{{filterList[0].children}}" class="paddingB10 font-14" wx:key="index">{{item.label}}</view>
+        <!-- 右边筛选 -->
+        <view class="text-center" style="flex-basis:49%">
+          <view wx:for="{{filterList[0].children}}" class="paddingB10 font-14" wx:key="index">
+            <text class="{{['font-14',item.selected?'color-F75A2F':'']}}">{{item.label}}</text>
+            <text
+              class="{{['icon iconfilter-check font-16',item.selected?'color-F75A2F':'color-transparent ']}}"></text>
+          </view>
+        </view>
+      </view>
+      <view class="fl fl-sp-end marginLR26 paddingTB10">
+        <view class="border-radius-100 bg-color-E1E1E1 color-white fl fl-center font-14 marginR8" style="width:180rpx;height:56rpx">
+          <text>重置</text>
+        </view>
+        <view class="border-radius-100 bg-color-F75A2F color-white fl fl-center font-14" style="width:180rpx;height:56rpx">
+          <text>确认</text>
         </view>
       </view>
     </view>
   </view>
-  <view>
-    阿斯蒂芬范德萨
+  <view class="marginLR26">
+    <view wx:for="{{examList}}" wx:key="index"
+      class="fl fl-sp-bet paddingLR20 view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8">
+      <view class="fl fl-col fl-sp-around">
+        <text>{{item.title}}</text>
+        <text class="color-101010 font-12">{{item.content}}</text>
+        <view class="fl color-707070 font-10">
+          <view class="marginR8"><text class="icon iconuser-artivar" style="font-size:20rpx"> </text> 自评</view>
+          <view class="marginR8"><text class="icon iconbi" style="font-size:20rpx"> </text> 10题</view>
+          <view><text class="icon iconshare" style="font-size:20rpx"> </text> 分享</view>
+        </view>
+      </view>
+      <view>
+        <cover-image src="{{item.cover}}" class="border-radius-50 border-bottom-bbb-042"
+          style="height:162rpx;width:162rpx;min-width:162rpx"></cover-image>
+      </view>
+    </view>
   </view>
+  <!-- 遮罩层 -->
+  <view class="{{['mask position-absolute bg-color-43ABC8-040 width100',openExam?'mask-animation':'']}}" style="display:{{maskShow?'block':'none'}}" bindtap="openFilter"></view>
 </view>

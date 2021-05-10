@@ -19,7 +19,9 @@ Page({
         tip:'创口小、风险低、回复快'
       },
     ],
-    pageResData:{},
+    pageResData:{
+      relationSurgeryList:[]
+    },
     id:''
   },
 

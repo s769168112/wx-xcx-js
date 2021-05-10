@@ -52,29 +52,37 @@
   <!-- 手术信息 -->
   <view class="marginLR26 marginB15">
     <view class="font-PF font-bold marginB17">手术信息</view>
-    <view wx:for="{{pageResData.relationSurgeryList}}" wx:key="index"
+    <!-- 无数据状态 -->
+    <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5" wx:if="{{!pageResData.relationSurgeryList.length}}">
+      <cover-image src="../../assets/image/recard-icon.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+    <view wx:else>
+      <view wx:for="{{pageResData.relationSurgeryList}}" wx:key="index"
       class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
       <cover-image class="marginR14" src="{{item.cover}}" style="width:170rpx;height:126rpx">
       </cover-image>
       <view class="fl fl-col fl-sp-bet">
         <view class="font-bold font-PF">{{item.title}}</view>
-        <view class="font-12 color-101010" wx:if="true">
-          <text class="icon iconsearch"></text>
+        <view class="font-12 color-101010" wx:if="{{item.recommend == 1}}">
+          <!-- <text class="icon iconsearch"></text> -->
+          <cover-image style="height:30rpx;width:30rpx" src="../../assets/image/recommend.png"></cover-image>
           <text>推荐</text>
         </view>
         <view class="font-12 color-101010" wx:else>
-          <text class="icon iconsearch"></text>
+          <!-- <text class="icon iconsearch"></text> -->
+          <cover-image style="height:30rpx;width:30rpx" src="../../assets/image/noRecommend.png"></cover-image>
           <text>不推荐</text>
         </view>
         <!-- <view class="color-707070 font-12"><text>{{pageResData}}</text></view> -->
       </view>
+    </view>
     </view>
   </view>
 
    <!-- 护理信息 -->
    <view class="marginLR26 marginB15">
     <view class="font-PF font-bold marginB17">护理信息</view>
-    <view wx:for="{{surgeryList}}" wx:key="index"
+    <view wx:for="{{pageResData.relationNursingList}}" wx:key="index"
       class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
       <cover-image class="marginR14" src="{{item.cover}}" style="width:170rpx;height:126rpx">
       </cover-image>

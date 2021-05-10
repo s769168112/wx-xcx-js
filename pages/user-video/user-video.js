@@ -5,28 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    surgeryVideoList:[],
-    pageIndex:1,
-    pageSize:10,
-    noData:false
+    surgeryVideoList: [],
+    pageIndex: 1,
+    pageSize: 10,
+    noData: false
   },
 
-  toVideoDetail:function(){
-    console.log('去详情',)
+  toVideoDetail: function (e) {
+    let { id } = e.currentTarget.dataset.item
+    wx.navigateTo({
+      url: `/pages/surgery-detail/surgery-detail?id=${id}`
+    })
   },
 
   // 获取手术视频
-  getSurgeryListData:function(){
+  getSurgeryListData: function () {
     const api = require("../../api/user/user.service").UserHttpService.prototype
     let params = {
-      pageIndex:this.data.pageIndex,
-      pageSize:this.data.pageSize,
+      pageIndex: this.data.pageIndex,
+      pageSize: this.data.pageSize,
     }
     api.getUserVideoListData(params).then(res => {
-      console.log('获取用户收藏视频',res)
+      console.log('获取用户收藏视频', res)
+      let secondToDate = require("../../utils/util.js").secondToDate
+      res.dataList.forEach(ele => {
+        ele.videoDuration = secondToDate(ele.videoDuration)
+      })
       this.setData({
-        surgeryVideoList:[...res.dataList,...res.dataList,...res.dataList],
-        noData:res.totalPage > this.data.pageIndex?false:true
+        surgeryVideoList: [...res.dataList],
+        noData: res.totalPage > this.data.pageIndex ? false : true
       })
     })
   },

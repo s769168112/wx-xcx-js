@@ -1,0 +1,19 @@
+<view class="marginB8">
+  <view class="marginB15 marginLR26">
+    <text>消息</text>
+  </view>
+  <view class="marginLR26">
+    <view wx:for="{{messageList}}" wx:key="index" class="fl fl-vertical view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB12 marginB8">
+      <view class="marginR25"><cover-image src="../../assets/image/user-message.png" style="height:60rpx;width:60rpx"></cover-image></view>
+      <view class="fl fl-col">
+        <view class="fl fl-sp-bet">
+          <text class="font-14 font-bold">{{item.title}}</text>
+          <text class="font-12">{{item.time}}</text>
+        </view>
+        <view>
+          <text class="font-12 text-cut-two text-cut">{{item.message}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

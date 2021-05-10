@@ -2,3 +2,41 @@
 .border-bbb-1-019 {
   border: 1rpx solid rgba(187, 187, 187, 0.19);
 }
+
+.search-center {
+  top: 50%;
+  /* transform: translateY(-50%); */
+}
+.search-icon {
+  opacity: 1;
+  transform: translateY(-50%);
+  transition: opacity 0.3s;
+}
+.search-icon-animation {
+  opacity: 0;
+}
+.search-input {
+  /* left: 40rpx; */
+  transform: translate(40rpx,-50%);
+  transition: transform 0.3s;
+}
+.search-input-animation {
+  /* left: 0rpx; */
+  transform: translate(0,-50%);
+}
+.search-res-list {
+  max-height: 0;
+  transition: max-height 0.5s;
+}
+.max-search-res-list {
+  max-height: 400rpx;
+}
+.border-input {
+  border: 2rpx solid transparent;
+  /* opacity:0; */
+  transition: border 0.3s;
+}
+.border-input-animation {
+  /* opacity:1; */
+  border: 2rpx solid #bbbbbb;
+}

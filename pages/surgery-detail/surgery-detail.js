@@ -29,9 +29,55 @@ Page({
         content:''
       },
     ],
-    tabsIndex:0
+    tabsIndex:0,
+    playStatus:false, // 是否在播放中
   },
-
+  userFavorites: function () {
+    const api = require("../../api/user/user.service").UserHttpService.prototype
+    let params = {
+      type: 1,
+      id: this.data.pageResData.id
+    }
+    this.data.pageResData.isCollect = !this.data.pageResData.isCollect
+    this.setData({
+      pageResData:this.data.pageResData
+    })
+    if(this.data.pageResData.isCollect){
+      api.userFavoritesCancel(params).then(res => {
+        console.log('收藏结果', res)
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+      })
+    } else {
+      api.userFavorites(params).then(res => {
+        console.log('收藏结果', res)
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+      })
+    }
+  },
+  userShare: function () {
+    const api = require("../../api/user/user.service").UserHttpService.prototype
+    let params = {
+      type: 1,
+      id: this.data.pageResData.id
+    }
+    api.userShare(params).then(res => {
+      console.log('分享结果', res)
+      wx.showToast({
+        title: res.data.msg,
+        icon: 'none',
+        duration: 2000
+      })
+    })
+  },
+  // 切换tab
   changeTab:function (e) {
     let {index} = {...e.currentTarget.dataset}
     for (let item of this.data.tabsList) {
@@ -44,6 +90,18 @@ Page({
     })
   },
 
+  toPlayVideo:function(){
+    let video = wx.createVideoContext('video')
+    if(this.data.playStatus){
+      video.pause()
+    } else {
+      video.play()
+    }
+    
+    this.setData({
+      playStatus:this.data.playStatus?false:true
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

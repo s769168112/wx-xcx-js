@@ -42,19 +42,49 @@ Page({
         ]
       }
     ],
+    examList:[], //量表测试列表
+    maskShow:false,
   },
   // 打开筛选下拉框
   openFilter:function(){
-    console.log('??')
+    if(this.data.maskShow) {
+      setTimeout(() => {
+        this.setData({
+          maskShow:!this.data.maskShow
+        })
+      }, 300);
+    } else {
+      this.setData({
+        maskShow:!this.data.maskShow
+      })
+    }
     this.setData({
       openExam:this.data.openExam?false:true
+    })
+  },
+  // 获取量表测试
+  getExamList:function(){
+    let list = [
+      {
+        cover:'../../assets/image/user.png',
+        title:'抑郁自评量表(SDS)',
+        content:'抑郁自评量表是一种测量抑郁的工具',
+      },
+      {
+        cover:'../../assets/image/user.png',
+        title:'抑郁自评量表(SDS)',
+        content:'抑郁自评量表是一种测量抑郁的工具',
+      },
+    ]
+    this.setData({
+      examList:list
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getExamList()
   },
 
   /**

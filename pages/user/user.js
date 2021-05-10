@@ -15,6 +15,13 @@ Page({
     })
   },
 
+  // 去消息页
+  toMessage:function(){
+    wx.navigateTo({
+      url:'/pages/user-message/user-message'
+    })
+  },
+
    /* 去收藏文章页 */
    toUserArticle:function(){
     wx.navigateTo({

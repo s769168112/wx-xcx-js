@@ -5,11 +5,33 @@ Page({
    * 页面的初始数据
    */
   data: {
-    departmentLowList:[]
+    departmentLowList:[],
+    diseaseList:[],
+    pageOptions:{},
+    checkedId:'',//顶部选中的标签id
+    allDepart:{id:'',title:''},
+    title:'',
   },
-
-  /** 获取二级科室列表 **/
-  getDepartmentLowListData(options){
+  // 选择标签
+  selectedTab:function(e){
+    let {item} = e.currentTarget.dataset
+    console.log('选择',item)
+    this.setData({
+      checkedId:item.id,
+      title:item.name || this.data.pageOptions.title
+    })
+    console.log(this.data.checkedId)
+    this.getDiseaseMedicalListData(item.id)
+  },
+  // 去疾病详情
+  toDiseaseDetail:function(e){
+    let {item} = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/disease-detail/disease-detail?id=${item.id}`,
+    })
+  },
+  // 获取科室二级列表
+  getDepartmentLowListData:function(options){
     console.log('options',options)
     const api = require("../../api/disease/disease.service").DiseaseHttpService.prototype
     let params = {
@@ -22,12 +44,33 @@ Page({
       })
     })
   },
+ 
+  // 获取底部疾病列表
+  getDiseaseMedicalListData:function(id = ''){
+    const api = require("../../api/disease/disease.service").DiseaseHttpService.prototype
+    let params = {
+      oneLevelLabel:this.data.pageOptions.id,
+      twoLevelLabel:id
+    }
+    api.getDiseaseMedicalListData(params).then(res => {
+      console.log('获取疾病列表',res)
+      // let list = [...res,...res,...res,...res,...res]
+      this.setData({
+        diseaseList:res
+      })
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      pageOptions:options,
+      title:options.title
+    })
     this.getDepartmentLowListData(options)
+    this.getDiseaseMedicalListData()
   },
 
   /**

@@ -1,17 +1,53 @@
 <!--pages/surgery/surgery.wxml-->
 <view>
-  <view class="marginLR26 marginB19">
-    <search-comp></search-comp>
+  <view class="marginLR26 marginB19 marginT10">
+    <!-- 搜索框 -->
+    <view class="fl fl-sp-bet marginB23">
+      <view
+        bindtap="inputFocus"
+        class="{{isFocus?'border-input-animation':'bg-color-BBBBBB'}}  border-input border-radius-10 fl-grow position-relative marginLR10 color-101010">
+        <view
+          class="marginLR32 fl fl-vertical position-relative {{(isFocus && searchResList.length != 0)?'border-bottom-bbb-1':''}}"
+          style="height:72rpx">
+          <i
+            class="icon iconsearch color-101010 marginR8 position-absolute search-icon search-center {{isFocus?'search-icon-animation':''}}"></i>
+          <input type="text" value="{{searchText}}" placeholder="搜疾病或症状"
+            class="font-14 width100 height100 search-input position-absolute search-center {{isFocus?'search-input-animation':''}}"
+            bindblur="inputBlur"  bindinput="inputChange" />
+        </view>
+        <view wx:if="searchResList.length != 0"
+          class="marginLR32 search-res-list overflow-hidden {{isFocus?'max-search-res-list ':''}}">
+          <view wx:for="{{searchResList}}" wx:key="index" bindtap="toDetail" data-item="{{item}}">
+            <view class="{{['font-14 marginB8',index == 0?'marginT10':'']}}">
+              <rich-text nodes="{{item.title}}"></rich-text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 搜索按钮 -->
+      <!-- <view
+                class="marginL20 fl fl-center border-radius-10 color-white border-43ABC8 fl fl-vertical font-14 bg-color-43ABC8"
+                style="height:72rpx;width:112rpx" bindtap="search">
+                <text>搜索</text>
+            </view> -->
+    </view>
   </view>
-  
+
   <view class="marginLR26">
     <view class="fl fl-wrap fl-sp-bet">
-      <view wx:for="{{surgeryList}}" class="border-bbb-1-019 marginB5 border-radius-5 overflow-hidden"  bindtap="toDetail" data-item="{{item}}" style="width:316rpx" wx:key="index">
-        <view style="height:206rpx; background-image:url({{item.cover}})" class="width100 fl fl-col fl-sp-bet">
-          <view class="fl-grow fl fl-center">暂停</view>
-          <view class="color-white fl fl-sp-bet bg-color-101010 paddingLR6">
-            <text class="font-10" >{{item.count.visitNum}}</text>
-            <text class="font-10" >{{item.videoDuration}}</text>
+      <view wx:for="{{surgeryList}}" class="border-bbb-1-019 marginB5 border-radius-5 overflow-hidden"
+        bindtap="toDetail" data-item="{{item}}" style="width:316rpx" wx:key="index">
+        <view style="height:206rpx; background-image:url({{item.cover}})"
+          class="width100 fl fl-col fl-sp-bet position-relative">
+          <view class="fl-grow fl fl-center">
+            <!-- <text class="icon iconchecked color-FFDE02"></text> -->
+            <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image>
+          </view>
+          <view class="color-white fl fl-sp-bet fl-vertical bg-color-101010-04 paddingLR6 position-absolute width100 box-sizing"
+            style="bottom:0">
+            <view class="fl fl-vertical"><text class="icon iconplay-icon marginR5"></text><text class="font-10">{{item.count.visitNum}}</text></view>
+
+            <text class="font-10">{{item.videoDuration}}</text>
           </view>
         </view>
         <view class="paddingLR6 paddingTB8 font-13 text-cut text-cut-one">
