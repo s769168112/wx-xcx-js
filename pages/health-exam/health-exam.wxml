@@ -32,24 +32,31 @@
         </view>
       </view>
       <view class="fl fl-sp-end marginLR26 paddingTB10">
-        <view class="border-radius-100 bg-color-E1E1E1 color-white fl fl-center font-14 marginR8" style="width:180rpx;height:56rpx">
+        <view class="border-radius-100 bg-color-E1E1E1 color-white fl fl-center font-14 marginR8"
+          style="width:180rpx;height:56rpx">
           <text>重置</text>
         </view>
-        <view class="border-radius-100 bg-color-F75A2F color-white fl fl-center font-14" style="width:180rpx;height:56rpx">
+        <view class="border-radius-100 bg-color-F75A2F color-white fl fl-center font-14"
+          style="width:180rpx;height:56rpx">
           <text>确认</text>
         </view>
       </view>
     </view>
   </view>
   <view class="marginLR26">
-    <view wx:for="{{examList}}" wx:key="index"
+    <view wx:for="{{examList}}" wx:key="index" bindtap="toScaleDetail" data-item="{{item}}"
       class="fl fl-sp-bet paddingLR20 view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8">
       <view class="fl fl-col fl-sp-around">
         <text>{{item.title}}</text>
-        <text class="color-101010 font-12">{{item.content}}</text>
+        <text class="color-101010 font-12">{{item.instruction}}</text>
         <view class="fl color-707070 font-10">
-          <view class="marginR8"><text class="icon iconuser-artivar" style="font-size:20rpx"> </text> 自评</view>
-          <view class="marginR8"><text class="icon iconbi" style="font-size:20rpx"> </text> 10题</view>
+          <view class="marginR8"><text class="icon iconuser-artivar" style="font-size:20rpx"></text>
+            <text wx:if="{{judgeType == 0}}">父母评论</text>
+            <text wx:elif="{{judgeType == 1}}">自评</text>
+            <text wx:elif="{{judgeType == 2}}">他评</text>
+            <text wx:else>教师评</text>
+          </view>
+          <view class="marginR8"><text class="icon iconbi" style="font-size:20rpx"> </text> {{item.subjectTotal}}题</view>
           <view><text class="icon iconshare" style="font-size:20rpx"> </text> 分享</view>
         </view>
       </view>
@@ -60,5 +67,6 @@
     </view>
   </view>
   <!-- 遮罩层 -->
-  <view class="{{['mask position-absolute bg-color-43ABC8-040 width100',openExam?'mask-animation':'']}}" style="display:{{maskShow?'block':'none'}}" bindtap="openFilter"></view>
+  <view class="{{['mask position-absolute bg-color-43ABC8-040 width100',openExam?'mask-animation':'']}}"
+    style="display:{{maskShow?'block':'none'}}" bindtap="openFilter"></view>
 </view>

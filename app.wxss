@@ -1,4 +1,5 @@
 /**app.wxss**/
 
 @import "styles/common/base.wxss";
-@import "assets/font/icon/iconfont.wxss"
+@import "assets/font/icon/iconfont.wxss";
+@import 'miniprogram_npm/weui-miniprogram/weui-wxss/dist/style/weui.wxss';

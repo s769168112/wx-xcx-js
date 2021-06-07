@@ -1,0 +1,44 @@
+<!--pages/scale-result/scale-result.wxml-->
+<view>
+  <view class="paddingB36">
+    <view class="marginLR26 paddingB36">结果评语</view>
+    <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
+        <cover-image src="" style="display:inline-block;height:40rpx;width:40rpx"></cover-image>
+      <text class="result-tip-text">您的测试结果为12分，表明状态较好无任何症状，说明患病几率很低。</text>
+    </view>
+  </view>
+  <view class="paddingB36">
+    <view class="paddingB36 marginLR26">健康小贴士</view>
+    <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
+      <cover-image src="" style="display:inline-block;height:40rpx;width:40rpx"></cover-image>
+      <text class="result-tip-text">保持良好的心理状态及充足睡眠。少吃熏制、腌制、富含硝酸盐及亚硝酸盐的食物，不吃霉变食物，多吃新鲜食品。避免进食过于粗糙、浓烈的食物</text>
+    </view>
+  </view>
+
+  <!-- 视频推荐 -->
+  <view class="paddingB50">
+    <view class="paddingB36 marginLR26">健康小贴士</view>
+    <view class="marginLR26 fl fl-wrap fl-sp-bet">
+      <view wx:for="{{surgeryVideoList}}" class="view-shadow-3379ff-2 border-bbb-1-019 marginB10 border-radius-5 overflow-hidden"  bindtap="toVideoDetail" data-item="{{item}}" style="width:305rpx" wx:key="index">
+        <view style="height:206rpx; background-image:url({{item.cover}})" class="width100 fl fl-col fl-sp-bet">
+          <view class="fl-grow fl fl-center">
+            <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image>
+          </view>
+          <view class="color-white fl fl-sp-bet bg-color-101010 paddingLR6">
+            <!-- <view class="fl fl-vertical"><text class="icon iconplay-icon marginR5"></text></view> -->
+            <text class="font-10"></text>
+            <text class="font-10" >{{item.videoDuration}}</text>
+          </view>
+        </view>
+        <view class="paddingLR6 paddingTB8 font-13 text-cut text-cut-one">
+          {{item.title}}
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 悬浮标题 -->
+  <view class="fl fl-sp-bet box-sizing" style="width:100%;padding:0 52rpx;position: fixed;bottom:50rpx;z-index:10">
+    <view class="view-shadow-3379ff-2 font-bold border-radius-5 text-center" style="width:305rpx;height:88rpx;line-height:88rpx; background-color:#fff;color:#55DBAC">更多测试</view>
+    <view class="view-shadow-3379ff-2 font-bold border-radius-5 text-center" style="width:305rpx;height:88rpx;line-height:88rpx; background-color:#fff;color:#4A8BFE">分享</view>
+  </view>
+</view>

@@ -152,7 +152,15 @@
 .color-F4CA74 {
     color: #F4CA74;
 }
-
+.color-4EA9BE {
+    color:  rgba(78, 169, 190, 100);
+}
+.color-1ADCA9 {
+    color: #1ADCA9;
+}
+.color-F75A2F {
+    color: #F75A2F;
+}
 
 .text-align-right {
     text-align: right;
@@ -261,6 +269,9 @@
 }
 .marginB10 {
     margin-bottom: 20rpx;
+}
+.marginB13 {
+    margin-bottom: 26rpx;
 }
 .marginB15 {
     margin-bottom: 30rpx;
@@ -424,8 +435,17 @@
 .paddingB6 {
     padding-bottom: 12rpx;
 }
+.paddingB17 {
+    padding-bottom: 17rpx;
+}
+.paddingB36 {
+    padding-bottom: 36rpx;
+}
 .paddingB23 {
     padding-bottom: 46rpx;
+}
+.paddingB50 {
+    padding-bottom: 100rpx;
 }
 .paddingLR10 {
     padding-left: 20rpx;
@@ -459,6 +479,9 @@
 .bg-color-BBBBBB-14 {
     background-color: rgba(187, 187, 187, 0.14);
 }
+.bg-color-1ADCA9 {
+    background-color: #1ADCA9
+}
 .bg-color-101010 {
     background-color: rgba(16, 16, 16, 0.04);
 }
@@ -483,6 +506,13 @@
 .bg-color-43ABC8-040 {
     background-color:  rgba(13, 12, 12, 0.40);
 }
+.bg-color-1ADCA9 {
+    background-color: rgba(26, 220, 169, 100);
+}
+.bg-color-1ADCA9 {
+    background-color: #1ADCA9;
+}
+
 /* // 圆角 */
 .border-radius-50 {
     border-radius: 50%;
@@ -559,6 +589,10 @@
 }
 .border-58AFC8 {
     border:  1px solid rgba(88, 175, 200, 100);
+}
+
+.border-F75A2F {
+    border:  2rpx solid #F75A2F;
 }
 
 /* //圆角 按钮 */

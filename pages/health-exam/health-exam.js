@@ -5,81 +5,88 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openExam:false, // 打开量表筛选
-    filterList:[
+    openExam: false, // 打开量表筛选
+    filterList: [
       {
-        id:1,
-        label:'症状自测',
-        selected:true,
-        children:[
+        id: 1,
+        label: '症状自测',
+        selected: true,
+        children: [
           {
-            id:11,
-            label:'全部',
-            selected:true,
+            id: 11,
+            label: '全部',
+            selected: true,
           },
           {
-            id:12,
-            label:'肾内科',
-            selected:false,
+            id: 12,
+            label: '肾内科',
+            selected: false,
           },
         ]
       },
       {
-        id:2,
-        label:'疾病量表',
-        selected:false,
-        children:[
+        id: 2,
+        label: '疾病量表',
+        selected: false,
+        children: [
           {
-            id:21,
-            label:'社会功能与适应能量量表',
-            selected:false,
+            id: 21,
+            label: '社会功能与适应能量量表',
+            selected: false,
           },
           {
-            id:22,
-            label:'社会功能与适应能量量表',
-            selected:false,
+            id: 22,
+            label: '社会功能与适应能量量表',
+            selected: false,
           }
         ]
       }
     ],
-    examList:[], //量表测试列表
-    maskShow:false,
+    examList: [], //量表测试列表
+    maskShow: false,
   },
   // 打开筛选下拉框
-  openFilter:function(){
-    if(this.data.maskShow) {
+  openFilter: function () {
+    if (this.data.maskShow) {
       setTimeout(() => {
         this.setData({
-          maskShow:!this.data.maskShow
+          maskShow: !this.data.maskShow
         })
       }, 300);
     } else {
       this.setData({
-        maskShow:!this.data.maskShow
+        maskShow: !this.data.maskShow
       })
     }
     this.setData({
-      openExam:this.data.openExam?false:true
+      openExam: this.data.openExam ? false : true
     })
   },
   // 获取量表测试
-  getExamList:function(){
-    let list = [
-      {
-        cover:'../../assets/image/user.png',
-        title:'抑郁自评量表(SDS)',
-        content:'抑郁自评量表是一种测量抑郁的工具',
-      },
-      {
-        cover:'../../assets/image/user.png',
-        title:'抑郁自评量表(SDS)',
-        content:'抑郁自评量表是一种测量抑郁的工具',
-      },
-    ]
-    this.setData({
-      examList:list
+  getExamList: function () {
+
+    const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
+    let params = {
+      oneLevelLabel: '',
+      twoLevelLabel: '',
+      pageIndex: 1,
+      pageSize: 10
+    }
+    api.getScaleList(params).then(res => {
+      console.log('获取量表',res)
+      this.setData({
+        examList: res.dataList
+      })
     })
   },
+  // 去量表测评介绍页
+  toScaleDetail: function (e) {
+    let { item } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/scale-introduct/scale-introduct?id=${item.id}`,
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

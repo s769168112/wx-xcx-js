@@ -17,9 +17,9 @@
       <cover-image src="../../assets/image/health-title1.png" style="height:50rpx;width:144rpx"></cover-image>
     </view>
     <view class="fl fl-sp-bet marginLR56 marginB19" style="height:192rpx">
-      <cover-image src="../../assets/image/disease-all.png" class="marginR20 height100" bindtap="toDisease">
+      <cover-image src="../../assets/image/disease-all.png" class="marginR20 height100 border-radius-5" bindtap="toDisease">
       </cover-image>
-      <cover-image src="../../assets/image/surgure-all.png" class="height100" bindtap="toSurgery"></cover-image>
+      <cover-image src="../../assets/image/surgure-all.png" class="height100 border-radius-5" bindtap="toSurgery"></cover-image>
     </view>
 
     <!-- 健康知识 -->
