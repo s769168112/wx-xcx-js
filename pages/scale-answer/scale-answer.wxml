@@ -32,7 +32,7 @@
     <!-- 最后一道题提交问卷 -->
     <view bindtap="commitScale" wx:if="{{ (curIndex == pageRes.subjectList.length - 1) && answerIdList[curIndex].length >= 1 }}" class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx"><text class="color-1ADCA9">提交</text></view>
     <!-- 多选下一题 -->
-    <view bindtap="nextQuest" wx:elif="{{ pageRes.subjectList[curIndex].type == 1 && answerIdList[curIndex].length >= 1 }}" class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx"><text class="color-1ADCA9">下一题</text></view>
+    <view bindtap="nextQuest" wx:elif="{{ pageRes.subjectList[curIndex].type == 2 && answerIdList[curIndex].length >= 1 }}" class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx"><text class="color-1ADCA9">下一题</text></view>
     <!-- 单选下一题 -->
     <view bindtap="nextQuest" wx:elif="{{ (curIndex == 0 && scaleIndex > curIndex)  || (curIndex != 0 && scaleIndex > curIndex)}}" class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx"><text class="color-1ADCA9">下一题</text></view>
   </view>

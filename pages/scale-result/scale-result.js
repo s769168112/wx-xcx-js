@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    surgeryVideoList:[
+    relationSurgeryList:[
       {
         cover:'',
         videoDuration:'介绍',
@@ -31,23 +31,27 @@ Page({
         videoDuration:'介绍',
         title:'题目'
       }
-    ]
+    ],
+    pageRes:{}
   },
   // 获取量表结果页
-  getScaleResult(){
+  getScaleResult(options){
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
     let params = {
-      answerId:10208
+      answerId:options.answerId||10224
     }
     api.getScaleResult(params).then(res => {
       console.log('量表结果',res)
+      this.setData({
+        pageRes:res
+      })
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getScaleResult()
+    this.getScaleResult(options)
   },
 
   /**

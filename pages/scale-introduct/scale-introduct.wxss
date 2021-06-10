@@ -1,1 +1,21 @@
 /* pages/scale-introduct/scale-introduct.wxss */
+.re {
+  color: #0D0C0C;
+  font-size: 28rpx;
+  /* height:76rpx; */
+  padding: 20rpx 0 ;
+  font-weight: bold;
+  border-right: 1rpx solid #BBBBBB;
+}
+.go-on {
+  color: #55DBAC;
+  font-size: 28rpx;
+  /* height:76rpx; */
+  padding: 20rpx 0 ;
+  font-weight: bold;
+}
+.go-on-content {
+  font-size: 28rpx;
+  padding: 70rpx 83rpx 50rpx;
+  border-bottom: 1rpx solid #BBBBBB;
+}

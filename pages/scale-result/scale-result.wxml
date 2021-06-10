@@ -1,25 +1,34 @@
 <!--pages/scale-result/scale-result.wxml-->
 <view>
+  <!-- 因子 -->
+  <view class="paddingB36">
+    <view class="marginLR26 paddingB36">量表得分</view>
+    <view class="fl fl-wrap result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
+      <view class="reason-tip" wx:for="{{pageRes.factor}}">
+        <text>{{item.title}}：{{item.score}}</text>
+      </view>
+    </view>
+  </view>
+  <!-- 评语 -->
   <view class="paddingB36">
     <view class="marginLR26 paddingB36">结果评语</view>
     <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
         <cover-image src="" style="display:inline-block;height:40rpx;width:40rpx"></cover-image>
-      <text class="result-tip-text">您的测试结果为12分，表明状态较好无任何症状，说明患病几率很低。</text>
+      <text class="result-tip-text">{{pageRes.comment[0]}}</text>
     </view>
   </view>
   <view class="paddingB36">
     <view class="paddingB36 marginLR26">健康小贴士</view>
     <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
-      <cover-image src="" style="display:inline-block;height:40rpx;width:40rpx"></cover-image>
-      <text class="result-tip-text">保持良好的心理状态及充足睡眠。少吃熏制、腌制、富含硝酸盐及亚硝酸盐的食物，不吃霉变食物，多吃新鲜食品。避免进食过于粗糙、浓烈的食物</text>
+      <text class="result-tip-text">{{pageRes.tips[0]}}</text>
     </view>
   </view>
 
   <!-- 视频推荐 -->
   <view class="paddingB50">
-    <view class="paddingB36 marginLR26">健康小贴士</view>
+    <view class="paddingB36 marginLR26">视频推荐</view>
     <view class="marginLR26 fl fl-wrap fl-sp-bet">
-      <view wx:for="{{surgeryVideoList}}" class="view-shadow-3379ff-2 border-bbb-1-019 marginB10 border-radius-5 overflow-hidden"  bindtap="toVideoDetail" data-item="{{item}}" style="width:305rpx" wx:key="index">
+      <view wx:for="{{pageRes.relationSurgeryList}}" class="view-shadow-3379ff-2 border-bbb-1-019 marginB10 border-radius-5 overflow-hidden"  bindtap="toVideoDetail" data-item="{{item}}" style="width:305rpx" wx:key="index">
         <view style="height:206rpx; background-image:url({{item.cover}})" class="width100 fl fl-col fl-sp-bet">
           <view class="fl-grow fl fl-center">
             <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image>

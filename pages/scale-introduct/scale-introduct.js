@@ -7,30 +7,41 @@ Page({
   data: {
     pageRes:'',
     action:0,
-    id:''
+    id:'',
+    answerId:'',
+    goOnAnswer:true,
   },
-  actionScale:function(){
+  actionScale:function(e){
+    let { item } = e.currentTarget.dataset;
     if(this.data.action == 0) {
       this.setData({
         action:1
       })
     } else {
-      wx.navigateTo({
-        url:`/pages/scale-answer/scale-answer?id=${this.data.id}`
-      })
+      if(item == 0){
+        wx.navigateTo({
+          url:`/pages/scale-answer/scale-answer?id=${this.data.id}`
+        })
+      } else {
+        wx.navigateTo({
+          url:`/pages/scale-answer/scale-answer?id=${this.data.id}&answerId=${this.data.answerId}`
+        })
+      }
     }
   },
-  getScaleTitle:function (options) {
+  getScaleDetail:function (options) {
+    console.log('op',options)
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
-    let params = {
-      id:options.id,
-      answerId:''
-    }
-    api.getScaleTitle(params).then(res => {
-      console.log('量表题目',res)
+
+    api.getScaleDetail(options.id).then(res => {
+      console.log('量表详情',res)
+      if(res.answerId) {
+        this.data.goOnAnswer = true
+      }
       this.setData({
         pageRes:res,
-        id:options.id
+        id:res.id,
+        answerId:res.answerId
       })
     })
   },
@@ -38,7 +49,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getScaleTitle(options)
+    this.getScaleDetail(options)
   },
 
   /**

@@ -19,8 +19,8 @@ Page({
       answerId:this.data.pageRes.answerId
     }
     api.commitScale(params).then(res => {
-      wx.navigateTo({
-        url: 'url',
+      wx.redirectTo({
+        url:`/pages/scale-result/scale-result?answerId=${this.data.pageRes.answerId}`
       })
     })
   },
@@ -115,23 +115,28 @@ Page({
         answerIdList: ansList
       })
       // 提交每题答案
-      this.commitAnswer()
+      // this.commitAnswer()
     }
   },
   nextQuest() {
     let sIndex = this.data.scaleIndex
     let cIndex = this.data.curIndex
+    if(this.data.pageRes.subjectList[cIndex].type == 2) {
+      // 提交每题答案
+      this.commitAnswer()
+    }
     this.setData({
       curIndex: cIndex + 1,
       scaleIndex: sIndex > cIndex ? sIndex : sIndex + 1
     })
+    
   },
   // 获取量表题目
   getScaleTitle: function (options) {
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
     let params = {
       id: options.id || 29,
-      answerId: ''
+      answerId: options.answerId || ''
     }
     api.getScaleTitle(params).then(res => {
       console.log('量表题目', res)

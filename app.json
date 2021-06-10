@@ -1,7 +1,7 @@
 {
   "pages":[
     
-    "pages/scale-result/scale-result",
+  
 
     "pages/index/index",
     "pages/search/search",
@@ -28,7 +28,9 @@
 
     "pages/health-exam/health-exam",
     "pages/scale-introduct/scale-introduct",
-    "pages/scale-answer/scale-answer"
+    "pages/scale-answer/scale-answer",
+    "pages/scale-result/scale-result"
+    
     
   ],
   "window":{
@@ -37,7 +39,6 @@
     "navigationBarTitleText": "Weixin",
     "navigationBarTextStyle":"black"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "tabBar":{
     "backgroundColor": "#ffffff",

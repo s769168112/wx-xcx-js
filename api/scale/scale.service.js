@@ -11,6 +11,8 @@ const URL_COMMIT_SCALE_OPTION_ANSWER = '/api/scaleAnswer/submitSubject'
 const URL_COMMIT_SCALE_ANSWER = '/api/scaleAnswer/submitAnswer'
 // 获取量表结果
 const URL_GET_SCALE_RESULT = '/api/scaleAnswer/getResult'
+// 获取量表详情
+const URL_GET_SCALE_DETAIL = '/api/scale'
 
 export class ScaleHttpService {
   //  + `/${id}`
@@ -38,5 +40,10 @@ export class ScaleHttpService {
   getScaleResult(data) {
     let url = URL_GET_SCALE_RESULT
     return api.requestGet(url,data);
+  }
+  /** 获取量表详情 **/
+  getScaleDetail(id) {
+    let url = URL_GET_SCALE_DETAIL + `/${id}`
+    return api.requestGet(url);
   }
 }
