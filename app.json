@@ -19,6 +19,7 @@
     "pages/user-video/user-video",
     "pages/user-article/user-article",
     "pages/user-message/user-message",
+    "pages/user-setting/user-setting",
 
 
     "pages/health/health",

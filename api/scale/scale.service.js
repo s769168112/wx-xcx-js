@@ -13,12 +13,19 @@ const URL_COMMIT_SCALE_ANSWER = '/api/scaleAnswer/submitAnswer'
 const URL_GET_SCALE_RESULT = '/api/scaleAnswer/getResult'
 // 获取量表详情
 const URL_GET_SCALE_DETAIL = '/api/scale'
+// 获取量表标签
+const URL_GET_SCALE_TAG = '/api/label/getScaleLable'
 
 export class ScaleHttpService {
   //  + `/${id}`
   /** 量表列表 **/
   getScaleList(data) {
     let url = URL_SCALE_LIST;
+    return api.requestGet(url, data);
+  }
+  /** 获取量表一级标签 **/
+  getScaleTagList(data) {
+    let url = URL_GET_SCALE_TAG;
     return api.requestGet(url, data);
   }
   /** 获取量表题目 **/

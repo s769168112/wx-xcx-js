@@ -9,7 +9,7 @@ Page({
     action:0,
     id:'',
     answerId:'',
-    goOnAnswer:true,
+    goOnAnswer:false,
   },
   actionScale:function(e){
     let { item } = e.currentTarget.dataset;
@@ -18,13 +18,13 @@ Page({
         action:1
       })
     } else {
-      if(item == 0){
-        wx.navigateTo({
-          url:`/pages/scale-answer/scale-answer?id=${this.data.id}`
+      if(item == 1){
+        wx.redirectTo({
+          url:`/pages/scale-answer/scale-answer?id=${this.data.id}&answerId=${this.data.answerId}`
         })
       } else {
-        wx.navigateTo({
-          url:`/pages/scale-answer/scale-answer?id=${this.data.id}&answerId=${this.data.answerId}`
+        wx.redirectTo({
+          url:`/pages/scale-answer/scale-answer?id=${this.data.id}`
         })
       }
     }
@@ -34,14 +34,12 @@ Page({
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
 
     api.getScaleDetail(options.id).then(res => {
-      console.log('量表详情',res)
-      if(res.answerId) {
-        this.data.goOnAnswer = true
-      }
+      console.log('量表详情',res,res.answerId)
       this.setData({
         pageRes:res,
         id:res.id,
-        answerId:res.answerId
+        answerId:res.answerId,
+        goOnAnswer:res.answerId?true : false
       })
     })
   },

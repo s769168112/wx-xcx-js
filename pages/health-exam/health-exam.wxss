@@ -2,6 +2,9 @@
   max-height: 0;
   transition: all 0.7s;
 }
+.filter-content {
+  max-height: 200rpx;
+}
 .filter-view-trans {
   max-height: 400rpx;
 }

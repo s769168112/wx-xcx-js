@@ -44,6 +44,70 @@ Page({
     ],
     examList: [], //量表测试列表
     maskShow: false,
+    tagList: '', // 量表类型标签
+    curTagDetail: {
+      oneTag:'',
+      oneTagIndex:'',
+      twoTag:'',
+      twoTagIndex:''
+    },
+  },
+
+  // 切换选择
+  chooseTag(e) {
+    let { item, index } = e.currentTarget.dataset
+    let curTagDetail = {
+      oneTag: item,
+      oneTagIndex: index,
+      twoTag: item.lowLabel[0],
+      twoTagIndex: 0,
+    }
+    this.data.tagList.forEach(ele => {
+      ele.selected = false
+      if (ele.id == item.id) {
+        ele.selected = true
+        ele.lowLabel.forEach(eI => {
+          eI.selected = false
+        })
+        ele.lowLabel[0].selected = true
+      }
+    })
+    this.setData({
+      curTagDetail: curTagDetail,
+      tagList: this.data.tagList
+    })
+  },
+  // 点击二级tag
+  chooseTwoTag(e) {
+    let { item, index } = e.currentTarget.dataset
+    let curTagDetail = {
+      twoTag: item,
+      twoTagIndex: index,
+    }
+    curTagDetail = Object.assign(this.data.curTagDetail, curTagDetail)
+    this.data.tagList[this.data.curTagDetail.oneTagIndex].lowLabel.forEach(ele => {
+      ele.selected = false
+      if (item.id == ele.id) {
+        ele.selected = true
+      }
+    })
+    console.log('奇怪',curTagDetail,this.data.tagList)
+    this.setData({
+      curTagDetail: curTagDetail,
+      tagList: this.data.tagList
+    })
+  },
+  // 确认筛选
+  confirmTag(){
+    this.getExamList()
+    this.setData({
+      openExam:false,
+      maskShow:false
+    })
+  },
+  // 重置
+  resetTag(){
+    this.getDetailListTag()
   },
   // 打开筛选下拉框
   openFilter: function () {
@@ -64,18 +128,50 @@ Page({
   },
   // 获取量表测试
   getExamList: function () {
-
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
+    let curTag = this.data.curTagDetail
+    console.log('curTag',curTag)
     let params = {
-      oneLevelLabel: '',
-      twoLevelLabel: '',
+      oneLevelLabel: curTag.oneTag.id != 0?curTag.oneTag.id:'',
+      twoLevelLabel: curTag.twoTag.id != 0?curTag.twoTag.id:'',
       pageIndex: 1,
       pageSize: 10
     }
     api.getScaleList(params).then(res => {
-      console.log('获取量表',res)
+      console.log('获取量表', res)
       this.setData({
         examList: res.dataList
+      })
+    })
+  },
+  // 获取量表标签
+  getDetailListTag() {
+    const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
+    api.getScaleTagList().then(res => {
+      console.log('获取一级标签', res)
+      res.forEach(item => {
+        let obj = {
+          id: 0,
+          name: '全部',
+          supId: item.lowLabel[0] ? item.lowLabel[0].supId : '',
+        }
+        item.selected = false
+        item.lowLabel.unshift(obj)
+        item.lowLabel.forEach(ele => {
+          ele.selected = false
+        })
+      })
+      let curTagDetail = {
+        oneTag: res[0],
+        oneTagIndex: 0,
+        twoTag: res[0].lowLabel[0],
+        twoTagIndex: 0,
+      }
+      res[0].selected = true
+      res[0].lowLabel[0].selected = true
+      this.setData({
+        tagList: res,
+        curTagDetail: curTagDetail
       })
     })
   },
@@ -91,6 +187,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.getDetailListTag()
     this.getExamList()
   },
 

@@ -1,39 +1,28 @@
-// pages/user/user.js
+// pages/user-setting/user-setting.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    list:[
+      {
+        title:'个人信息',
+        iconClass:'icon iconarrow-right'
+      },
+      {
+        title:'意见反馈',
+        iconClass:'icon iconarrow-right'
+      },
+      {
+        title:'关于软件',
+        iconClass:'icon iconarrow-right'
+      },
+    ]
   },
 
-  /* 去收藏视频页 */
-  toUserVideo:function(){
-    wx.navigateTo({
-      url:'/pages/user-video/user-video'
-    })
-  },
-
-  /** 去设置页面 **/
-  toSetting:function(){
-    wx.navigateTo({
-      url:'/pages/user-setting/user-setting'
-    })
-  },
-
-  // 去消息页
-  toMessage:function(){
-    wx.navigateTo({
-      url:'/pages/user-message/user-message'
-    })
-  },
-
-   /* 去收藏文章页 */
-   toUserArticle:function(){
-    wx.navigateTo({
-      url:'/pages/user-article/user-article'
-    })
+  logout(){
+    console.log('退出登录')
   },
 
   /**

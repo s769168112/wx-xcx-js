@@ -17,7 +17,7 @@
       <view class="fl fl-sp-end fl-grow">
         <cover-image src="../../assets/image/icon/message.png" class="marginR8" style="height:48rpx;width:48rpx"
         bindtap="toMessage"></cover-image>
-        <cover-image src="../../assets/image/icon/setting.png" style="height:48rpx;width:48rpx"></cover-image>
+        <cover-image bindtap="toSetting" src="../../assets/image/icon/setting.png" style="height:48rpx;width:48rpx"></cover-image>
       </view>
     </view>
   </view>

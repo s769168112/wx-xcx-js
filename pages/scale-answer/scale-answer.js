@@ -16,11 +16,11 @@ Page({
   commitScale() {
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
     let params = {
-      answerId:this.data.pageRes.answerId
+      answerId: this.data.pageRes.answerId
     }
     api.commitScale(params).then(res => {
       wx.redirectTo({
-        url:`/pages/scale-result/scale-result?answerId=${this.data.pageRes.answerId}`
+        url: `/pages/scale-result/scale-result?answerId=${this.data.pageRes.answerId}`
       })
     })
   },
@@ -121,15 +121,17 @@ Page({
   nextQuest() {
     let sIndex = this.data.scaleIndex
     let cIndex = this.data.curIndex
-    if(this.data.pageRes.subjectList[cIndex].type == 2) {
+    if (this.data.pageRes.subjectList[cIndex].type == 2) {
       // 提交每题答案
       this.commitAnswer()
     }
-    this.setData({
-      curIndex: cIndex + 1,
-      scaleIndex: sIndex > cIndex ? sIndex : sIndex + 1
-    })
-    
+    setTimeout(() => {
+      this.setData({
+        curIndex: cIndex + 1,
+        scaleIndex: sIndex > cIndex ? sIndex : sIndex + 1
+      })
+    }, 1500);
+
   },
   // 获取量表题目
   getScaleTitle: function (options) {
