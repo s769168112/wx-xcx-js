@@ -1,7 +1,14 @@
 <!--pages/scale-result/scale-result.wxml-->
 <view>
+  <!-- 总分/平均分 -->
+  <view class="paddingB36" wx:if="{{pageRes.ratingType == 1}}">
+    <view class="marginLR26 paddingB36">量表得分</view>
+    <view class="fl fl-center">
+      <text style="font-size:120rpx;color:#2C6B13">{{pageRes.score}}</text>
+    </view>
+  </view>
   <!-- 因子 -->
-  <view class="paddingB36">
+  <view class="paddingB36" wx:elif="{{pageRes.ratingType == 3}}">
     <view class="marginLR26 paddingB36">量表得分</view>
     <view class="fl fl-wrap result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
       <view class="reason-tip" wx:for="{{pageRes.factor}}" wx:key="index">
@@ -25,7 +32,7 @@
   </view>
 
   <!-- 视频推荐 -->
-  <view class="paddingB50">
+  <view class="paddingB50" wx:if="{{pageRes.relationSurgeryList.length}}">
     <view class="paddingB36 marginLR26">视频推荐</view>
     <view class="marginLR26 fl fl-wrap fl-sp-bet">
       <view wx:for="{{pageRes.relationSurgeryList}}" class="view-shadow-3379ff-2 border-bbb-1-019 marginB10 border-radius-5 overflow-hidden"  bindtap="toVideoDetail" data-item="{{item}}" style="width:305rpx" wx:key="index">
