@@ -1,4 +1,4 @@
-// pages/user/user.js
+// pages/scale-buyScale/scale-buyScale.js
 Page({
 
   /**
@@ -6,41 +6,6 @@ Page({
    */
   data: {
 
-  },
-
-  /* 去收藏视频页 */
-  toUserVideo:function(){
-    wx.navigateTo({
-      url:'/pages/user-video/user-video'
-    })
-  },
-
-  /** 去设置页面 **/
-  toSetting:function(){
-    wx.navigateTo({
-      url:'/pages/user-setting/user-setting'
-    })
-  },
-
-  // 去消息页
-  toMessage:function(){
-    wx.navigateTo({
-      url:'/pages/user-message/user-message'
-    })
-  },
-
-  /* 去量表记录页 */
-  toUserScale(){
-    wx.navigateTo({
-      url:'/pages/user-scale/user-scale'
-    })
-  },
-
-   /* 去收藏文章页 */
-   toUserArticle:function(){
-    wx.navigateTo({
-      url:'/pages/user-article/user-article'
-    })
   },
 
   /**

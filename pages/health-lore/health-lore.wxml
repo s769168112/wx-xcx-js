@@ -46,13 +46,12 @@
         <view class="fl fl-col fl-sp-bet paddingTB3">
           <text class="font-14">{{item.title}}</text>
           <view class="fl fl-vertical">
-            <cover-image src="{{item.sysCreateUser.avatar}}" class="border-radius-100 marginR5" style="width:40rpx;height:40rpx">
-            </cover-image>
+            <view style="width:40rpx;height:40rpx;background-image:url({{item.sysCreateUser.avatar}});background-size:cover;background-repeatno-repeat"></view>
             <text class="font-12 color-101010">{{item.sysCreateUser.nickname}}</text>
           </view>
         </view>
         <view>
-          <cover-image src="{{item.cover}}" class="border-radius-10" style="width:140rpx;height:140rpx"></cover-image>
+          <view class="border-radius-10" style="width:140rpx;height:140rpx;background-image:url({{item.cover}});background-size:cover;background-repeatno-repeat"></view>
         </view>
       </view>
     </view>

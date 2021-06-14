@@ -51,6 +51,8 @@ Page({
       twoTag:'',
       twoTagIndex:''
     },
+    pageIndex:1,
+    totalPage:1,
   },
 
   // 切换选择
@@ -91,7 +93,6 @@ Page({
         ele.selected = true
       }
     })
-    console.log('奇怪',curTagDetail,this.data.tagList)
     this.setData({
       curTagDetail: curTagDetail,
       tagList: this.data.tagList
@@ -102,12 +103,17 @@ Page({
     this.getExamList()
     this.setData({
       openExam:false,
-      maskShow:false
+      maskShow:false,
+      pageIndex:1
     })
   },
   // 重置
   resetTag(){
+    this.setData({
+      pageIndex:1
+    })
     this.getDetailListTag()
+    
   },
   // 打开筛选下拉框
   openFilter: function () {
@@ -126,21 +132,33 @@ Page({
       openExam: this.data.openExam ? false : true
     })
   },
+  // 滚动到底部
+  scrollBottom(){
+    if(this.data.pageIndex > this.data.totalPage){
+      return false
+    }
+    this.setData({
+      pageIndex:(this.data.pageIndex+1)
+    })
+    this.getExamList()
+  },
   // 获取量表测试
   getExamList: function () {
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
     let curTag = this.data.curTagDetail
-    console.log('curTag',curTag)
     let params = {
       oneLevelLabel: curTag.oneTag.id != 0?curTag.oneTag.id:'',
       twoLevelLabel: curTag.twoTag.id != 0?curTag.twoTag.id:'',
-      pageIndex: 1,
+      pageIndex: this.data.pageIndex,
       pageSize: 10
     }
+
     api.getScaleList(params).then(res => {
-      console.log('获取量表', res)
+      console.log('获取量表', res,this.data.pageIndex)
+      let list = this.data.pageIndex == 1?res.dataList:[...this.data.examList,...res.dataList]
       this.setData({
-        examList: res.dataList
+        examList: list,
+        totalPage:res.totalPage
       })
     })
   },
@@ -178,6 +196,11 @@ Page({
   // 去量表测评介绍页
   toScaleDetail: function (e) {
     let { item } = e.currentTarget.dataset
+    // if(item.needBuy == 0) {
+    //   return wx.navigateTo({
+    //     url: `/pages/scale-buyScale/scale-buyScale?id=${item.id}`,
+    //   })
+    // }
     wx.navigateTo({
       url: `/pages/scale-introduct/scale-introduct?id=${item.id}`,
     })

@@ -100,6 +100,10 @@
     font-size: 36rpx;
 }
 
+.font-22 {
+    font-size: 44rpx;
+}
+
 .font-bold {
     font-weight: 600;
 }
@@ -395,6 +399,7 @@
     padding-top: 36rpx;
     padding-bottom: 36rpx;
 }
+
 .paddingTB23 {
     padding-top: 46rpx;
     padding-bottom: 46rpx;
@@ -437,6 +442,9 @@
 }
 .paddingB17 {
     padding-bottom: 17rpx;
+}
+.paddingB30 {
+    padding-bottom: 60rpx;
 }
 .paddingB36 {
     padding-bottom: 36rpx;

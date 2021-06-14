@@ -4,12 +4,17 @@
         <view class="fl fl-sp-bet marginB23">
             <view
                 class="{{[isFocus?'border-bbb border-radius-10 view-shadow':'border-transparent bg-color-BBBBBB color-101010 border-radius-10','fl-grow ']}}">
-                <view class="{{['marginLR32 fl fl-vertical position-relative',(searchResList.length && isFocus)?'border-bottom-bbb-1':'']}}" style="height:72rpx">
-                    <i  class="{{['icon iconsearch color-101010 marginR8 position-absolute search-icon search-center',isFocus?'search-icon-animation':'']}}"></i>
-                    <input type="text" value="{{searchText}}" placeholder="搜疾病或症状" class="{{['font-14 width100 height100 search-input position-absolute search-center',isFocus?'search-input-animation':'']}}"
-                        bindblur="inputBlur" bindfocus="inputFocus" bindinput="inputChange"/>
+                <view
+                    class="{{['marginLR32 fl fl-vertical position-relative',(searchResList.length && isFocus)?'border-bottom-bbb-1':'']}}"
+                    style="height:72rpx">
+                    <i
+                        class="{{['icon iconsearch color-101010 marginR8 position-absolute search-icon search-center',isFocus?'search-icon-animation':'']}}"></i>
+                    <input type="text" value="{{searchText}}" placeholder="搜疾病或症状"
+                        class="{{['font-14 width100 height100 search-input position-absolute search-center',isFocus?'search-input-animation':'']}}"
+                        bindblur="inputBlur" bindfocus="inputFocus" bindinput="inputChange" />
                 </view>
-                <view wx:if="searchResList.length != 0" class="{{['marginLR32 search-res-list overflow-hidden',isFocus?'max-search-res-list':'']}}" >
+                <view wx:if="searchResList.length != 0"
+                    class="{{['marginLR32 search-res-list overflow-hidden',isFocus?'max-search-res-list':'']}}">
                     <view wx:for="{{searchResList}}" wx:key="index" bindtap="toDetail" data-item="{{item}}">
                         <view class="{{['font-14 marginB8',index == 0?'marginT10':'']}}">
                             <rich-text nodes="{{item.title}}"></rich-text>
@@ -32,9 +37,8 @@
         <view class="fl fl-wrap fl-sp-start">
             <view wx:for="{{departmentList}}" wx:key="index" style="flex-basis:33%" bindtap="toDepartment"
                 data-item="{{item}}" class="fl fl-col fl-center marginB34">
-                <view>
-                    <cover-image src="{{item.icon||'../../assets/image/video-icon.png'}}" class="border-radius-5"
-                        style="width:120rpx;height:120rpx"></cover-image>
+                <view class="depart-icon border-radius-5"
+                    style="width:120rpx;height:120rpx;background-image:url({{item.icon || 'https://b.yzcdn.cn/vant/icon-demo-1126.png'}})">
                 </view>
                 <text>{{item.name}}</text>
             </view>

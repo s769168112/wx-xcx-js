@@ -11,6 +11,13 @@ const URL_USER_FAVORITES_CANCEL = '/api/userOperation/cancelCollect'
 const URL_USER_FAVORITES = '/api/userOperation/doCollect'
 // 用户分享
 const URL_USER_SHARE_CANCEL = '/api/userOperation/doShare'
+
+// 用户量表记录
+const URL_USER_SCALE_RECORD = '/api/user/getScaleRecord'
+// 用户消息
+const URL_USER_MESSAGE_LIST = '/api/user/getMessage'
+
+
 export class UserHttpService {
   /** 获取用户收藏的手术视频 **/
   getUserVideoListData(data) {
@@ -38,6 +45,17 @@ export class UserHttpService {
   userFavoritesCancel(data) {
     let url = URL_USER_FAVORITES_CANCEL;
     return api.requestPost(url, data, true);
+  }
+
+  /** 用户量表 **/
+  userScaleRecord(data) {
+    let url = URL_USER_SCALE_RECORD;
+    return api.requestGet(url, data);
+  }
+
+  userMessage(data) {
+    let url = URL_USER_MESSAGE_LIST;
+    return api.requestGet(url, data);
   }
   
 }

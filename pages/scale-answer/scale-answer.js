@@ -130,7 +130,7 @@ Page({
         curIndex: cIndex + 1,
         scaleIndex: sIndex > cIndex ? sIndex : sIndex + 1
       })
-    }, 1500);
+    }, 750);
 
   },
   // 获取量表题目

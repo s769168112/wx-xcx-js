@@ -34,6 +34,12 @@ Page({
     ],
     pageRes:{}
   },
+  // 更多测试
+  toMoreScale(){
+    wx.navigateTo({
+      url:`/pages/health-exam/health-exam`
+    })
+  },
   // 获取量表结果页
   getScaleResult(options){
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype

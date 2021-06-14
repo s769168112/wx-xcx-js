@@ -1,66 +1,59 @@
 {
-  "pages":[
+  "pages": [
     
-  
-
     "pages/index/index",
     "pages/search/search",
-    
     "pages/disease-department/disease-department",
     "pages/disease/disease",
     "pages/disease-detail/disease-detail",
     "pages/disease-guide/disease-guide",
     "pages/disease-qa/disease-qa",
-    
     "pages/surgery-detail/surgery-detail",
     "pages/surgery/surgery",
-    
     "pages/user/user",
     "pages/user-video/user-video",
+    "pages/user-scale/user-scale",
     "pages/user-article/user-article",
     "pages/user-message/user-message",
     "pages/user-setting/user-setting",
-
-
     "pages/health/health",
     "pages/health-detail/health-detail",
-    
     "pages/health-lore/health-lore",
-
     "pages/health-exam/health-exam",
+    "pages/scale-buyScale/scale-buyScale",
     "pages/scale-introduct/scale-introduct",
     "pages/scale-answer/scale-answer",
-    "pages/scale-result/scale-result"
-    
-    
+    "pages/scale-result/scale-result",
+    "pages/component/wrapper-title",
+    "pages/component/wrapper-title/wrapper-title"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "tabBar":{
+  "tabBar": {
     "backgroundColor": "#ffffff",
     "selectedColor": "#000000",
     "color": "#000000",
-    "list":[
+    "list": [
       {
-        "pagePath":"pages/index/index",
-        "text":"主页",
+        "pagePath": "pages/index/index",
+        "text": "主页",
         "iconPath": "assets/image/icon/index-inactive.png",
         "selectedIconPath": "assets/image/icon/index-active.png"
       },
       {
-        "pagePath":"pages/health/health",
-        "text":"健康",
+        "pagePath": "pages/health/health",
+        "text": "健康",
         "iconPath": "assets/image/icon/health-inactive.png",
         "selectedIconPath": "assets/image/icon/health-active.png"
       },
       {
-        "pagePath":"pages/user/user",
-        "text":"我的",
+        "pagePath": "pages/user/user",
+        "text": "我的",
         "iconPath": "assets/image/icon/user-inactive.png",
         "selectedIconPath": "assets/image/icon/user-active.png"
       }

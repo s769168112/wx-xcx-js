@@ -13,6 +13,9 @@ Page({
   // 滚动到底部触发
   scrollBtm:function(){
     if(this.data.noData) return false;
+    this.setData({
+      pageIndex:(pageIndex + 1)
+    })
     this.getUserArticleListData()
   },
 

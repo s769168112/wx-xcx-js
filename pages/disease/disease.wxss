@@ -24,3 +24,8 @@
 .max-search-res-list {
   max-height: 400rpx;
 }
+
+.depart-icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+}

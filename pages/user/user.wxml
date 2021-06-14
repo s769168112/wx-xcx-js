@@ -23,7 +23,7 @@
   </view>
 
   <view class="marginLR20">
-    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8" bindtap="toUserVideo">
+    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8" bindtap="toUserScale">
       <view class="fl fl-vertical">
         <cover-image src="../../assets/image/recard-icon.png" class="marginR20" style="height:120rpx;width:120rpx">
         </cover-image>

@@ -41,7 +41,8 @@
           class="width100 fl fl-col fl-sp-bet position-relative">
           <view class="fl-grow fl fl-center">
             <!-- <text class="icon iconchecked color-FFDE02"></text> -->
-            <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image>
+            <!-- <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image> -->
+            <view class="video-play-icon" style="height:32rpx;width:32rpx"></view>
           </view>
           <view class="color-white fl fl-sp-bet fl-vertical bg-color-101010-04 paddingLR6 position-absolute width100 box-sizing"
             style="bottom:0">

@@ -1,0 +1,5 @@
+.bottom-line {
+    height:6rpx;
+    width:80rpx;
+    position: absolute;
+}

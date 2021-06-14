@@ -5,26 +5,36 @@ Page({
    * 页面的初始数据
    */
   data: {
-    messageList:[]
+    messageList:[],
+    pageIndex:1,
+    pageSize:20,
+    
   },
-  
+  // 滚动到底部
+  scrollBtm(){
+    if(this.data.pageIndex > this.data.totalPage){
+      return false
+    }
+    this.setData({
+      pageIndex:(this.data.pageIndex + 1)
+    })
+    this.getMessageList()
+  },
   // 获取消息列表
   getMessageList:function(){
-    let list = [
-      {
-        title:'系统通知1',
-        time:'11-20',
-        message:'感谢您使用本软件，目前软件内容尚未完善，后需将持续更新。'
-      },
-      {
-        title:'系统通知2',
-        time:'11-21',
-        message:`感谢您使用本软件，目前软件内容尚未完善，后需将持续更新。感谢您使用本软件，目前软件内容尚未完善，后需将持续更新。`
-      },
-    ]
-    this.setData({
-      messageList:list
+    const api = require("../../api/user/user.service").UserHttpService.prototype
+    let params = {
+      pageIndex:this.data.pageIndex,
+      pageSize:this.data.pageSize
+    }
+    api.userMessage(params).then(res => {
+      console.log('消息',res)
+      this.setData({
+        messageList:res.dataList,
+        totalPage:res.totalPage
+      })
     })
+    
   },
   /**
    * 生命周期函数--监听页面加载

@@ -28,7 +28,7 @@
       <text class="font-12 color-DBDCDC" bindtap="toHealthLore">更多<text class="icon iconarrow-right font-12"
           style="font-size:24rpx"></text></text>
     </view>
-    <view class="view-shadow-10 marginLR56 border-radius-20 paddingLR17 paddingT18 paddingB8 marginB19">
+    <view class="view-shadow-3379ff-2 marginLR56 border-radius-20 paddingLR17 paddingT18 paddingB8 marginB19">
       <view wx:for="{{knowledge}}" wx:key="index"
         class="{{['fl marginB8',index == knowledge.length-1?'':'border-bottom-E1E1E1 paddingB8']}}"
         bindtap="toHealthDetail" data-item="{{item}}" style="height:160rpx">

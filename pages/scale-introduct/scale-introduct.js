@@ -13,9 +13,11 @@ Page({
   },
   actionScale:function(e){
     let { item } = e.currentTarget.dataset;
+    
     if(this.data.action == 0) {
       this.setData({
-        action:1
+        action:1,
+        goOnAnswer:this.data.answerId?true : false
       })
     } else {
       if(item == 1){
@@ -30,16 +32,13 @@ Page({
     }
   },
   getScaleDetail:function (options) {
-    console.log('op',options)
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
 
     api.getScaleDetail(options.id).then(res => {
-      console.log('量表详情',res,res.answerId)
       this.setData({
         pageRes:res,
         id:res.id,
         answerId:res.answerId,
-        goOnAnswer:res.answerId?true : false
       })
     })
   },
