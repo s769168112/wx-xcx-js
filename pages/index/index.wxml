@@ -1,14 +1,14 @@
 <!--pages/index/index.wxml-->
 <view class="contain">
   <view>
-    <view class="paddingLR20 marginB38 fl fl-center fl-vertical" style="margin-top:200rpx" >
+    <view class="paddingLR20 marginB38 fl fl-center fl-vertical" style="margin-top:15vh" >
       <view class="marginR20" style="width:128rpx">
         <cover-image src="../../assets/image/logo.png" />
       </view>
       <!-- <cover-image src="../../assets/image/" /> -->
       <text>承拓科技</text>
     </view>
-    <view class="marginLR26 marginB44" bindtap="toSearch">
+    <view class="marginLR26 marginB15" bindtap="toSearch">
       <view class="view-shadow-10 border-radius-100">
         <view class="fl fl-vertical paddingLR25 paddingTB16">
           <text class="icon iconsearch font-18 font-bold"></text>

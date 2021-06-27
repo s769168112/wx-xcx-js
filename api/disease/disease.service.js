@@ -12,6 +12,11 @@ const URL_DISEABE_MEDICAL = '/api/medical/searchMedical'
 // 查询疾病列表
 const URL_DISEABE_MEDICALList = '/api/medical/getMedicalList'
 
+// 获取疾病详情页相关文章
+const URL_GET_ABOUT_ARTICLE = '/api/tips/getTipsByMedical'
+// 获取疾病详情页相关问题
+const URL_GET_ABOUT_QA = '/api/qa/getQaByMedical'
+
 
 
 
@@ -50,6 +55,18 @@ export class DiseaseHttpService {
   getDiseaseQADetailData(id) {
     let url = URL_DISEABE_QA_DETAIL + `/${id}`;
     return api.requestGet(url);
+  }
+
+
+  // 获取相关文章
+  getAboutArticle(data) {
+    let url = URL_GET_ABOUT_ARTICLE
+    return api.requestPost(url,data);
+  }
+  // 获取相关问题
+  getAboutQa(data) {
+    let url = URL_GET_ABOUT_QA
+    return api.requestPost(url,data);
   }
   
 }

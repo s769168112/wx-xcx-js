@@ -34,7 +34,11 @@
     <!-- 常见科室 -->
     <view class="marginLR26">
         <view class="marginB19">常见科室</view>
-        <view class="fl fl-wrap fl-sp-start">
+        <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5"
+            wx:if="{{!departmentList.length}}">
+            <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+        </view>
+        <view wx:else class="fl fl-wrap fl-sp-start">
             <view wx:for="{{departmentList}}" wx:key="index" style="flex-basis:33%" bindtap="toDepartment"
                 data-item="{{item}}" class="fl fl-col fl-center marginB34">
                 <view class="depart-icon border-radius-5"
@@ -43,5 +47,6 @@
                 <text>{{item.name}}</text>
             </view>
         </view>
+        
     </view>
 </view>

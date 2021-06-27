@@ -211,7 +211,9 @@ Page({
    */
   onLoad: function (options) {
     this.getDetailListTag()
-    this.getExamList()
+    setTimeout(() => {
+      this.getExamList()
+    }, 1500);
   },
 
   /**

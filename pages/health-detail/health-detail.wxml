@@ -26,14 +26,17 @@
       </view>
     </view>
   </view>
-
+  
   <!-- 灰色背景介绍部分 -->
-  <view class="marginB8 bg-color-BBBBBB font-14 marginLR26 border-radius-10 paddingTB16 paddingLR17 color-101010-07">
-    {{pageResData.introduction}}
+  <view class="marginB8 bg-color-BBBBBB font-14 marginLR26 border-radius-10 paddingTB16 paddingLR17 color-101010-07" wx:if="{{pageResData.type == 0}}">
+    <rich-text nodes="{{pageResData.introduction}}"></rich-text>
   </view>
-
+  
   <!-- 内容部分 -->
-  <view class="marginLR26 marginB15">
+  <view class="marginLR26 marginB15 view-shadow-3379ff-2 paddingLR17 paddingTB16" wx:if="{{pageResData.type == 1}}">
+    <rich-text nodes="{{pageResData.context}}"></rich-text>
+  </view>
+  <view class="marginLR26 marginB15 " wx:else>
     <rich-text nodes="{{pageResData.context}}"></rich-text>
   </view>
 </view>

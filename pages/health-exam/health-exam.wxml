@@ -1,4 +1,4 @@
-<view>
+<view class="paddingB30">
   <view class="bg-white marginB8 zindex2">
     <view class="fl fl-sp-bet fl-vertical marginLR26">
       <view>
@@ -51,18 +51,21 @@
       </view>
     </view>
   </view>
-  <view class="" style="z-index:0">
+  <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5" wx:if="{{!examList.length}}">
+      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+  <view class="" style="z-index:0" wx:else>
     <scroll-view scroll-y="true" class="list-box" bindscrolltolower="scrollBottom">
       <view wx:for="{{examList}}" wx:key="index" bindtap="toScaleDetail" data-item="{{item}}"
         class="{{['fl fl-sp-bet paddingLR20 marginLR26 view-shadow-3379ff-2 border-radius-10 paddingTB8 marginB8',index == 0?'marginT20':'']}}">
         <view class="fl fl-col fl-sp-around">
-          <text>{{item.title}}</text>
-          <text class="color-101010 font-12">{{item.instruction}}</text>
+          <text class="text-cut text-cut-one" style="width:400rpx">{{item.title}}</text>
+          <text class="color-101010 font-12 text-cut text-cut-two" style="width:400rpx">{{item.instruction}}</text>
           <view class="fl color-707070 font-10">
             <view class="marginR8"><text class="icon iconuser-artivar" style="font-size:20rpx"></text>
-              <text wx:if="{{judgeType == 0}}">父母评论</text>
-              <text wx:elif="{{judgeType == 1}}">自评</text>
-              <text wx:elif="{{judgeType == 2}}">他评</text>
+              <text wx:if="{{item.judgeType == 0}}">父母评</text>
+              <text wx:elif="{{item.judgeType == 1}}">自评</text>
+              <text wx:elif="{{item.judgeType == 2}}">他评</text>
               <text wx:else>教师评</text>
             </view>
             <view class="marginR8"><text class="icon iconbi" style="font-size:20rpx"> </text> {{item.subjectTotal}}题
@@ -70,7 +73,7 @@
             <view><text class="icon iconshare" style="font-size:20rpx"> </text> 分享</view>
           </view>
         </view>
-        <view class="border-radius-50 border-bottom-bbb-042" style="height:162rpx;width:162rpx;background:url({{item.cover}});background-repeat: no-repeat;background-size:cover">
+        <view class="border-radius-50 border-bottom-bbb-042" style="height:162rpx;min-width:162rpx;background:url({{item.cover}});background-repeat: no-repeat;background-size:cover">
           <!-- background-size:cover;
         background-repeat: no-repeat;
         background:url({{item.cover}}) -->

@@ -1,4 +1,4 @@
-<view>
+<view class="paddingB30">
   <view class="marginLR26 marginB15">
     <view class="font-PF font-bold marginB17">就诊信息</view>
     <view class="fl fl-col paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
@@ -83,6 +83,7 @@
    <view class="marginLR26 marginB15">
     <view class="font-PF font-bold marginB17">护理信息</view>
     <view wx:for="{{pageResData.relationNursingList}}" wx:key="index"
+    bindtap="toSurgery" data-item="{{item}}"
       class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
       <cover-image class="marginR14" src="{{item.cover}}" style="width:170rpx;height:126rpx">
       </cover-image>

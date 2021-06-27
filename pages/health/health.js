@@ -50,6 +50,9 @@ Page({
     }
     api.getHealthLoreListData(params).then(res => {
       console.log('数据列表',res)
+      res.dataList.forEach(ele => {
+        ele.introduction = ele.introduction.replace(/<img [^>]*src=['"]([^'"]+)[^>]*>/g,'')
+      })
       this.setData({
         knowledge:res.dataList
       })

@@ -1,0 +1,12 @@
+<view>
+  <view class="marginTB20 marginLR20">
+    <view wx:for="{{relationTipsList}}" wx:key="index" bindtap="toArticle" data-item="{{item}}"
+    class="box-sizing text-cut text-cut-two paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5"
+    style="height:172rpx">
+    <view class="font-bold font-PF font-14 paddingB6">{{item.title}}</view>
+    <view class="font-12 color-101010-08">
+      <rich-text class="text-cut text-cut-two" nodes="{{item.introduction}}"></rich-text>
+    </view>
+  </view>
+  </view>
+</view>

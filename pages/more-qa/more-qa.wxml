@@ -1,0 +1,16 @@
+<view>
+  <view class="marginTB20 marginLR20">
+    <view wx:for="{{relationQaList}}" wx:key="index"
+        bindtap="toQuest"
+        data-item="{{item}}"
+        class="text-cut text-cut-two paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5"
+        >
+        <view class="font-bold font-PF font-14 paddingB3">{{item.title}}</view>
+        <view class="font-12 color-101010-08 bg-color-BBBBBB-14 border-radius-5 paddingTB5 paddingLR6"
+          >
+          <text class="text-cut text-cut-two">{{item.answer}}
+          </text>
+        </view>
+      </view>
+  </view>
+</view>

@@ -1,18 +1,18 @@
-<view>
+<view class=" paddingB30">
   <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
 
   <view class="fl fl-center marginLR26 color-4EA9BE marginB23 marginT20">
     <text>{{pageRes.title}}</text>
   </view>
   <view class="view-shadow-3379ff-2 marginLR56 marginB13 border-radius-10 paddingLR26 paddingT18 paddingB23">
-    <view class="fl fl-vertical marginB20">
-      <text class="font-14 marginR8">{{pageRes.subjectList[curIndex].title}}</text>
-      <text class="paddingLR5 border-radius-5 color-F75A2F font-10 border-F75A2F">{{pageRes.subjectList[curIndex].type == 1?'单选':'多选'}}</text>
+    <view class="fl  marginB20">
+      <text class="font-14 marginR8" style="width:200px">{{pageRes.subjectList[curIndex].title}}</text>
+      <text class="paddingLR5 border-radius-5 color-F75A2F font-10 border-F75A2F" style="height:32rpx;margin-top:5rpx">{{pageRes.subjectList[curIndex].type == 1?'单选':'多选'}}</text>
     </view>
     <view 
       bindtap="addAnswer" data-item="{{item}}" data-index="{{index}}"
       wx:for="{{pageRes.subjectList[curIndex].optionList}}" wx:key="index"
-      class="{{['marginB8 paddingLR17 paddingTB8 border-radius-5',item.isSelected?'bg-color-1ADCA9':'bg-color-BBBBBB-14']}}"
+      class="{{['marginB8 paddingLR17 paddingTB8 border-radius-5',item.selected?'bg-color-1ADCA9':'bg-color-BBBBBB-14']}}"
       >
       <text class="font-14">{{item.title}}</text>
     </view>

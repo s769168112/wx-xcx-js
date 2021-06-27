@@ -68,7 +68,7 @@ Page({
         ele.title = ele.title.replace(new RegExp(str,'g'), `<span style="color:rgba(242, 10, 10, 0.68)">${this.data.searchText}</span>`)
       });
       this.setData({
-        searchDisplayRes:res.dataList
+        searchDisplayRes:res.dataList.splice(1,5)
       })
     })
   },

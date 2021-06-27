@@ -130,7 +130,7 @@ Page({
         curIndex: cIndex + 1,
         scaleIndex: sIndex > cIndex ? sIndex : sIndex + 1
       })
-    }, 750);
+    }, 500);
 
   },
   // 获取量表题目
@@ -142,9 +142,25 @@ Page({
     }
     api.getScaleTitle(params).then(res => {
       console.log('量表题目', res)
+      let answerIdList = this.data.answerIdList
+      let curIndex = 0
+      if (options.answerId) {
+        for (let i = 0;i<res.subjectList.length;i++) {
+          res.subjectList[i].optionList.forEach((ele) => {
+            if(ele.selected) {
+              answerIdList[i]?answerIdList[i].push(ele.id):answerIdList[i] = [ele.id]
+              curIndex = i
+            }
+          })
+        }
+      }
+
       this.setData({
         pageRes: res,
-        id: options.id
+        id: options.id,
+        curIndex:(curIndex + 1),
+        scaleIndex:(curIndex + 1),
+        answerIdList:answerIdList
       })
     })
   },

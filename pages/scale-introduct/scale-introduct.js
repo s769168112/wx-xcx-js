@@ -5,40 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pageRes:'',
-    action:0,
-    id:'',
-    answerId:'',
-    goOnAnswer:false,
+    pageRes: '',
+    action: 0,
+    id: '',
+    answerId: '',
+    goOnAnswer: false,
   },
-  actionScale:function(e){
+  actionScale: function (e) {
     let { item } = e.currentTarget.dataset;
+
     
-    if(this.data.action == 0) {
-      this.setData({
-        action:1,
-        goOnAnswer:this.data.answerId?true : false
-      })
-    } else {
-      if(item == 1){
+    if(item) {
+      if (item == 1) {
         wx.redirectTo({
-          url:`/pages/scale-answer/scale-answer?id=${this.data.id}&answerId=${this.data.answerId}`
+          url: `/pages/scale-answer/scale-answer?id=${this.data.id}&answerId=${this.data.answerId}`
         })
       } else {
         wx.redirectTo({
-          url:`/pages/scale-answer/scale-answer?id=${this.data.id}`
+          url: `/pages/scale-answer/scale-answer?id=${this.data.id}`
+        })
+      }
+    } else {
+      if(this.data.pageRes.description && this.data.action == 0) {
+        this.setData({
+          action:1
+        })
+      } else {
+        wx.redirectTo({
+          url: `/pages/scale-answer/scale-answer?id=${this.data.id}`
         })
       }
     }
+    
   },
-  getScaleDetail:function (options) {
+  getScaleDetail: function (options) {
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
 
     api.getScaleDetail(options.id).then(res => {
+
+      console.log('获取详情', res)
       this.setData({
-        pageRes:res,
-        id:res.id,
-        answerId:res.answerId,
+        pageRes: res,
+        id: res.id,
+        answerId: res.answerId,
+        goOnAnswer: res.answerId ? true : false
       })
     })
   },

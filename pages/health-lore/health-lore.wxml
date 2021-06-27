@@ -10,7 +10,7 @@
           style="height:72rpx">
           <i
             class="{{['icon iconsearch color-101010 marginR8 position-absolute search-icon search-center',isFocus?'search-icon-animation':'']}}"></i>
-          <input type="text" value="{{searchText}}" placeholder="搜疾病或症状"
+          <input type="text" value="{{searchText}}" placeholder="搜索健康知识"
             class="{{['font-14 width100 height100 search-input position-absolute search-center',isFocus?'search-input-animation':'']}}"
             bindblur="inputBlur" bindfocus="inputFocus" bindinput="inputChange" />
         </view>

@@ -8,6 +8,8 @@
     "pages/disease-detail/disease-detail",
     "pages/disease-guide/disease-guide",
     "pages/disease-qa/disease-qa",
+    "pages/more-qa/more-qa",
+    "pages/more-article/more-article",
     "pages/surgery-detail/surgery-detail",
     "pages/surgery/surgery",
     "pages/user/user",
@@ -36,7 +38,7 @@
   "sitemapLocation": "sitemap.json",
   "tabBar": {
     "backgroundColor": "#ffffff",
-    "selectedColor": "#000000",
+    "selectedColor": "#5bdba9",
     "color": "#000000",
     "list": [
       {
