@@ -22,12 +22,14 @@
     <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
         <image src="../../assets/image/comment.png" style="display:inline-block;height:40rpx;transform:translateY(8rpx);width:40rpx;margin-right:12rpx"></image>
       <text class="result-tip-text">{{pageRes.comment}}</text>
+      <text wx:if="{{!loading && !pageRes.comment}}">测试结果异常，如果给您造成不便，我们万分抱歉</text>
     </view>
   </view>
   <view class="paddingB36">
     <view class="paddingB36 marginLR26">健康小贴士</view>
     <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
       <text class="result-tip-text">{{pageRes.tips}}</text>
+      <text wx:if="{{!loading && !pageRes.tips}}">无法根据结果给予相应的建议，如果给您造成不便，我们万分抱歉。</text>
     </view>
   </view>
 

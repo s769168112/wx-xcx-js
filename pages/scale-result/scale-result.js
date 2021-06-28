@@ -32,7 +32,8 @@ Page({
         title:'题目'
       }
     ],
-    pageRes:{}
+    pageRes:{},
+    loading:true,
   },
   // 更多测试
   toMoreScale(){
@@ -49,7 +50,8 @@ Page({
     api.getScaleResult(params).then(res => {
       console.log('量表结果',res)
       this.setData({
-        pageRes:res
+        pageRes:res,
+        loading:false
       })
     })
   },
