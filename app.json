@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/health-exam/health-exam",
+    
     "pages/index/index",
     "pages/search/search",
-    
+    "pages/health-exam/health-exam",
     "pages/disease-department/disease-department",
     "pages/disease/disease",
     "pages/disease-detail/disease-detail",
