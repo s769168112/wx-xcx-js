@@ -1,0 +1,38 @@
+<view>
+  <view>
+    <view class="fl marginLR26 marginB10">
+      <view class="title-wrapper">
+        <text class="title">订单详情</text>
+        <text class="wrapper-line"></text>
+      </view>
+    </view>
+    <view class="view-shadow-3379ff-2 marginLR26 marginB44 border-radius-10 paddingLR20 paddingT10 paddingB30">
+      <view class="marginB20 font-bold">订单量表</view>
+      <view class="scale-intr marginB20">
+
+      </view>
+      <view class="marginB20 font-bold">量表套餐</view>
+      <view class="fl ">
+        <view class="scale-item-price view-shadow-3379ff-2 paddingLR10 paddingTB5 font-14">
+          <view>单次测评</view>
+          <view class="fl fl-center"><text style="font-size:40rpx" class="icon iconclock"></text></view>
+          <view>{{3}}元/次</view>
+        </view>
+        <view class="scale-item-price view-shadow-3379ff-2 paddingLR10 paddingTB5 font-14">
+          <view>永久免费</view>
+          <view class="fl fl-center"><text style="font-size:40rpx" class="icon iconrili font-bold"></text></view>
+          <view>{{10}}元</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="fl fl-center">
+      <cover-image src="../../assets/image/buy-scale.png" style="width:400rpx;height:400rpx"></cover-image>
+    </view>
+    <view>
+      <view>
+        <text>确认订单</text>
+      </view>
+    </view>
+  </view>
+</view>

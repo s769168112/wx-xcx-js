@@ -1,0 +1,24 @@
+<view class="">
+  <scroll-view class="marginB8 scroll-view marginT20" scroll-y bindscrolltolower="scrollBtm">
+    <view class="marginB15 marginLR26">
+      <text>消息</text>
+    </view>
+    <view class="marginLR26">
+      <view wx:for="{{messageList}}" wx:key="index"
+        class="fl fl-vertical view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB12 marginB8">
+        <view class="marginR25">
+          <cover-image src="../../assets/image/user-message.png" style="height:60rpx;width:60rpx"></cover-image>
+        </view>
+        <view class="fl fl-col fl-grow">
+          <view class="fl-grow fl fl-sp-bet fl-vertical">
+            <text class="font-14 font-bold marginR8">{{item.type == 0?'系统消息':item.type == 1?'问答回复消息':item.type==2?'量表結果消息':'订单消息'}}</text>
+            <text class="font-12">{{item.createTime}}</text>
+          </view>
+          <view>
+            <text class="font-12 text-cut-three text-cut">{{item.message}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

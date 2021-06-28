@@ -5,28 +5,113 @@ Page({
    * 页面的初始数据
    */
   data: {
-    surgeryVideoList:[],
-    pageIndex:1,
-    pageSize:10,
-    noData:false
+    surgeryVideoList: [],
+    pageIndex: 1,
+    pageSize: 10,
+    noData: false,
+    status:0, // 开启删除状态
+    selectedList:[],
+
+  },
+  openDetele(){
+    this.setData({
+      status:1
+    })
+  },
+  // 删除所选
+  deleted(){
+    if(!this.data.selectedList.length) {
+      this.data.surgeryVideoList.forEach(ele => {
+        ele.is_selected = false
+      })
+      return this.setData({
+        status:0,
+        selectedList:[],
+        surgeryVideoList:this.data.surgeryVideoList
+      })
+    } else {
+      const api = require("../../api/user/user.service").UserHttpService.prototype
+      this.data.selectedList.forEach(ele => {
+        let params = {
+          type:1,
+          id:ele.id
+        }
+        api.userFavoritesCancel(params).then(res => {
+          console.log('收藏结果', res)
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none',
+            duration: 2000
+          })
+          this.getSurgeryListData()
+          this.setData({
+            status:0
+          })
+        })
+      })
+    }
+  },
+  selectedAll(){
+    console.log('全选')
+    this.data.selectedList = []
+    this.data.surgeryVideoList.forEach(ele => {
+      ele.is_selected = true
+      this.data.selectedList.push(ele)
+    })
+    this.setData({
+      selectedList:this.data.selectedList,
+      surgeryVideoList:this.data.surgeryVideoList
+    })
   },
 
-  toVideoDetail:function(){
-    console.log('去详情',)
+  // 滚动到底部触发
+  scrollBtm: function () {
+    if (this.data.noData) return false;
+    this.setData({
+      pageIndex: (pageIndex + 1)
+    })
+    this.getUserArticleListData()
+  },
+  
+  toVideoDetail: function (e) {
+    let { item , index} = e.currentTarget.dataset
+    console.log(e.currentTarget.dataset)
+    if(this.data.status == 1) {
+      if(!item.is_selected){
+        this.data.selectedList.push(item)
+      } else {
+        this.data.selectedList.splice(index,1)
+      }
+      this.data.surgeryVideoList[index].is_selected = !item.is_selected
+      this.setData({
+        surgeryVideoList:this.data.surgeryVideoList,
+        selectedList:this.data.selectedList
+      })
+
+    } else {
+      wx.navigateTo({
+        url: `/pages/surgery-detail/surgery-detail?id=${item.id}`
+      })
+    }
   },
 
   // 获取手术视频
-  getSurgeryListData:function(){
+  getSurgeryListData: function () {
     const api = require("../../api/user/user.service").UserHttpService.prototype
     let params = {
-      pageIndex:this.data.pageIndex,
-      pageSize:this.data.pageSize,
+      pageIndex: this.data.pageIndex,
+      pageSize: this.data.pageSize,
     }
     api.getUserVideoListData(params).then(res => {
-      console.log('获取用户收藏视频',res)
+      console.log('获取用户收藏视频', res)
+      let secondToDate = require("../../utils/util.js").secondToDate
+      res.dataList.forEach(ele => {
+        ele.is_selected = false
+        ele.videoDuration = secondToDate(ele.videoDuration)
+      })
       this.setData({
-        surgeryVideoList:[...res.dataList,...res.dataList,...res.dataList],
-        noData:res.totalPage > this.data.pageIndex?false:true
+        surgeryVideoList: [...res.dataList],
+        noData: res.totalPage > this.data.pageIndex ? false : true
       })
     })
   },

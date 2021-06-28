@@ -1,0 +1,44 @@
+<view>
+  <scroll-view class="scroll-view marginT20" scroll-y bindscrolltolower="scrollBtm">
+    <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5" wx:if="{{!scaleList.length}}">
+      <cover-image src="../../assets/image/like-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+
+    <view class="marginB10 paddingTB23" wx:else>
+      <view class="scale-item view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB23 marginLR26 marginB10"
+        wx:for="{{scaleList}}" wx:key="index">
+        <view class="{{['fl fl-sp-bet fl-verticality']}}">
+          <view class="fl">
+            <view class="marginR17 scale-icon" 
+            style="width:100rpx;height:100rpx;" >
+            </view>
+            <!-- <cover-image class="marginR17" src="../../assets/image/scale.png" >
+            </cover-image> -->
+            <view class="fl fl-col fl-sp-around" style="max-width:250rpx">
+              <view class="scale-title">{{item.title}}</view>
+              <view class="scale-time">
+                {{item.answerList.length > 1?'共'+ item.answerList.length + '条记录':'测试完成时间' + item.createTime}}</view>
+            </view>
+          </view>
+          <view bindtap="viewDetail" data-item="{{item}}" data-index="{{index}}"  style="min-width:136rpx;max-width:136rpx" class="{{['font-12 fl fl-center color-gray',item.showMore?'':'']}}">
+            <text>{{item.answerList.length > 1?"展开查看":'查看结果'}}</text>
+            <text class="{{['icon iconarrow-right1 color-opac-gary',item.showMore?'transiton-arrow':'']}}"
+              style="font-size:24rpx" wx:if="{{item.answerList.length > 1}}"></text>
+            <text class="icon iconarrow-right" style="font-size:24rpx" wx:else></text>
+          </view>
+        </view>
+        <view class="show-more-scale overflow-hidden" style="height:{{item.scaleHeight}}rpx;">
+          <view wx:for="{{item.answerList}}" wx:key="index" class="fl fl-sp-bet" style="padding:30rpx 0 0;">
+            <view class="fl fl-verticality color-gray font-12">
+             <text>测试完成时间{{item.updateTime}}</text> 
+            </view>
+            <view style="min-width:136rpx;max-width:136rpx" bindtap="toDetail" data-item="{{item}}" class="fl fl-center font-12">
+              <text >查看结果</text>
+              <text class="icon iconarrow-right" style="font-size:24rpx"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

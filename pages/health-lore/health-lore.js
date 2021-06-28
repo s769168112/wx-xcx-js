@@ -17,6 +17,35 @@ Page({
     pageSize:10,
     noData:false, // 是否已经没有数据了
     labelId:'',
+    searchResList:[],//搜索结果
+    isFocus:false,
+    searchText:''
+  },
+  // 输入框部分
+  inputChange:function(e){
+    
+    this.setData({
+      searchText:e.detail.value
+    })
+    this.searchHealthLoreListData()
+    
+  },
+  inputFocus:function(){
+    this.setData({
+      isFocus:true
+    })
+  },
+  inputBlur:function(e){
+    if(this.data.searchText == '') {
+      setTimeout(() => {
+        this.setData({
+          searchResList:[]
+        })
+       }, 500);
+    }
+    this.setData({
+      isFocus:false
+    })
   },
 
   // 滚动到底部
@@ -45,7 +74,26 @@ Page({
       url:`/pages/health-detail/health-detail?id=${id}`
     })
   },
-
+  // 搜索下拉框数据
+  searchHealthLoreListData:function() {
+    const api = require("../../api/health/health.service").HealthHttpService.prototype
+    let params = {
+      pageIndex:1,
+      pageSize:100,
+      search:this.data.searchText
+    }
+    api.getHealthLoreListData(params).then(res => {
+      console.log('搜索数据列表',res)
+      let str = this.data.searchText
+      res.dataList.forEach(ele => {
+        ele.title = ele.title.replace(new RegExp(str,'g'), `<span style="color:rgba(242, 10, 10, 0.68)">${this.data.searchText}</span>`)
+      });
+      this.setData({
+        searchResList:res.dataList
+      })
+    })
+  },
+  // 初始获取
   getHealthLoreListData:function() {
     const api = require("../../api/health/health.service").HealthHttpService.prototype
     let params = {

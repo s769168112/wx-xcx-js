@@ -1,7 +1,7 @@
 <!--pages/health/health.wxml-->
-<view>
+<view class="paddingB23">
   <view style="height:234rpx" class="position-relative">
-    <cover-image src="../../assets/image/health-bg.png" style="height:340rpx;" class="position-absolute"></cover-image>
+    <!-- <cover-image src="../../assets/image/health-bg.png" style="height:340rpx;" class="position-absolute"></cover-image> -->
   </view>
 
   <!-- banner -->
@@ -13,31 +13,36 @@
 
   <view>
     <!-- 医疗百科 -->
-    <view class="marginLR56 marginB19">
-      <cover-image src="../../assets/image/health-title1.png" style="height:50rpx;width:144rpx"></cover-image>
+    <view class="marginLR56 marginB19 color-101010-1 font-bold" style="font-size:36rpx">
+      医疗百科
     </view>
-    <view class="fl fl-sp-bet marginLR56 marginB19" style="height:192rpx">
-      <cover-image src="../../assets/image/disease-all.png" class="marginR20 height100" bindtap="toDisease">
+    <view class="fl fl-sp-bet marginLR56 marginB19" >
+      <cover-image src="../../assets/image/disease-all.png" class="marginR20 height100 border-radius-5"
+        bindtap="toDisease">
       </cover-image>
-      <cover-image src="../../assets/image/surgure-all.png" class="height100" bindtap="toSurgery"></cover-image>
+      <cover-image src="../../assets/image/surgure-all.png" class="height100 border-radius-5" bindtap="toSurgery">
+      </cover-image>
     </view>
 
     <!-- 健康知识 -->
     <view class="marginLR56 marginB19 fl fl-sp-bet">
-      <cover-image src="../../assets/image/health-title2.png" style="height:50rpx;width:144rpx"></cover-image>
+      <view class=" color-101010-1 font-bold" style="font-size:36rpx">
+        健康知识
+      </view>
       <text class="font-12 color-DBDCDC" bindtap="toHealthLore">更多<text class="icon iconarrow-right font-12"
           style="font-size:24rpx"></text></text>
     </view>
-    <view class="view-shadow-10 marginLR56 border-radius-20 paddingLR17 paddingT18 paddingB8 marginB19">
+    <view style="min-height:160rpx" class="view-shadow-3379ff-2 marginLR56 border-radius-20 paddingLR17 paddingT18 paddingB8 marginB19">
       <view wx:for="{{knowledge}}" wx:key="index"
         class="{{['fl marginB8',index == knowledge.length-1?'':'border-bottom-E1E1E1 paddingB8']}}"
         bindtap="toHealthDetail" data-item="{{item}}" style="height:160rpx">
         <view class="marginR6">
           <cover-image src="{{item.cover}}" class="border-radius-3" style="width:160rpx"></cover-image>
         </view>
-        <view class="fl fl-col">
+        <view class="fl fl-col" style="max-width:398rpx">
           <text class="font-14 marginB3">{{item.title}}</text>
-          <text class="font-12">{{item.content}}</text>
+          <!-- <text class="font-12 text-cut text-cut-three color-101010-07"></text> -->
+          <rich-text class="font-12 text-cut text-cut-three color-101010-07" nodes="{{item.introduction}}"></rich-text>
         </view>
       </view>
     </view>

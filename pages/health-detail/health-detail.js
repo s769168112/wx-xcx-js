@@ -9,23 +9,66 @@ Page({
       title: "冬天如何保持手脚温热",
       image: "https://i0.hdslb.com/bfs/live/481f1ac31cf2a2767746118cfb403f1874fb6d82.jpg@320w_330h_1c_100q.webp"
     },
-    userDetail:{
-      name:'承拓科技团队',
-      time:'更新于2020.11.16'
+    userDetail: {
+      name: '承拓科技团队',
+      time: '更新于2020.11.16'
     },
-    pageResData:{},
+    pageResData: {},
   },
-
+  userFavorites: function () {
+    const api = require("../../api/user/user.service").UserHttpService.prototype
+    let params = {
+      type: 0,
+      id: this.data.pageResData.id
+    }
+    this.data.pageResData.isCollect = !this.data.pageResData.isCollect
+    this.setData({
+      pageResData:this.data.pageResData
+    })
+    if(this.data.pageResData.isCollect){
+      api.userFavoritesCancel(params).then(res => {
+        console.log('收藏结果', res)
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+      })
+    } else {
+      api.userFavorites(params).then(res => {
+        console.log('收藏结果', res)
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none',
+          duration: 2000
+        })
+      })
+    }
+  },
+  userShare: function () {
+    const api = require("../../api/user/user.service").UserHttpService.prototype
+    let params = {
+      type: 0,
+      id: this.data.pageResData.id
+    }
+    api.userShare(params).then(res => {
+      console.log('分享结果', res)
+      wx.showToast({
+        title: res.data.msg,
+        icon: 'none',
+        duration: 2000
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     const api = require("../../api/health/health.service").HealthHttpService.prototype
     api.getHealthLoreDetailData(options.id).then(res => {
-      console.log('获取文章详情',res)
+      console.log('获取文章详情', res)
       this.setData({
-        pageResData:res
+        pageResData: res
       })
     })
   },

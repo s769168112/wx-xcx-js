@@ -2,3 +2,11 @@
   border-radius: 20rpx 10rpx 20rpx 10rpx;
   border: 1px solid rgba(88, 175, 200, 100);
 }
+
+.tab-checked {
+  font-size:18rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(25%,25%);
+}

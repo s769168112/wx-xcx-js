@@ -1,0 +1,39 @@
+<view class=" paddingB30">
+  <mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+
+  <view class="fl fl-center marginLR26 color-4EA9BE marginB23 marginT20">
+    <text>{{pageRes.title}}</text>
+  </view>
+  <view class="view-shadow-3379ff-2 marginLR56 marginB13 border-radius-10 paddingLR26 paddingT18 paddingB23">
+    <view class="fl  marginB20">
+      <text class="font-14 marginR8" style="width:200px">{{pageRes.subjectList[curIndex].title}}</text>
+      <text class="paddingLR5 border-radius-5 color-F75A2F font-10 border-F75A2F" style="height:32rpx;margin-top:5rpx">{{pageRes.subjectList[curIndex].type == 1?'单选':'多选'}}</text>
+    </view>
+    <view 
+      bindtap="addAnswer" data-item="{{item}}" data-index="{{index}}"
+      wx:for="{{pageRes.subjectList[curIndex].optionList}}" wx:key="index"
+      class="{{['marginB8 paddingLR17 paddingTB8 border-radius-5',item.selected?'bg-color-1ADCA9':'bg-color-BBBBBB-14']}}"
+      >
+      <text class="font-14">{{item.title}}</text>
+    </view>
+  </view>
+  <!-- 题目数 -->
+  <view class="fl fl-center marginB38">
+    <text class="font-12 color-101010">第{{curIndex + 1}}题·{{pageRes.subjectList.length}}题 </text>
+  </view>
+  <!-- 图片 -->
+  <view class="marginLR56 fl fl-center">
+    <cover-image src="../../assets/image/scale-bg.png" style="width:400rpx;height:400rpx"></cover-image>
+  </view>
+  <view class="marginLR26 fl fl-sp-bet">
+    <view class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx" bindtap="preScale"><text class="color-1ADCA9">{{curIndex != 0?'上一题':'返回'}}</text></view>
+
+   
+    <!-- 最后一道题提交问卷 -->
+    <view bindtap="commitScale" wx:if="{{ (curIndex == pageRes.subjectList.length - 1) && answerIdList[curIndex].length >= 1 }}" class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx"><text class="color-1ADCA9">提交</text></view>
+    <!-- 多选下一题 -->
+    <view bindtap="nextQuest" wx:elif="{{ pageRes.subjectList[curIndex].type == 2 && answerIdList[curIndex].length >= 1 }}" class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx"><text class="color-1ADCA9">下一题</text></view>
+    <!-- 单选下一题 -->
+    <view bindtap="nextQuest" wx:elif="{{ (curIndex == 0 && scaleIndex > curIndex)  || (curIndex != 0 && scaleIndex > curIndex)}}" class="view-shadow-3379ff-2 fl fl-center border-radius-10" style="width:266rpx;height:88rpx"><text class="color-1ADCA9">下一题</text></view>
+  </view>
+</view>

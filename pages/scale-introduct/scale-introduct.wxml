@@ -1,0 +1,32 @@
+<!-- 量表介绍页 -->
+<view>
+  <view class="marginB23 marginLR26 fl fl-center">
+    <text class="color-4EA9BE text-center">{{pageRes.title}}</text>
+  </view>
+  <view class="view-shadow-3379ff-2 marginLR56 border-radius-10 paddingLR26 paddingT18 paddingB23"
+    style="min-height:400rpx;margin-bottom:150rpx">
+    <view class="fl fl-center font-14">
+      <text wx:if="{{action == 0 && pageRes.description}}">量表介绍</text>
+      <text wx:else>指导语</text>
+    </view>
+    <text class="font-14">{{action == 0?pageRes.instruction:pageRes.description}}</text>
+  </view>
+  <view class="marginLR26 fl fl-center">
+    <image src="../../assets/image/scale-bg.png" style="width:400rpx;height:400rpx"></image>
+  </view>
+  <view class="marginLR26 bg-color-1ADCA9 text-center border-radius-100 color-white"
+    style="height:88rpx;line-height:88rpx" bindtap="actionScale">
+    <text wx:if="{{action == 0 && pageRes.description}}">指导语</text>
+    <text wx:else>开始测试</text>
+  </view>
+
+  <van-dialog use-slot custom-style="border-radius:10px" show="{{ goOnAnswer }}" show-confirm-button="{{flase}}">
+    <view class="go-on-content">您上次答题还未提交，请问您是否
+继续答题？如果您选择重新答题，
+上次的答题记录将被清空。</view>
+    <view class="fl fl-sp-bet ">
+      <view class="re fl fl-center fl-grow" bindtap="actionScale" data-item="0"><text>重新答题</text></view>
+      <view class="go-on fl fl-center fl-grow" bindtap="actionScale" data-item="1"><text>继续答题</text></view>
+    </view>
+  </van-dialog>
+</view>

@@ -1,17 +1,50 @@
 <view>
-  <view class="marginLR26 marginT20">
-    <view class="fl fl-wrap fl-sp-bet">
-      <view wx:for="{{surgeryVideoList}}" class="border-bbb-1-019 marginB10 border-radius-5 overflow-hidden"  bindtap="toVideoDetail" data-item="{{item}}" style="width:316rpx" wx:key="index">
-        <view style="height:206rpx; background-image:url({{item.cover}})" class="width100 fl fl-col fl-sp-bet">
-          <view class="fl-grow fl fl-center">暂停</view>
-          <view class="color-white fl fl-sp-bet bg-color-101010 paddingLR6">
-            <text class="font-10" >{{item.count.visitNum}}</text>
-            <text class="font-10" >{{item.videoDuration}}</text>
+  <view class="marginLR26 marginT20 position-relative">
+    <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5" wx:if="{{!surgeryVideoList.length}}">
+      <cover-image src="../../assets/image/like-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+    <scroll-view class="scroll-view marginT20" scroll-y bindscrolltolower="scrollBtm" wx:else>
+      <view class="fl fl-wrap fl-sp-bet">
+        <view wx:for="{{surgeryVideoList}}"
+          class="border-bbb-1-019 marginB10 border-radius-5 overflow-hidden position-relative" bindtap="toVideoDetail"
+          data-item="{{item}}" data-index="{{index}}" style="width:316rpx" wx:key="index">
+          <view style="height:206rpx; background-image:url({{item.cover}})" class="width100 fl fl-col fl-sp-bet">
+            <view class="fl-grow fl fl-center">
+              <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image>
+            </view>
+            <view class="color-white fl fl-sp-bet bg-color-101010 paddingLR6">
+              <!-- <view class="fl fl-vertical"><text class="icon iconplay-icon marginR5"></text></view> -->
+              <text class="font-10"></text>
+              <text class="font-10">{{item.videoDuration}}</text>
+            </view>
           </view>
+          <view class="paddingLR6 paddingTB8 font-13 text-cut text-cut-one">
+            {{item.title}}
+          </view>
+          <!-- 删除的图标 -->
+          <image wx:if="{{status == 1}}"
+            src="{{item.is_selected?'../../assets/image/selected.png':'../../assets/image/no-checkbox.png'}}"
+            class="position-absolute" style="width:30rpx;height:30rpx;top:6rpx;right:6rpx"></image>
         </view>
-        <view class="paddingLR6 paddingTB8 font-13 text-cut text-cut-one">
-          {{item.title}}
-        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <view wx:if="{{surgeryVideoList.length}}">
+    <view wx:if="{{status == 0}}" bindtap="openDetele" class=""
+      style="position:fixed;bottom:100rpx;right:36rpx;width:120rpx;height:120rpx">
+      <image src="../../assets/image/bg-laji.png" style="width:120rpx;height:120rpx"></image>
+    </view>
+    <view wx:else class="fl fl-sp-bet fl-vertical"
+      style="position:fixed;height:120rpx;bottom:68rpx;padding:;width:100%">
+      <view class="fl-grow fl fl-center" bindtap="selectedAll" style="flex-basis:50%;height:100%">
+        <image src="../../assets/image/checkbox.png" class="marginR20" style="height:40rpx;width:40rpx"></image>
+        全选
+      </view>
+      <view class="fl-grow fl fl-center" bindtap="deleted" style="flex-basis:50%;height:100%">
+        <image src="{{selectedList.length?'../../assets/image/delete.png':'../../assets/image/back.png'}}"
+          class="marginR20" style="height:40rpx;width:40rpx"></image>
+        {{selectedList.length?'删除':'返回'}}
       </view>
     </view>
   </view>

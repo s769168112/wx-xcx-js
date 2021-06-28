@@ -1,11 +1,13 @@
-<view>
+<view class="paddingB30">
   <!-- 头部信息 -->
   <view class="fl fl-sp-bet fl-vertical marginLR26 marginB17">
     <view class="fl fl-col">
       <view class="font-18 marginB8 font-PF font-bold">{{pageResData.title}}</view>
-      <view class="font-12" style="color: rgba(187, 187, 187, 97)">所属科室:{{pageResData.department}}</view>
+      <view class="font-12" style="color: rgba(187, 187, 187, 97)">所属科室: {{pageResData.department}}</view>
     </view>
-    <view class="paddingLR15 paddingTB8 color-101010 border-radius-100 view-shadow-3379ff-2 font-12" bindtap="toGuide">
+    <view class="fl fl-vertical paddingLR15 paddingTB8 color-101010 border-radius-100 view-shadow-3379ff-2 font-12"
+      bindtap="toGuide">
+      <cover-image src="../../assets/image/zhinan.png" style="width:30rpx;height:30rpx" class="marginR8"></cover-image>
       <text>诊疗指南</text>
     </view>
   </view>
@@ -15,49 +17,96 @@
       <text>概述</text>
     </view>
     <view>
-      <text
-        class="font-14 color-101010-07">{{pageResData.description}}</text>
+      <text class="font-14 color-101010-07">{{pageResData.description}}</text>
     </view>
   </view>
 
   <!-- 测评 -->
   <view class="marginLR26 marginB15">
-    <view class="font-PF font-bold marginB17">推荐测评</view>
-    <view wx:for="{{evaluation}}" wx:key="index"
-      class="fl fl-sp-bet paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
-      <view class="fl fl-col fl-sp-around">
-        <view class="font-bold font-PF">{{item.title}}</view>
-        <view class="font-12 color-101010">{{item.content}}</view>
-        <view class="color-707070 font-12"><text>{{item.type}}</text><text>{{item.count}}题</text></view>
+    <!-- <view class="font-PF font-bold marginB17"></view> -->
+    <view class="font-PF font-bold marginB17 fl fl-sp-bet">
+      <text>推荐测评</text>
+      <view class="fl" style="color: rgba(219, 220, 220, 100);" bindtap="toMoreScale" wx:if="{{pageResData.relationScaleList.length > 3}}">
+        <text style="font-size:24rpx">更多</text>
+        <text class="icon iconarrow-right" style="font-size:22rpx"></text>
       </view>
-      <cover-image class="border-radius-50 border-bbb" src="{{item.cover}}" style="width:156rpx;height:156rpx">
-      </cover-image>
+    </view>
+    <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5"
+      wx:if="{{!pageResData.relationScaleList.length}}">
+      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+    <view wx:else>
+      <view wx:for="{{pageResData.relationScaleList}}" wx:key="index"
+      bindtap="toScaleDetail" data-item="{{item}}"
+        class="fl fl-sp-bet paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5 marginB10">
+        <view class="fl fl-col fl-sp-around">
+          <view class="font-bold font-PF">{{item.title}}</view>
+          <view class="font-12 color-101010">{{item.description}}</view>
+          <view class="color-707070 font-12 fl">
+            <text class="marginR8">{{item.judgeType == 0?'父母评':item.judgeType == 1?'自评':item.judgeType == 2?'他评':'教师评'}}</text>
+            <text class="marginR8">{{item.subjectTotal}}题</text>
+            <view><text class="icon iconshare" style="font-size:20rpx"> </text> 分</view>
+          </view>
+          <!-- <view class="color-707070 font-12"><text>{{item.type}}</text></view> -->
+        </view>
+        <cover-image class="border-radius-50 border-bbb" src="{{item.cover}}" style="width:156rpx;height:156rpx">
+        </cover-image>
+      </view>
     </view>
   </view>
 
   <!-- 相关文章 -->
   <view class="marginLR26 marginB15">
-    <view class="font-PF font-bold marginB17">相关文章</view>
-    <view wx:for="{{pageResData.relationTipsList}}" wx:key="index"
-      class="box-sizing text-cut text-cut-two paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5"
-      style="height:172rpx">
-      <view class="font-bold font-PF font-14 paddingB6">{{item.title}}</view>
-      <view class="font-12 color-101010-08">
-        <text class="text-cut text-cut-two">{{item.introduction}}</text>
+    <view class="font-PF font-bold marginB17 fl fl-sp-bet">
+      <text>相关文章</text>
+      <view class="fl " style="color: rgba(219, 220, 220, 100);" bindtap="toMoreArticle" wx:if="{{pageResData.relationTipsList.length > 3}}">
+        <text style="font-size:24rpx" >更多</text>
+        <text class="icon iconarrow-right" style="font-size:22rpx"></text>
+      </view>
+    </view>
+    <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5"
+      wx:if="{{!relationTipsList.length}}">
+      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+    <view wx:else>
+      <view wx:for="{{relationTipsList}}" wx:key="index"
+        bindtap="toArticle"
+        data-item="{{item}}"
+        class="box-sizing text-cut text-cut-two paddingTB12 marginB10 paddingLR17 view-shadow-3379ff-2 border-radius-5"
+        style="height:172rpx">
+        <view class="font-bold font-PF font-14 paddingB6 text-cut text-cut-one">{{item.title}}</view>
+        <view class="font-12 color-101010-08">
+          <rich-text class="text-cut text-cut-two" nodes="{{item.description || item.introduction || '暂无介绍'}}"></rich-text>
+        </view>
       </view>
     </view>
   </view>
 
   <!-- 相关问题 -->
   <view class="marginLR26">
-    <view class="font-PF font-bold marginB17">相关问题</view>
-    <view wx:for="{{pageResData.relationQaList}}" wx:key="index"
-      class="box-sizing text-cut text-cut-two paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5"
-      style="height:172rpx">
-      <view class="font-bold font-PF font-14 paddingB3">{{item.title}}</view>
-      <view class="font-12 color-101010-08 bg-color-BBBBBB-14 border-radius-5 paddingTB5 paddingLR6" style="max-height:62rpx">
-        <text class="text-cut text-cut-two">{{item.answer}}
-        </text>
+    <view class="font-PF font-bold marginB17 fl fl-sp-bet">
+      <text>相关问题</text>
+      <view class="fl " style="color: rgba(219, 220, 220, 100);" bindtap="toMoreQa" wx:if="{{pageResData.relationQaList.length > 3}}">
+        <text style="font-size:24rpx" >更多</text>
+        <text class="icon iconarrow-right" style="font-size:22rpx"></text>
+      </view>
+    </view>
+    <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5"
+      wx:if="{{!relationQaList.length}}">
+      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+    <view wx:else>
+      <view wx:for="{{relationQaList}}" wx:key="index"
+        bindtap="toQuest"
+        data-item="{{item}}"
+        class="text-cut text-cut-two paddingTB12 paddingLR17 marginB10 view-shadow-3379ff-2 border-radius-5"
+        >
+        <view class="font-bold font-PF font-14 paddingB3 text-cut text-cut-one">{{item.title}}</view>
+        <view class="font-12 color-101010-08 bg-color-BBBBBB-14 border-radius-5 paddingTB5 paddingLR6"
+          >
+          <text class="text-cut text-cut-two">{{item.answer}}
+          </text>
+        </view>
       </view>
     </view>
   </view>

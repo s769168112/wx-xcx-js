@@ -1,18 +1,29 @@
 <view>
   <!-- 标签 -->
-  <view class="fl fl-wrap marginLR26">
-    <view class="tab-item border-58AFC8 paddingTB5 paddingLR10 color-58AFC8 marginR6 marginB5">
-      全部
+  <view class="fl fl-wrap marginLR26 marginB34">
+    <view class="tab-item font-14 position-relative font-bold border-58AFC8 paddingTB5 paddingLR10 color-58AFC8 marginR6 marginB5"
+    bindtap="selectedTab" data-item="{{allDepart}}">
+      <text>全部</text>
+      <text wx:if="{{checkedId == ''}}" class="icon iconchecked color-FFDE02 tab-checked"></text>
     </view>
-    <view wx:for="{{departmentLowList}}" wx:key="index" class="tab-item border-58AFC8 paddingTB5 paddingLR10 color-58AFC8 marginR6 marginB5">
-      {{item.name}}
+    <view wx:for="{{departmentLowList}}" wx:key="index"
+      class="tab-item font-14 position-relative font-bold border-58AFC8 paddingTB5 paddingLR10 color-58AFC8 marginR6 marginB5"
+      bindtap="selectedTab" data-item="{{item}}">
+      <text>{{item.name}}</text>
+      <text wx:if="{{checkedId == item.id}}" class="icon iconchecked color-FFDE02 tab-checked"></text>
     </view>
   </view>
 
   <!-- 常见疾病 -->
-  <view>
-    <view>
-      内科疾病
+  <view class="marginLR26">
+    <view class="marginB5 font-18 font-bold">
+      <text>{{title}}疾病</text>
+    </view>
+    <view class="fl fl-wrap">
+      <view wx:for="{{diseaseList}}" wx:key="index" bindtap="toDiseaseDetail" data-item="{{item}}" class="{{[index%24 == 0?'':'','']}}" style="max-width:33%;width:33%">
+          <text class="icon iconhuixingzhen color-F4CA74"></text>
+          <text class="font-12 color-707070">{{item.title}}</text>
+      </view>
     </view>
   </view>
 </view>

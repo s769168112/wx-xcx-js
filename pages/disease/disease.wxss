@@ -1,1 +1,31 @@
 /* pages/disease/disease.wxss */
+.search-center {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.search-icon {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+.search-icon-animation {
+  opacity: 0;
+}
+.search-input {
+  left: 40rpx;
+  transition: left 0.3s;
+}
+.search-input-animation {
+  left: 0rpx;
+}
+.search-res-list {
+  max-height: 0;
+  transition: max-height 0.5s;
+}
+.max-search-res-list {
+  max-height: 400rpx;
+}
+
+.depart-icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+}

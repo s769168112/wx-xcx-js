@@ -1,6 +1,6 @@
-<view>
-  <view>
-    <view class="fl fl-sp-bet fl-vertical marginLR26 marginB8">
+<view class="paddingB30">
+  <view class="bg-white marginB8 zindex2">
+    <view class="fl fl-sp-bet fl-vertical marginLR26">
       <view>
         测评量表
       </view>
@@ -11,22 +11,79 @@
     </view>
     <!-- 下拉框 -->
     <view
-      class="{{['overflow-hidden paddingLR26 box-sizing width100 bg-white position-absolute filter-view',openExam?'filter-view-trans':'']}}">
-      <view class="fl fl-sp-bet paddingT10">
-        <view>
-          <view wx:for="{{filterList}}" class="paddingB10 font-14" wx:key="index">
-            <text>{{item.label}}</text>
-            <text wx:if="{{item.selected}}" class="icon iconfilter-check"></text>
+      class="{{['overflow-hidden zindex2 paddingLR26 box-sizing width100 bg-white position-absolute filter-view bg-white',openExam?'filter-view-trans':'']}}"
+      style="z-index:10">
+      <view class="fl fl-sp-bet paddingTB10 filter-content">
+        <!-- 左边选择 -->
+        <scroll-view scroll-y="true" class="filter-content">
+          <view class="text-center paddingLR20" style="flex-basis:49%">
+            <view wx:for="{{tagList}}" class="paddingB10" bindtap="chooseTag" data-item="{{item}}"
+              data-index="{{index}}" wx:key="index">
+              <text class="{{['font-14',item.selected?'color-F75A2F':'']}}">{{item.name}}</text>
+              <text
+                class="{{['icon iconfilter-check font-16',item.selected?'color-F75A2F':'color-transparent ']}}"></text>
+            </view>
           </view>
-        </view>
+        </scroll-view>
+
         <text style="width:2rpx;" class="bg-color-BBB-1"></text>
-        <view>
-          <view wx:for="{{filterList[0].children}}" class="paddingB10 font-14" wx:key="index">{{item.label}}</view>
+        <!-- 右边筛选 -->
+        <scroll-view scroll-y="true" class="filter-content">
+          <view class="text-center paddingLR20" style="flex-basis:49%">
+            <view wx:for="{{tagList[curTagDetail.oneTagIndex].lowLabel}}" bindtap="chooseTwoTag" data-item="{{item}}"
+              data-index="{{index}}" class="paddingB10 font-14" wx:key="index">
+              <text class="{{['font-14',item.selected?'color-F75A2F':'']}}">{{item.name}}</text>
+              <text
+                class="{{['icon iconfilter-check font-16',item.selected?'color-F75A2F':'color-transparent ']}}"></text>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="fl fl-sp-end marginLR26 paddingTB10">
+        <view class="border-radius-100 bg-color-E1E1E1 color-white fl fl-center font-14 marginR8"
+          style="width:180rpx;height:56rpx" bindtap="resetTag">
+          <text>重置</text>
+        </view>
+        <view class="border-radius-100 bg-color-F75A2F color-white fl fl-center font-14" bindtap="confirmTag"
+          style="width:180rpx;height:56rpx">
+          <text>确认</text>
         </view>
       </view>
     </view>
   </view>
-  <view>
-    阿斯蒂芬范德萨
+  <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5" wx:if="{{!examList.length}}">
+      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+    </view>
+  <view class="" style="z-index:0" wx:else>
+    <scroll-view scroll-y="true" class="list-box" bindscrolltolower="scrollBottom">
+      <view wx:for="{{examList}}" wx:key="index" bindtap="toScaleDetail" data-item="{{item}}"
+        class="{{['fl fl-sp-bet paddingLR20 marginLR26 view-shadow-3379ff-2 border-radius-10 paddingTB8 marginB8',index == 0?'marginT20':'']}}">
+        <view class="fl fl-col fl-sp-around">
+          <text class="text-cut text-cut-one" style="width:400rpx">{{item.title}}</text>
+          <text class="color-101010 font-12 text-cut text-cut-two" style="width:400rpx">{{item.instruction}}</text>
+          <view class="fl color-707070 font-10">
+            <view class="marginR8"><text class="icon iconuser-artivar" style="font-size:20rpx"></text>
+              <text wx:if="{{item.judgeType == 0}}">父母评</text>
+              <text wx:elif="{{item.judgeType == 1}}">自评</text>
+              <text wx:elif="{{item.judgeType == 2}}">他评</text>
+              <text wx:else>教师评</text>
+            </view>
+            <view class="marginR8"><text class="icon iconbi" style="font-size:20rpx"> </text> {{item.subjectTotal}}题
+            </view>
+            <view><text class="icon iconshare" style="font-size:20rpx"> </text> 分享</view>
+          </view>
+        </view>
+        <view class="border-radius-50 border-bottom-bbb-042" style="height:162rpx;min-width:162rpx;background:url({{item.cover}});background-repeat: no-repeat;background-size:cover">
+          <!-- background-size:cover;
+        background-repeat: no-repeat;
+        background:url({{item.cover}}) -->
+          <!-- <cover-image src="{{item.cover}}" class="border-radius-50 border-bottom-bbb-042"
+            style="height:162rpx;width:162rpx;min-width:162rpx;z-index:0"></cover-image> -->
+        </view>
+      </view>
+    </scroll-view>
   </view>
+  <!-- 遮罩层 -->
+  <view class="{{['mask position-absolute bg-color-43ABC8-040 width100',openExam?'mask-animation':'']}}"
+    style="display:{{maskShow?'block':'none'}}" bindtap="openFilter"></view>
 </view>

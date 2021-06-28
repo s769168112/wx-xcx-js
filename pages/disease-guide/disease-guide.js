@@ -19,10 +19,17 @@ Page({
         tip:'创口小、风险低、回复快'
       },
     ],
-    pageResData:{},
+    pageResData:{
+      relationSurgeryList:[]
+    },
     id:''
   },
-
+  toSurgery(e){
+    let {item} = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/surgery-detail/surgery-detail?id=${item.id}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

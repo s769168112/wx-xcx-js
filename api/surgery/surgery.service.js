@@ -6,6 +6,7 @@ const URL_SURGERY_LIST = '/api/sur'
 const URL_SURGERY_DETAIL = '/api/sur'
 
 
+
 export class SurgeryHttpService {
   /** 手术全解列表 **/
   getSurgeryListData(data) {
@@ -17,4 +18,5 @@ export class SurgeryHttpService {
     let url = URL_SURGERY_DETAIL + `/${id}`;
     return api.requestGet(url);
   }
+  
 }

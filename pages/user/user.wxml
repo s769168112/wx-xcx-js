@@ -1,28 +1,29 @@
 <!--pages/user/user.wxml-->
 <view>
   <view style="height:234rpx" class="position-relative">
-    <cover-image src="../../assets/image/health-bg.png" style="height:340rpx;" class="position-absolute"></cover-image>
+    <!-- <image src="../../assets/image/health-bg.png" style="height:340rpx;" class="position-absolute"></image> -->
   </view>
 
   <!-- user -->
-  <view class="marginLR56 marginB19 position-relative" style="height:230rpx">
+  <view class="marginLR20 marginB19 position-relative" style="height:230rpx">
     <cover-image src="../../assets/image/user-bg.png" style="z-index:1"></cover-image>
     <view class="position-absolute fl fl-sp-bet fl-vertical width100 paddingLR20 box-sizing"
       style="top:0;height:230rpx">
-      <view class="fl fl-vertical">
-        <cover-image src="../../assets/image/user.png" class="border-radius-50 border-white" style="height:120rpx;width:120rpx">
+      <view class="fl fl-vertical" style="max-width:400rpx">
+        <cover-image src="../../assets/image/user.png" class="border-radius-50 border-white marginR8" style="height:120rpx;min-width:120rpx;width:120rpx">
         </cover-image>
-        <text>厕所不在那一边</text>
+        <text class="text-cut text-cut-one">厕所不在那一边</text>
       </view>
       <view class="fl fl-sp-end fl-grow">
-        <text class="icon iconsearch"></text>
-        <text class="icon iconsearch"></text>
+        <cover-image src="../../assets/image/icon/message.png" class="marginR8" style="height:48rpx;width:48rpx"
+        bindtap="toMessage"></cover-image>
+        <cover-image bindtap="toSetting" src="../../assets/image/icon/setting.png" style="height:48rpx;width:48rpx"></cover-image>
       </view>
     </view>
   </view>
 
   <view class="marginLR20">
-    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8" bindtap="toUserVideo">
+    <view class="view-shadow-3379ff-2 border-radius-10 paddingLR20 paddingTB8 marginB8" bindtap="toUserScale">
       <view class="fl fl-vertical">
         <cover-image src="../../assets/image/recard-icon.png" class="marginR20" style="height:120rpx;width:120rpx">
         </cover-image>

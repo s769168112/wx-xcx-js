@@ -1,6 +1,9 @@
 .filter-view {
   max-height: 0;
-  transition: all 0.7s;
+  transition: all 0.5s;
+}
+.filter-content {
+  max-height: 200rpx;
 }
 .filter-view-trans {
   max-height: 400rpx;
@@ -10,4 +13,22 @@
 }
 .transition-top {
   transform: rotate(30deg)
+}
+
+.list-box {
+  height:calc(100vh - 58rpx);
+}
+
+.mask {
+  height: calc(100vh - 58rpx);
+  z-index: 1;
+  top: 58rpx;
+  opacity: 0;
+  transition: opacity 0.3s;
+  /* transition: display 0.3s; */
+  /* display: none; */
+}
+.mask-animation {
+  opacity: 1;
+  /* display: block; */
 }

@@ -1,0 +1,15 @@
+
+.result-tip-text {
+  text-align: justify;
+  font-size: 28rpx;
+}
+.reason-tip {
+  font-size: 28rpx;
+  padding: 5rpx 10rpx;
+  border: 2rpx solid #F75A2F;
+  color: #F75A2F;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin-right: 20rpx;
+  margin-bottom:10rpx;
+}

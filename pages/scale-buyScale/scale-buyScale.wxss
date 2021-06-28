@@ -1,0 +1,43 @@
+.title-wrapper {
+  position: relative;
+}
+
+.title {
+  z-index: 2;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.wrapper-line {
+  height: 6rpx;
+  width: 80rpx;
+  position: absolute;
+  bottom: 7rpx;
+  right: -14rpx;
+  background-color: #118FFF;
+  border-radius: 100rpx;
+  z-index: -1;
+  border: 2rpx solid rgba(255, 255, 255, 100);
+}
+
+.scale-intr {
+  width: 560rpx;
+  height: 124rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  background-color: rgba(187, 187, 187, 0.12);
+  text-align: center;
+  border: 2rpx solid rgba(255, 255, 255, 100);
+}
+
+.scale-item-price {
+  width:180rpx;
+  height:170rpx;
+  border-radius:20rpx;
+  margin-right: 16rpx;
+  color: rgba(89, 146, 254, 100);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
