@@ -53,12 +53,12 @@
   <view class="marginLR26 marginB15">
     <view class="font-PF font-bold marginB17">手术信息</view>
     <!-- 无数据状态 -->
-    <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5" wx:if="{{!pageResData.relationSurgeryList.length}}">
+    <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5" wx:if="{{!pageResData.relatedSurgeryList.length}}">
       <image src="../../assets/image/recard-icon.png" style="height:300rpx;width:300rpx"></image>
     </view>
     <view wx:else>
-      <view wx:for="{{pageResData.relationSurgeryList}}" wx:key="index"
-      class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
+      <view wx:for="{{pageResData.relatedSurgeryList}}" wx:key="index" 
+      class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5 marginB10">
       <image class="marginR14" src="{{item.cover}}" style="width:170rpx;height:126rpx">
       </image>
       <view class="fl fl-col fl-sp-bet">
@@ -82,9 +82,9 @@
    <!-- 护理信息 -->
    <view class="marginLR26 marginB15">
     <view class="font-PF font-bold marginB17">护理信息</view>
-    <view wx:for="{{pageResData.relationNursingList}}" wx:key="index"
+    <view wx:for="{{pageResData.relationNursingList}}" wx:key="index" 
     bindtap="toSurgery" data-item="{{item}}"
-      class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5">
+      class="fl paddingTB12 paddingLR17 view-shadow-3379ff-2 border-radius-5 marginB10">
       <image class="marginR14" src="{{item.cover}}" style="width:170rpx;height:126rpx">
       </image>
       <view class="fl fl-col fl-sp-around">
