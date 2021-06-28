@@ -88,9 +88,9 @@ Page({
       // 刷新数据
       // 单选,循环改变状态
       for (let ele of pagedata.subjectList[cIndex].optionList) {
-        ele.isSelected = false
+        ele.selected = false
       }
-      item.isSelected = true
+      item.selected = true
       pagedata.subjectList[cIndex].optionList[index] = item
       this.setData({
         pageRes: pagedata,
@@ -108,7 +108,7 @@ Page({
       this.nextQuest()
     } else {
       // 刷新数据
-      item.isSelected = item.isSelected ? false : true
+      item.selected = item.selected ? false : true
       pagedata.subjectList[cIndex].optionList[index] = item
       this.setData({
         pageRes: pagedata,

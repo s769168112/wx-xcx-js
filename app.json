@@ -1,16 +1,8 @@
 {
-<<<<<<< HEAD
-  "pages":[
-    
-    "pages/index/index",
-    "pages/search/search",
-    "pages/health-exam/health-exam",
-=======
   "pages": [
     
     "pages/index/index",
     "pages/search/search",
->>>>>>> 0be8380cacb03f8ae4fb7cb113909980226c3130
     "pages/disease-department/disease-department",
     "pages/disease/disease",
     "pages/disease-detail/disease-detail",

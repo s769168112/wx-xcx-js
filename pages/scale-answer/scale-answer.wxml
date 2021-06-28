@@ -7,7 +7,7 @@
   <view class="view-shadow-3379ff-2 marginLR56 marginB13 border-radius-10 paddingLR26 paddingT18 paddingB23">
     <view class="fl  marginB20">
       <text class="font-14 marginR8" style="width:200px">{{pageRes.subjectList[curIndex].title}}</text>
-      <text class="paddingLR5 border-radius-5 color-F75A2F font-10 border-F75A2F" style="height:32rpx;margin-top:5rpx">{{pageRes.subjectList[curIndex].type == 1?'单选':'多选'}}</text>
+      <text class="paddingLR5 border-radius-5 color-F75A2F font-10 border-F75A2F text-cut-one" style="min-width:30rpx;height:32rpx;margin-top:5rpx">{{pageRes.subjectList[curIndex].type == 1?'单选':'多选'}}</text>
     </view>
     <view 
       bindtap="addAnswer" data-item="{{item}}" data-index="{{index}}"

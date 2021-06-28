@@ -1,7 +1,7 @@
 <view>
   <scroll-view class="scroll-view marginT20" scroll-y bindscrolltolower="scrollBtm">
     <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5" wx:if="{{!scaleList.length}}">
-      <cover-image src="../../assets/image/like-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+      <image src="../../assets/image/like-empty.png" style="height:300rpx;width:300rpx"></image>
     </view>
 
     <view class="marginB10 paddingTB23" wx:else>
@@ -12,8 +12,8 @@
             <view class="marginR17 scale-icon" 
             style="width:100rpx;height:100rpx;" >
             </view>
-            <!-- <cover-image class="marginR17" src="../../assets/image/scale.png" >
-            </cover-image> -->
+            <!-- <image class="marginR17" src="../../assets/image/scale.png" >
+            </image> -->
             <view class="fl fl-col fl-sp-around" style="max-width:250rpx">
               <view class="scale-title">{{item.title}}</view>
               <view class="scale-time">

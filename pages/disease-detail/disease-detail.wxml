@@ -7,7 +7,7 @@
     </view>
     <view class="fl fl-vertical paddingLR15 paddingTB8 color-101010 border-radius-100 view-shadow-3379ff-2 font-12"
       bindtap="toGuide">
-      <cover-image src="../../assets/image/zhinan.png" style="width:30rpx;height:30rpx" class="marginR8"></cover-image>
+      <image src="../../assets/image/zhinan.png" style="width:30rpx;height:30rpx" class="marginR8"></image>
       <text>诊疗指南</text>
     </view>
   </view>
@@ -33,7 +33,7 @@
     </view>
     <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5"
       wx:if="{{!pageResData.relationScaleList.length}}">
-      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+      <image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></image>
     </view>
     <view wx:else>
       <view wx:for="{{pageResData.relationScaleList}}" wx:key="index"
@@ -49,8 +49,8 @@
           </view>
           <!-- <view class="color-707070 font-12"><text>{{item.type}}</text></view> -->
         </view>
-        <cover-image class="border-radius-50 border-bbb" src="{{item.cover}}" style="width:156rpx;height:156rpx">
-        </cover-image>
+        <image class="border-radius-50 border-bbb" src="{{item.cover}}" style="width:156rpx;height:156rpx">
+        </image>
       </view>
     </view>
   </view>
@@ -66,7 +66,7 @@
     </view>
     <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5"
       wx:if="{{!relationTipsList.length}}">
-      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+      <image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></image>
     </view>
     <view wx:else>
       <view wx:for="{{relationTipsList}}" wx:key="index"
@@ -93,7 +93,7 @@
     </view>
     <view class="fl paddingTB12 fl fl-center paddingLR17 view-shadow-3379ff-2 border-radius-5"
       wx:if="{{!relationQaList.length}}">
-      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+      <image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></image>
     </view>
     <view wx:else>
       <view wx:for="{{relationQaList}}" wx:key="index"

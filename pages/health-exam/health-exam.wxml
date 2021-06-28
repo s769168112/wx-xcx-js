@@ -52,7 +52,7 @@
     </view>
   </view>
   <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5" wx:if="{{!examList.length}}">
-      <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+      <image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></image>
     </view>
   <view class="" style="z-index:0" wx:else>
     <scroll-view scroll-y="true" class="list-box" bindscrolltolower="scrollBottom">

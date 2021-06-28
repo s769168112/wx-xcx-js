@@ -46,13 +46,13 @@ Page({
     maskShow: false,
     tagList: '', // 量表类型标签
     curTagDetail: {
-      oneTag:'',
-      oneTagIndex:'',
-      twoTag:'',
-      twoTagIndex:''
+      oneTag: '',
+      oneTagIndex: '',
+      twoTag: '',
+      twoTagIndex: ''
     },
-    pageIndex:1,
-    totalPage:1,
+    pageIndex: 1,
+    totalPage: 1,
   },
 
   // 切换选择
@@ -99,21 +99,21 @@ Page({
     })
   },
   // 确认筛选
-  confirmTag(){
+  confirmTag() {
     this.getExamList()
     this.setData({
-      openExam:false,
-      maskShow:false,
-      pageIndex:1
+      openExam: false,
+      maskShow: false,
+      pageIndex: 1
     })
   },
   // 重置
-  resetTag(){
+  resetTag() {
     this.setData({
-      pageIndex:1
+      pageIndex: 1
     })
     this.getDetailListTag()
-    
+
   },
   // 打开筛选下拉框
   openFilter: function () {
@@ -133,12 +133,12 @@ Page({
     })
   },
   // 滚动到底部
-  scrollBottom(){
-    if(this.data.pageIndex > this.data.totalPage){
+  scrollBottom() {
+    if (this.data.pageIndex > this.data.totalPage) {
       return false
     }
     this.setData({
-      pageIndex:(this.data.pageIndex+1)
+      pageIndex: (this.data.pageIndex + 1)
     })
     this.getExamList()
   },
@@ -147,18 +147,18 @@ Page({
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
     let curTag = this.data.curTagDetail
     let params = {
-      oneLevelLabel: curTag.oneTag.id != 0?curTag.oneTag.id:'',
-      twoLevelLabel: curTag.twoTag.id != 0?curTag.twoTag.id:'',
+      oneLevelLabel: curTag.oneTag.id != 0 ? curTag.oneTag.id : '',
+      twoLevelLabel: curTag.twoTag.id != 0 ? curTag.twoTag.id : '',
       pageIndex: this.data.pageIndex,
       pageSize: 10
     }
 
     api.getScaleList(params).then(res => {
-      console.log('获取量表', res,this.data.pageIndex)
-      let list = this.data.pageIndex == 1?res.dataList:[...this.data.examList,...res.dataList]
+      console.log('获取量表', res, this.data.pageIndex)
+      let list = this.data.pageIndex == 1 ? res.dataList : [...this.data.examList, ...res.dataList]
       this.setData({
         examList: list,
-        totalPage:res.totalPage
+        totalPage: res.totalPage
       })
     })
   },
@@ -167,6 +167,12 @@ Page({
     const api = require("../../api/scale/scale.service").ScaleHttpService.prototype
     api.getScaleTagList().then(res => {
       console.log('获取一级标签', res)
+      let tag = {
+        id: '',
+        lowLabel: [],
+        name: "全部"
+      }
+      res.unshift(tag)
       res.forEach(item => {
         let obj = {
           id: 0,

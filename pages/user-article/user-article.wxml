@@ -1,7 +1,7 @@
 <view>
   <!-- 列表 -->
   <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5" wx:if="{{!userArticleList.length}}">
-      <cover-image src="../../assets/image/like-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+      <image src="../../assets/image/like-empty.png" style="height:300rpx;width:300rpx"></image>
     </view>
   <view wx:else>
     <scroll-view class="scroll-view marginT20" scroll-y bindscrolltolower="scrollBtm" >
@@ -11,14 +11,14 @@
         <view class="fl fl-col fl-sp-bet paddingTB3">
           <text class="font-14">{{item.title}}</text>
           <view class="fl fl-vertical">
-            <cover-image src="{{item.sysCreateUser.avatar}}" class="border-radius-100 marginR5"
+            <image src="{{item.sysCreateUser.avatar}}" class="border-radius-100 marginR5"
               style="width:40rpx;height:40rpx">
-            </cover-image>
+            </image>
             <text class="font-12 color-101010">{{item.sysCreateUser.nickname}}</text>
           </view>
         </view>
         <view>
-          <cover-image src="{{item.cover}}" class="border-radius-10" style="width:140rpx;height:140rpx"></cover-image>
+          <image src="{{item.cover}}" class="border-radius-10" style="width:140rpx;height:140rpx"></image>
         </view>
         <!-- 删除的图标 -->
         <image wx:if="{{status == 1}}" src="{{item.is_selected?'../../assets/image/selected.png':'../../assets/image/no-checkbox.png'}}" class="position-absolute" style="width:30rpx;height:30rpx;top:6rpx;right:6rpx"></image>

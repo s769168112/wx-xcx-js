@@ -8,7 +8,7 @@
     </view>
   </view>
   <!-- 因子 -->
-  <view class="paddingB36" wx:elif="{{pageRes.ratingType == 3}}">
+  <view class="paddingB36" wx:elif="{{pageRes.ratingType == 2}}">
     <view class="marginLR26 paddingB36">量表得分</view>
     <view class="fl fl-wrap result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
       <view class="reason-tip" wx:for="{{pageRes.factor}}" wx:key="index">
@@ -20,14 +20,14 @@
   <view class="paddingB36">
     <view class="marginLR26 paddingB36">结果评语</view>
     <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
-        <cover-image src="../../assets/image/comment.png" style="display:inline-block;height:40rpx;transform:translateY(8rpx);width:40rpx;margin-right:12rpx"></cover-image>
-      <text class="result-tip-text">{{pageRes.comment[0]}}</text>
+        <image src="../../assets/image/comment.png" style="display:inline-block;height:40rpx;transform:translateY(8rpx);width:40rpx;margin-right:12rpx"></image>
+      <text class="result-tip-text">{{pageRes.comment}}</text>
     </view>
   </view>
   <view class="paddingB36">
     <view class="paddingB36 marginLR26">健康小贴士</view>
     <view class="result-tip view-shadow-3379ff-2 marginLR26 border-radius-10 paddingLR20 paddingTB12">
-      <text class="result-tip-text">{{pageRes.tips[0]}}</text>
+      <text class="result-tip-text">{{pageRes.tips}}</text>
     </view>
   </view>
 
@@ -38,7 +38,7 @@
       <view wx:for="{{pageRes.relationSurgeryList}}" class="view-shadow-3379ff-2 border-bbb-1-019 marginB10 border-radius-5 overflow-hidden"  bindtap="toVideoDetail" data-item="{{item}}" style="width:305rpx" wx:key="index">
         <view style="height:206rpx; background-image:url({{item.cover}})" class="width100 fl fl-col fl-sp-bet">
           <view class="fl-grow fl fl-center">
-            <cover-image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></cover-image>
+            <image src="../../assets/image/video-play.png" style="height:32rpx;width:32rpx"></image>
           </view>
           <view class="color-white fl fl-sp-bet bg-color-101010 paddingLR6">
             <!-- <view class="fl fl-vertical"><text class="icon iconplay-icon marginR5"></text></view> -->

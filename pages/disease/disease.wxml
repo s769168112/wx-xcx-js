@@ -36,7 +36,7 @@
         <view class="marginB19">常见科室</view>
         <view class="fl paddingTB12 fl fl-center paddingLR17  border-radius-5"
             wx:if="{{!departmentList.length}}">
-            <cover-image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></cover-image>
+            <image src="../../assets/image/content-empty.png" style="height:300rpx;width:300rpx"></image>
         </view>
         <view wx:else class="fl fl-wrap fl-sp-start">
             <view wx:for="{{departmentList}}" wx:key="index" style="flex-basis:33%" bindtap="toDepartment"
